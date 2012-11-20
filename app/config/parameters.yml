@@ -1,0 +1,15 @@
+parameters:
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_port: null
+    database_name: sf2bundles
+    database_user: sf2bundles
+    database_password: sf2bundles
+    mailer_transport: smtp
+    mailer_host: localhost
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: 15846c3b8853093fe8dd10c16dfbd7cb89f376bc
+    database_path: null
+
