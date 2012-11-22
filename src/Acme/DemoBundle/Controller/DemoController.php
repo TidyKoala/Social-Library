@@ -87,6 +87,16 @@ class DemoController extends Controller
 	        ->getArrayResult()
 	    ;
 	    
+	    $query = $em
+	        ->createQuery('SELECT p FROM AcmeDemoBundle:BlogPost p');
+	    
+// 		$paginator = $this->get('knp_paginator');
+// 		$pagination = $paginator->paginate(
+// 		    $query,
+// 		    $this->get('request')->query->get('page', 1)/*page number*/,
+// 		    10/*limit per page*/
+// 		);
+	    
         return array('entities' => $posts);
 	}
 }
