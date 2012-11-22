@@ -54,4 +54,30 @@ class DemoController extends Controller
 
         return array('form' => $form->createView());
     }
+    
+	/**
+	 * @Route("/posts", name="_demo_posts")
+	 */
+	public function postsAction()
+	{
+	    $em = $this->getDoctrine()->getEntityManager();
+	    $repository = $em->getRepository('AcmeDemoBundle:BlogPost');
+	    // create some posts in case if there aren't any
+	    if (!$repository->findOneByTitleSlug('hello_world')) {
+	        $post = new \Acme\DemoBundle\Entity\BlogPost();
+	        $post->setTitle('Hello world');
+	
+	        $next = new \Acme\DemoBundle\Entity\BlogPost();
+	        $next->setTitle('Doctrine extensions');
+	
+	        $em->persist($post);
+	        $em->persist($next);
+	        $em->flush();
+	    }
+	    $posts = $em
+	        ->createQuery('SELECT p FROM AcmeDemoBundle:BlogPost p')
+	        ->getArrayResult()
+	    ;
+	    die(var_dump($posts));
+	}
 }
