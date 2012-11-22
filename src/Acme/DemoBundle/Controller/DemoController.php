@@ -57,27 +57,36 @@ class DemoController extends Controller
     
 	/**
 	 * @Route("/posts", name="_demo_posts")
+     * @Template()
 	 */
 	public function postsAction()
 	{
 	    $em = $this->getDoctrine()->getEntityManager();
 	    $repository = $em->getRepository('AcmeDemoBundle:BlogPost');
-	    // create some posts in case if there aren't any
-	    if (!$repository->findOneByTitleSlug('hello_world')) {
-	        $post = new \Acme\DemoBundle\Entity\BlogPost();
-	        $post->setTitle('Hello world');
-	
-	        $next = new \Acme\DemoBundle\Entity\BlogPost();
-	        $next->setTitle('Doctrine extensions');
-	
-	        $em->persist($post);
-	        $em->persist($next);
-	        $em->flush();
-	    }
+	    
+//         $post = new \Acme\DemoBundle\Entity\BlogPost();
+//         $post->setTitle('Squash et Capoeira');
+//         $em->persist($post);
+
+//         $next = new \Acme\DemoBundle\Entity\BlogPost();
+//         $next->setTitle('Maculélé');
+//         $em->persist($next);
+        
+//         $post = new \Acme\DemoBundle\Entity\BlogPost();
+//         $post->setTitle('James Bond - Skyfall');
+//         $em->persist($post);
+
+//         $next = new \Acme\DemoBundle\Entity\BlogPost();
+//         $next->setTitle('James Bond - Demain Ne Meurt Jamais');
+//         $em->persist($next);
+        
+//         $em->flush();
+        
 	    $posts = $em
 	        ->createQuery('SELECT p FROM AcmeDemoBundle:BlogPost p')
 	        ->getArrayResult()
 	    ;
-	    die(var_dump($posts));
+	    
+        return array('entities' => $posts);
 	}
 }
