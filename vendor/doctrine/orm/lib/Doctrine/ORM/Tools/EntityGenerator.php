@@ -672,7 +672,7 @@ public function __construct()
     {
         $lines = array();
         $lines[] = '/**';
-        $lines[] = ' * '.$metadata->name;
+        $lines[] = ' * ' . $this->getClassName($metadata);
 
         if ($this->generateAnnotations) {
             $lines[] = ' *';
@@ -909,9 +909,14 @@ public function __construct()
         $var = sprintf('%sMethodTemplate', $type);
         $template = self::$$var;
 
+        $methodTypeHint = null;
         $types          = Type::getTypesMap();
         $variableType   = $typeHint ? $this->getType($typeHint) . ' ' : null;
-        $methodTypeHint = $typeHint && ! isset($types[$typeHint]) ? '\\' . $typeHint . ' ' : null;
+
+        if ($typeHint && ! isset($types[$typeHint])) {
+            $variableType   =  '\\' . ltrim($variableType, '\\');
+            $methodTypeHint =  '\\' . $typeHint . ' ';
+        }
 
         $replacements = array(
           '<description>'       => ucfirst($type) . ' ' . $fieldName,
@@ -991,9 +996,9 @@ public function __construct()
         $lines[] = $this->spaces . '/**';
 
         if ($associationMapping['type'] & ClassMetadataInfo::TO_MANY) {
-            $lines[] = $this->spaces . ' * @var \Doctrine\Common\Collections\ArrayCollection';
+            $lines[] = $this->spaces . ' * @var \Doctrine\Common\Collections\Collection';
         } else {
-            $lines[] = $this->spaces . ' * @var ' . $associationMapping['targetEntity'];
+            $lines[] = $this->spaces . ' * @var \\' . ltrim($associationMapping['targetEntity'], '\\');
         }
 
         if ($this->generateAnnotations) {
@@ -1080,17 +1085,23 @@ public function __construct()
                 $lines[] = $this->spaces . ' * @' . $this->annotationsPrefix . 'JoinTable(' . implode(', ', $joinTable) . ',';
                 $lines[] = $this->spaces . ' *   joinColumns={';
 
+                $joinColumnsLines = array();
+
                 foreach ($associationMapping['joinTable']['joinColumns'] as $joinColumn) {
-                    $lines[] = $this->spaces . ' *     ' . $this->generateJoinColumnAnnotation($joinColumn);
+                    $joinColumnsLines[] = $this->spaces . ' *     ' . $this->generateJoinColumnAnnotation($joinColumn);
                 }
 
+                $lines[] = implode(",". PHP_EOL, $joinColumnsLines);
                 $lines[] = $this->spaces . ' *   },';
                 $lines[] = $this->spaces . ' *   inverseJoinColumns={';
 
+                $inverseJoinColumnsLines = array();
+
                 foreach ($associationMapping['joinTable']['inverseJoinColumns'] as $joinColumn) {
-                    $lines[] = $this->spaces . ' *     ' . $this->generateJoinColumnAnnotation($joinColumn);
+                    $inverseJoinColumnsLines[] = $this->spaces . ' *     ' . $this->generateJoinColumnAnnotation($joinColumn);
                 }
 
+                $lines[] = implode(",". PHP_EOL, $inverseJoinColumnsLines);
                 $lines[] = $this->spaces . ' *   }';
                 $lines[] = $this->spaces . ' * )';
             }
@@ -1116,7 +1127,7 @@ public function __construct()
     {
         $lines = array();
         $lines[] = $this->spaces . '/**';
-        $lines[] = $this->spaces . ' * @var ' . $this->getType($fieldMapping['type']) . ' $' . $fieldMapping['fieldName'];
+        $lines[] = $this->spaces . ' * @var ' . $this->getType($fieldMapping['type']);
 
         if ($this->generateAnnotations) {
             $lines[] = $this->spaces . ' *';

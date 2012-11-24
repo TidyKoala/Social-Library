@@ -11,14 +11,14 @@
 	    <thead>
 	    	<tr>
 	    		<th>id</th>
-	    		<th>title</th>
+	    		<th>{{ pagination.sortable('Title', 'p.title')|raw }}</th>
 	    		<th>title slug</th>
-	    		<th>created</th>
-	    		<th>updated</th>
+	    		<th>{{ pagination.sortable('Created', 'p.created')|raw }}</th>
+	    		<th>{{ pagination.sortable('Updated', 'p.updated')|raw }}</th>
 	    	</tr>
 	    </thead>
 	    <tbody>
-	    {% for entity in entities %}
+	    {% for entity in pagination %}
 	     	<tr>
 	     		<td>{{ entity.id }}</td>
 	     		<td>{{ entity.title }}</td>
@@ -28,4 +28,5 @@
 	    {% endfor %}
 	    </tbody>
     </table>
+    {{ pagination.render()|raw }}
 {% endblock %}

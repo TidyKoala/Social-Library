@@ -256,7 +256,7 @@ class SQLServerPlatform extends AbstractPlatform
     {
         $constraint = parent::getCreateIndexSQL($index, $table);
 
-        if ($index->isUnique()) {
+        if ($index->isUnique() && !$index->isPrimary()) {
             $constraint = $this->_appendUniqueConstraintDefinition($constraint, $index);
         }
 
@@ -631,13 +631,7 @@ class SQLServerPlatform extends AbstractPlatform
      */
     protected function _getCommonIntegerTypeDeclarationSQL(array $columnDef)
     {
-        $autoinc = '';
-        if (!empty($columnDef['autoincrement'])) {
-            $autoinc = ' IDENTITY';
-        }
-        $unsigned = (isset($columnDef['unsigned']) && $columnDef['unsigned']) ? ' UNSIGNED' : '';
-
-        return $unsigned . $autoinc;
+        return (!empty($columnDef['autoincrement'])) ? ' IDENTITY' : '';
     }
 
     /**

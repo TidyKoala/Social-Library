@@ -90,12 +90,62 @@ class DemoController extends Controller
 	    $query = $em
 	        ->createQuery('SELECT p FROM AcmeDemoBundle:BlogPost p');
 	    
-// 		$paginator = $this->get('knp_paginator');
-// 		$pagination = $paginator->paginate(
-// 		    $query,
+		$paginator = $this->get('knp_paginator');
+		$pagination = $paginator->paginate(
+		    $query,
+		    $this->get('request')->query->get('page', 1)/*page number*/,
+		    5/*limit per page*/
+		);
+	    
+        return array('entities' => $posts,
+        		'pagination' => $pagination);
+	}
+    
+	/**
+	 * @Route("/articles", name="_demo_articles")
+     * @Template()
+	 */
+	public function articlesAction()
+	{
+	    $em = $this->getDoctrine()->getEntityManager();
+	    $repository = $em->getRepository('AcmeDemoBundle:BlogArticle');
+	    
+//         $post = new \Acme\DemoBundle\Entity\BlogArticle();
+//         $post->setTitle('Squash et Capoeira');
+//         $post->setContent('Le sport est la santé');
+//         $em->persist($post);
+
+//         $next = new \Acme\DemoBundle\Entity\BlogArticle();
+//         $next->setTitle('Maculélé');
+//         $next->setContent('"Danse" de capoeira');
+//         $em->persist($next);
+        
+//         $post = new \Acme\DemoBundle\Entity\BlogArticle();
+//         $post->setTitle('James Bond - Skyfall');
+//         $post->setContent('Le dernier James Bond');
+//         $em->persist($post);
+
+//         $next = new \Acme\DemoBundle\Entity\BlogArticle();
+//         $next->setTitle('James Bond - Demain Ne Meurt Jamais');
+//         $next->setContent('Pierce BROSNAN est l\'acteur qui joue James BOND');
+//         $em->persist($next);
+        
+//         $em->flush();
+        
+	    $posts = $em
+	        ->createQuery('SELECT a FROM AcmeDemoBundle:BlogArticle a')
+	        ->getArrayResult()
+	    ;
+	    
+	    $query = $em
+	        ->createQuery('SELECT a FROM AcmeDemoBundle:BlogArticle a');
+	    
+		$paginator = $this->get('knp_paginator');
+		$pagination = $paginator->paginate(
+		    $query
 // 		    $this->get('request')->query->get('page', 1)/*page number*/,
-// 		    10/*limit per page*/
-// 		);
+// 		    5/*limit per page*/
+		);
 	    
         return array('entities' => $posts);
 	}
