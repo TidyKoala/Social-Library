@@ -25,7 +25,8 @@
         "sonata-project/cache-bundle": "dev-master",
         "sonata-project/block-bundle": "dev-master",
         "sonata-project/jquery-bundle": "dev-master",
-        "knplabs/knp-menu-bundle": "1.1.*"
+        "knplabs/knp-menu-bundle": "1.1.*",
+        "sonata-project/exporter": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

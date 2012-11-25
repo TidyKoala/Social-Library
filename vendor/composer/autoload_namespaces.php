@@ -31,6 +31,7 @@ return array(
     'JMS\\AopBundle' => $vendorDir . '/jms/aop-bundle/',
     'Gedmo' => $vendorDir . '/gedmo/doctrine-extensions/lib/',
     'FOS\\UserBundle' => $vendorDir . '/friendsofsymfony/user-bundle/',
+    'Exporter' => $vendorDir . '/sonata-project/exporter/lib/',
     'Doctrine\\ORM' => $vendorDir . '/doctrine/orm/lib/',
     'Doctrine\\DBAL' => $vendorDir . '/doctrine/dbal/lib/',
     'Doctrine\\Common' => $vendorDir . '/doctrine/common/lib/',
