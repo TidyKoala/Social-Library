@@ -1559,5 +1559,66 @@
             "sonata",
             "Easy Extends"
         ]
+    },
+    {
+        "name": "sonata-project/cache-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "Sonata/CacheBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sonata-project/SonataCacheBundle",
+            "reference": "d4060e0599f24b096885c7070c194e2c27598bc3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/sonata-project/SonataCacheBundle/archive/d4060e0599f24b096885c7070c194e2c27598bc3.zip",
+            "reference": "d4060e0599f24b096885c7070c194e2c27598bc3",
+            "shasum": ""
+        },
+        "require": {
+            "symfony/http-foundation": ">=2.1,<2.3-dev",
+            "symfony/routing": ">=2.1,<2.3-dev",
+            "symfony/security": ">=2.1,<2.3-dev",
+            "symfony/process": ">=2.1,<2.3-dev"
+        },
+        "require-dev": {
+            "doctrine/orm": ">=2.2.0"
+        },
+        "suggest": {
+            "doctrine/doctrine-bundle": "ORM support",
+            "doctrine/orm": "ORM support",
+            "doctrine/phpcr-bundle": "PHPCR ODM support",
+            "doctrine/phpcr-odm": "PHPCR ODM support",
+            "ext-apc": "Caching with ext/apc",
+            "ext-memcached": "Caching with ext/memcached"
+        },
+        "time": "2012-10-23 16:05:43",
+        "type": "symfony-bundle",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Sonata\\CacheBundle": ""
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Thomas Rabaix",
+                "email": "thomas.rabaix@sonata-project.org",
+                "homepage": "http://sonata-project.org"
+            },
+            {
+                "name": "Sonata Community",
+                "homepage": "https://github.com/sonata-project/SonataCacheBundle/contributors"
+            }
+        ],
+        "description": "This bundle provides caching services",
+        "homepage": "https://github.com/sonata-project/SonataCacheBundle",
+        "keywords": [
+            "cache block"
+        ]
     }
 ]
