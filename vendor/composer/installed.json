@@ -1890,5 +1890,183 @@
             "client",
             "export"
         ]
+    },
+    {
+        "name": "sonata-project/admin-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "Sonata/AdminBundle",
+        "source": {
+            "type": "git",
+            "url": "git://github.com/sonata-project/SonataAdminBundle.git",
+            "reference": "5687acba25d2afcaaac0a3102b3959f9b0f3b674"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/sonata-project/SonataAdminBundle/archive/5687acba25d2afcaaac0a3102b3959f9b0f3b674.zip",
+            "reference": "5687acba25d2afcaaac0a3102b3959f9b0f3b674",
+            "shasum": ""
+        },
+        "require": {
+            "sonata-project/jquery-bundle": "dev-master",
+            "sonata-project/exporter": "dev-master",
+            "sonata-project/block-bundle": "dev-master",
+            "symfony/http-foundation": ">=2.1,<2.3-dev",
+            "symfony/form": ">=2.1,<2.3-dev",
+            "symfony/validator": ">=2.1,<2.3-dev",
+            "symfony/security": ">=2.1,<2.3-dev",
+            "symfony/routing": ">=2.1,<2.3-dev",
+            "symfony/config": ">=2.1,<2.3-dev",
+            "symfony/console": ">=2.1,<2.3-dev",
+            "twig/twig": ">=1.10,<2.0-dev",
+            "knplabs/knp-menu-bundle": ">=1.1.0,<2.0.x-dev",
+            "symfony/twig-bridge": ">=2.1,<2.3-dev"
+        },
+        "require-dev": {
+            "jms/translation-bundle": "*"
+        },
+        "suggest": {
+            "sonata-project/doctrine-orm-admin-bundle": "dev-master",
+            "sonata-project/intl-bundle": "dev-master"
+        },
+        "time": "2012-11-23 23:00:00",
+        "type": "symfony-bundle",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Sonata\\AdminBundle": ""
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Thomas Rabaix",
+                "email": "thomas.rabaix@sonata-project.org",
+                "homepage": "http://sonata-project.org"
+            },
+            {
+                "name": "Sonata Community",
+                "homepage": "https://github.com/sonata-project/SonataAdminBundle/contributors"
+            }
+        ],
+        "description": "Symfony SonataAdminBundle",
+        "homepage": "http://sonata-project.org/bundles/admin",
+        "keywords": [
+            "admin",
+            "Admin Generator",
+            "sonata",
+            "bootstrap"
+        ]
+    },
+    {
+        "name": "sonata-project/doctrine-orm-admin-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "Sonata/DoctrineORMAdminBundle",
+        "source": {
+            "type": "git",
+            "url": "git://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
+            "reference": "9144e2d6f2e3a77c427ded54741c5f7974b070e2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/archive/9144e2d6f2e3a77c427ded54741c5f7974b070e2.zip",
+            "reference": "9144e2d6f2e3a77c427ded54741c5f7974b070e2",
+            "shasum": ""
+        },
+        "require": {
+            "sonata-project/admin-bundle": "dev-master",
+            "doctrine/orm": ">=2.2,<2.4-dev",
+            "symfony/symfony": ">=2.1,<2.3-dev"
+        },
+        "time": "2012-10-28 08:01:36",
+        "type": "symfony-bundle",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Sonata\\DoctrineORMAdminBundle": ""
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Thomas Rabaix",
+                "email": "thomas.rabaix@sonata-project.org",
+                "homepage": "http://sonata-project.org"
+            },
+            {
+                "name": "Sonata Community",
+                "homepage": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/contributors"
+            }
+        ],
+        "description": "Symfony Sonata / Integrate Doctrine ORM into the SonataAdminBundle",
+        "homepage": "http://sonata-project.org/bundles/admin",
+        "keywords": [
+            "admin",
+            "generator",
+            "Admin Generator",
+            "sonata",
+            "bootstrap"
+        ]
+    },
+    {
+        "name": "sonata-project/intl-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "Sonata/IntlBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sonata-project/SonataIntlBundle",
+            "reference": "0208ca4b0fbb9531a5cfe059f1d3458a49e94602"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/sonata-project/SonataIntlBundle/archive/0208ca4b0fbb9531a5cfe059f1d3458a49e94602.zip",
+            "reference": "0208ca4b0fbb9531a5cfe059f1d3458a49e94602",
+            "shasum": ""
+        },
+        "require": {
+            "symfony/http-kernel": "2.*",
+            "symfony/dependency-injection": "2.*",
+            "symfony/templating": "2.*",
+            "symfony/locale": "2.*",
+            "twig/twig": "*",
+            "ext-intl": "*"
+        },
+        "time": "2012-10-22 13:05:45",
+        "type": "symfony-bundle",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Sonata\\IntlBundle": ""
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Thomas Rabaix",
+                "email": "thomas.rabaix@sonata-project.org",
+                "homepage": "http://sonata-project.org"
+            },
+            {
+                "name": "Sonata Community",
+                "homepage": "https://github.com/sonata-project/SonataIntlBundle/contributors"
+            }
+        ],
+        "description": "Symfony SonataIntlBundle",
+        "homepage": "http://sonata-project.org/bundles/intl",
+        "keywords": [
+            "sonata",
+            "time",
+            "date",
+            "intl",
+            "number"
+        ]
     }
 ]
