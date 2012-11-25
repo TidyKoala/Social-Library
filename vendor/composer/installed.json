@@ -1620,5 +1620,62 @@
         "keywords": [
             "cache block"
         ]
+    },
+    {
+        "name": "sonata-project/block-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "Sonata/BlockBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sonata-project/SonataBlockBundle",
+            "reference": "b482e9181d406f1c1c9a0e96fd0fdb868b6fdbbe"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/sonata-project/SonataBlockBundle/archive/b482e9181d406f1c1c9a0e96fd0fdb868b6fdbbe.zip",
+            "reference": "b482e9181d406f1c1c9a0e96fd0fdb868b6fdbbe",
+            "shasum": ""
+        },
+        "require": {
+            "symfony/http-foundation": ">=2.1,<2.3-dev",
+            "symfony/form": ">=2.1,<2.3-dev"
+        },
+        "require-dev": {
+            "sonata-project/admin-bundle": "dev-master",
+            "sonata-project/cache-bundle": "dev-master"
+        },
+        "suggest": {
+            "sonata-project/admin-bundle": "dev-master",
+            "sonata-project/cache-bundle": "dev-master"
+        },
+        "time": "2012-11-14 23:54:27",
+        "type": "symfony-bundle",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Sonata\\BlockBundle": ""
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Thomas Rabaix",
+                "email": "thomas.rabaix@sonata-project.org",
+                "homepage": "http://sonata-project.org"
+            },
+            {
+                "name": "Sonata Community",
+                "homepage": "https://github.com/sonata-project/SonataBlockBundle/contributors"
+            }
+        ],
+        "description": "Symfony SonataBlockBundle",
+        "homepage": "http://sonata-project.org/bundles/block",
+        "keywords": [
+            "sonata",
+            "block"
+        ]
     }
 ]

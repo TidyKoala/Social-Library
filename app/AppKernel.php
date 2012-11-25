@@ -24,6 +24,7 @@ class AppKernel extends Kernel
         	new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
         	new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
         	new Sonata\CacheBundle\SonataCacheBundle(),
+        	new Sonata\BlockBundle\SonataBlockBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -14,6 +14,7 @@ return array(
     'Symfony' => $vendorDir . '/symfony/symfony/src/',
     'Sonata\\EasyExtendsBundle' => $vendorDir . '/sonata-project/easy-extends-bundle/',
     'Sonata\\CacheBundle' => $vendorDir . '/sonata-project/cache-bundle/',
+    'Sonata\\BlockBundle' => $vendorDir . '/sonata-project/block-bundle/',
     'SessionHandlerInterface' => $vendorDir . '/symfony/symfony/src/Symfony/Component/HttpFoundation/Resources/stubs',
     'Sensio\\Bundle\\GeneratorBundle' => $vendorDir . '/sensio/generator-bundle/',
     'Sensio\\Bundle\\FrameworkExtraBundle' => $vendorDir . '/sensio/framework-extra-bundle/',
