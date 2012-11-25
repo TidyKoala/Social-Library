@@ -12,6 +12,7 @@ return array(
     'Symfony\\Bundle\\MonologBundle' => $vendorDir . '/symfony/monolog-bundle/',
     'Symfony\\Bundle\\AsseticBundle' => $vendorDir . '/symfony/assetic-bundle/',
     'Symfony' => $vendorDir . '/symfony/symfony/src/',
+    'Sonata\\jQueryBundle' => $vendorDir . '/sonata-project/jquery-bundle/',
     'Sonata\\EasyExtendsBundle' => $vendorDir . '/sonata-project/easy-extends-bundle/',
     'Sonata\\CacheBundle' => $vendorDir . '/sonata-project/cache-bundle/',
     'Sonata\\BlockBundle' => $vendorDir . '/sonata-project/block-bundle/',
