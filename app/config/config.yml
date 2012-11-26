@@ -49,14 +49,18 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: true
-        mappings:
-            translatable:
-                type: annotation
-                alias: Gedmo
-                prefix: Gedmo\Translatable\Entity
-                # make sure vendor library location is correct
-                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+        entity_managers:
+            default:
+                auto_mapping: true
+                mappings:
+                    ApplicationSonataUserBundle: ~
+                    SonataUserBundle: ~
+                    translatable:
+                        type: annotation
+                        alias: Gedmo
+                        prefix: Gedmo\Translatable\Entity
+                        # make sure vendor library location is correct
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
 #            loggable:
 #                type: annotation
 #                alias: Gedmo
@@ -67,6 +71,9 @@ doctrine:
 #                alias: Gedmo
 #                prefix: Gedmo\Tree\Entity
 #                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
+    dbal:
+        types:
+            json: Sonata\Doctrine\Types\JsonType
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -80,7 +87,9 @@ swiftmailer:
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: Acme\UserBundle\Entity\User
+    user_class: Application\Sonata\UserBundle\Entity\User
+    group:
+        group_class: Application\Sonata\UserBundle\Entity\Group
 
 knp_paginator:
     page_range: 5                      # default page range used in pagination control
