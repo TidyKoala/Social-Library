@@ -46,6 +46,8 @@ doctrine:
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
+        types:
+            json: Sonata\Doctrine\Types\JsonType
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
@@ -71,9 +73,6 @@ doctrine:
 #                alias: Gedmo
 #                prefix: Gedmo\Tree\Entity
 #                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
-    dbal:
-        types:
-            json: Sonata\Doctrine\Types\JsonType
 
 # Swiftmailer Configuration
 swiftmailer:
