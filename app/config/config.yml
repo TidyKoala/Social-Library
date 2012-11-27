@@ -148,4 +148,11 @@ sonata_block:
         #sonata.media.block.gallery:
         #sonata.media.block.feature_media:
 
+sonata_user:
+    admin:                  # Admin Classes
+        user:
+            class:          Application\Sonata\UserBundle\Admin\Entity\UserAdmin
+
+
+
 
