@@ -9,8 +9,28 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-        <field name="address" column="address" type="string"/>
+        
+        <field name="address" column="address" type="string" nullable="true" />
+        <field name="addressComplementary" column="address_complementary" type="string" nullable="true" />
+        <field name="postalCode" column="postal_code" type="string" nullable="true" />
+        <field name="town" column="town" type="string" nullable="true" />
+        <field name="country" column="country" type="string" nullable="true" />
 
+        <many-to-many field="friends" target-entity="User">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+            <join-table name="relationships">
+                <join-columns>
+                    <join-column name="user_id" referenced-column-name="id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="friend_user_id" referenced-column-name="id" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+        <many-to-many field="friendsOf" mapped-by="friends" target-entity="User"/>
+        
     </entity>
 
 </doctrine-mapping>
