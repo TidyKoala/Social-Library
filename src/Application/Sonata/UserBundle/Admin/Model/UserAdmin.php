@@ -37,6 +37,7 @@ class UserAdmin extends Admin
             ->add('enabled', null, array('editable' => true))
             ->add('locked', null, array('editable' => true))
             ->add('createdAt')
+            ->add('lastLogin')
         ;
 
         if ($this->isGranted('ROLE_ALLOWED_TO_SWITCH')) {
