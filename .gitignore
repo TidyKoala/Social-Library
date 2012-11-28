@@ -3,4 +3,3 @@ app/logs/*
 .buildpath
 .project
 .settings
-composer.lock
