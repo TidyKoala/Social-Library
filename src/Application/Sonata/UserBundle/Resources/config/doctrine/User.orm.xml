@@ -16,7 +16,7 @@
         <field name="town" column="town" type="string" nullable="true" />
         <field name="country" column="country" type="string" nullable="true" />
 
-        <many-to-many field="friends" target-entity="User">
+        <many-to-many field="friends" inversed-by="friendsOf" target-entity="User">
             <cascade>
                 <cascade-all/>
             </cascade>
