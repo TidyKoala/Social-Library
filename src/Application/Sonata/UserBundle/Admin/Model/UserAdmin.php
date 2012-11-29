@@ -53,11 +53,13 @@ class UserAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $filterMapper)
     {
         $filterMapper
-            ->add('id')
             ->add('username')
-            ->add('locked')
             ->add('email')
+            ->add('enabled')
+            ->add('locked')
             ->add('groups')
+            ->add('createdAt')
+            ->add('lastLogin')
         ;
     }
 
@@ -75,20 +77,13 @@ class UserAdmin extends Admin
                 ->add('groups')
             ->end()
             ->with('Profile')
-                ->add('dateOfBirth', 'birthday')
                 ->add('firstname')
                 ->add('lastname')
-                ->add('address')
-                ->add('website')
-                ->add('gender')
+                ->add('dateOfBirth', 'birthday')
                 ->add('locale')
                 ->add('timezone')
-                ->add('phone')
+                ->add('website')
             ->end()
-            ->with('Security')
-                ->add('token')
-                ->add('twoStepVerificationCode')
-            ->end();
         ;
     }
 
@@ -107,15 +102,12 @@ class UserAdmin extends Admin
                 ->add('groups', 'sonata_type_model', array('required' => false, 'expanded' => true, 'multiple' => true))
             ->end()
             ->with('Profile')
+                ->add('firstname', null, array('required' => true))
+                ->add('lastname', null, array('required' => true))
                 ->add('dateOfBirth', 'birthday', array('required' => false))
-                ->add('firstname', null, array('required' => false))
-                ->add('lastname', null, array('required' => false))
-                ->add('website', 'url', array('required' => false))
-                ->add('biography', 'text', array('required' => false))
-                ->add('gender', 'textarea', array('required' => false))
                 ->add('locale', 'locale', array('required' => false))
                 ->add('timezone', 'timezone', array('required' => false))
-                ->add('phone', null, array('required' => false))
+                ->add('website', 'url', array('required' => false))
             ->end()
         ;
 
@@ -132,12 +124,6 @@ class UserAdmin extends Admin
                 ->add('credentialsExpired', null, array('required' => false))
             ->end();
         }
-
-        $formMapper
-            ->with('Security')
-                ->add('token', null, array('required' => false))
-                ->add('twoStepVerificationCode', null, array('required' => false))
-            ->end();
     }
 
     /**

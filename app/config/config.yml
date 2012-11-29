@@ -91,6 +91,9 @@ fos_user:
     user_class: Application\Sonata\UserBundle\Entity\User
     group:
         group_class: Application\Sonata\UserBundle\Entity\Group
+    registration:
+        form:
+            type: application_sonata_user_registration
 
 knp_paginator:
     page_range: 5                      # default page range used in pagination control

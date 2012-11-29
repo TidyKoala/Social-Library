@@ -3,3 +3,4 @@ app/logs/*
 .buildpath
 .project
 .settings
+*~
