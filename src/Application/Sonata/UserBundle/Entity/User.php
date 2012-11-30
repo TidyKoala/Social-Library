@@ -86,6 +86,15 @@ class User extends BaseUser
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function setLastname($lastname)
+    {
+    	$lastname = strtoupper($lastname);
+    	parent::setLastname($lastname);
+    }
+
+    /**
      * Set address
      *
      * @param string $address

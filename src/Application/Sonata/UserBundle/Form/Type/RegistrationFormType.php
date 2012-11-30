@@ -13,9 +13,30 @@ class RegistrationFormType extends BaseType
 
         // add your custom field
         $builder
-        	->add('firstname')
-        	->add('lastname')
-        	->add('dateOfBirth', 'birthday')
+        	->add('firstname', null, array(
+        			'label' => 'form.label_firstname',
+        			'translation_domain' => 'SonataUserBundle',
+        			'required' => true))
+        	->add('lastname', null, array(
+        			'label' => 'form.label_lastname',
+        			'translation_domain' => 'SonataUserBundle',
+        			'required' => true))
+        	->add('dateOfBirth', 'birthday', array(
+        			'label' => 'form.label_date_of_birth',
+        			'translation_domain' => 'SonataUserBundle'
+        			))
+            ->add('locale', 'locale', array(
+        			'label' => 'form.label_locale',
+        			'translation_domain' => 'SonataUserBundle'
+        			))
+            ->add('timezone', 'timezone', array(
+        			'label' => 'form.label_timezone',
+        			'translation_domain' => 'SonataUserBundle'
+        			))
+            ->add('website', null, array(
+        			'label' => 'form.label_website',
+        			'translation_domain' => 'SonataUserBundle'
+        			))
         ;
     }
 
