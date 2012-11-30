@@ -36,42 +36,42 @@ abstract class LendingHistory implements LendingHistoryInterface
 	protected $object;
 	
 	/**
-	 * @ORM\Column(type="datetime")
+	 * @ORM\Column(type="datetime", name="asked_date")
 	 * 
 	 * @var \DateTime askedDate
 	 */
 	protected $askedDate;
 	
 	/**
-	 * @ORM\Column(type="datetime", nullable=true)
+	 * @ORM\Column(type="datetime", name="accepted_date", nullable=true)
 	 *
 	 * @var \DateTime acceptedDate
 	 */
 	protected $acceptedDate;
 	
 	/**
-	 * @ORM\Column(type="datetime", nullable=true)
+	 * @ORM\Column(type="datetime", name="canceled_date", nullable=true)
 	 *
 	 * @var \DateTime canceledDate
 	 */
 	protected $canceledDate;
 	
 	/**
-	 * @ORM\Column(type="datetime", nullable=true)
+	 * @ORM\Column(type="datetime", name="refused_date", nullable=true)
 	 *
 	 * @var \DateTime refusedDate
 	 */
 	protected $refusedDate;
 	
 	/**
-	 * @ORM\Column(type="datetime", nullable=true)
+	 * @ORM\Column(type="datetime", name="lent_date", nullable=true)
 	 *
 	 * @var \DateTime lentDate
 	 */
 	protected $lentDate;
 	
 	/**
-	 * @ORM\Column(type="datetime", nullable=true)
+	 * @ORM\Column(type="datetime", name="returned_date", nullable=true)
 	 *
 	 * @var \DateTime returnedDate
 	 */

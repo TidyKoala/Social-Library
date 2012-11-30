@@ -28,7 +28,7 @@ abstract class ObjectCreator implements ObjectCreatorInterface
 	protected $lastname;
 	
 	/**
-	 * @ORM\Column(type="string")
+	 * @ORM\Column(type="string", name="name_slug")
 	 * @Gedmo\Slug(fields={"firstname","lastname"})
 	 * 
 	 * @var string nameSlug
