@@ -39,8 +39,6 @@ abstract class Object implements ObjectInterface
 	protected $nameSlug;
 	
 	/**
-	 * @ORM\Column(type="string")
-	 *
 	 * @var ObjectCreatorInterface creator
 	 */
 	protected $creator;
