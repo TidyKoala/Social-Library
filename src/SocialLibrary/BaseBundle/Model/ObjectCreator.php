@@ -21,7 +21,7 @@ abstract class ObjectCreator implements ObjectCreatorInterface
 	protected $firstname;
 	
 	/**
-	 * @ORM\Column(type="string")
+	 * @ORM\Column(type="string", nullable=true)
 	 *
 	 * @var string lastname
 	 */
