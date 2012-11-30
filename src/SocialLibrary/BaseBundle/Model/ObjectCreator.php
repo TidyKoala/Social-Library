@@ -8,20 +8,11 @@ use Gedmo\Mapping\Annotation as Gedmo;
 
 
 /**
- * SocialLibrary\BaseBundle\Model\ObjectCreatorInterface
+ * SocialLibrary\BaseBundle\Model\ObjectCreator
  * 
  */
 abstract class ObjectCreator implements ObjectCreatorInterface
 {
-	/**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * 
-	 * @var integer id
-	 */
-	protected $id;
-	
 	/**
 	 * @ORM\Column(type="string")
 	 * 

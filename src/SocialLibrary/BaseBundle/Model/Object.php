@@ -10,21 +10,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * SocialLibrary\BaseBundle\Model\ObjectInterface
+ * SocialLibrary\BaseBundle\Model\Object
  * 
  */
 
 abstract class Object implements ObjectInterface
 {
-	/**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * 
-	 * @var integer id
-	 */
-	protected $id;
-	
 	/**
 	 * @ORM\Column(type="string")
 	 * 
@@ -58,13 +49,6 @@ abstract class Object implements ObjectInterface
 	 * Constructor
 	 */
 	public function __construct(){
-		
-	}
-	
-	/**
-	 * @return integer
-	 */
-	public function getId() {
 		
 	}
 	
