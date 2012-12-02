@@ -73,16 +73,30 @@ interface ObjectInterface
     public function getNameSlug();
     
     /**
-     * Set a creator
+     * Set one or more creators
+     * 
+     * @param ArrayCollection $creators
+     */
+    public function setCreators(ArrayCollection $creators);
+    
+    /**
+     * Get creators
+     * 
+     * @return ArrayCollection
+     */
+    public function getCreators();
+    
+    /**
+     * Add a creator
      * 
      * @param SocialLibrary\BaseBundle\ObjectCreatorInterface $creator
      */
-    public function setCreator(ObjectCreatorInterface $creator);
+    public function addCreator(ObjectCreatorInterface $creator);
     
     /**
-     * Get  creator
+     * Remove a creator
      * 
-     * @return SocialLibrary\BaseBundle\ObjectCreatorInterface
+     * @param SocialLibrary\BaseBundle\ObjectCreatorInterface $creator
      */
-    public function getCreator();
+    public function removeCreator(ObjectCreatorInterface $creator);
 }

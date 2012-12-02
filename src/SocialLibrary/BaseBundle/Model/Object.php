@@ -39,15 +39,16 @@ abstract class Object implements ObjectInterface
 	protected $nameSlug;
 	
 	/**
-	 * @var ObjectCreatorInterface creator
+	 * @var ArrayCollection creators
 	 */
-	protected $creator;
+	protected $creators;
 	
 	/**
 	 * Constructor
 	 */
 	public function __construct(){
-		
+		$this->creators = new ArrayCollection();
+		$this->owners = new ArrayCollection();
 	}
 	
 	/**
@@ -81,7 +82,6 @@ abstract class Object implements ObjectInterface
      * {@inheritdoc}
      */
     public function removeOwner(User $owner) {
-    
         if (false !== $key = array_search(strtoupper($owner), $this->owners, true)) {
             unset($this->owners[$key]);
             $this->owners = array_values($this->owners);
@@ -125,8 +125,8 @@ abstract class Object implements ObjectInterface
     /**
      * {@inheritdoc}
      */
-    public function setCreator(ObjectCreatorInterface $creator) {
-    	$this->creator = $creator;
+    public function setCreators(ArrayCollection $creators) {
+    	$this->creators = $creators;
     	
     	return $this;
     }
@@ -134,7 +134,30 @@ abstract class Object implements ObjectInterface
     /**
      * {@inheritdoc}
      */
-    public function getCreator() {
-    	return $this->creator;
+    public function getCreators() {
+    	return $this->creators;
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function addCreator(ObjectCreatorInterface $creator) {
+        if (!in_array($creator, $this->creators, true)) {
+            $this->creators[] = $creator;
+        }
+    	
+    	return $this;
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function removeCreator(ObjectCreatorInterface $creator) {
+        if (false !== $key = array_search(strtoupper($creator), $this->creators, true)) {
+            unset($this->creators[$key]);
+            $this->creators = array_values($this->creators);
+        }
+        
+        return $this;
     }
 }
