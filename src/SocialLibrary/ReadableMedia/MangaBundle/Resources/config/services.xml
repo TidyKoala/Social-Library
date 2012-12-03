@@ -3,18 +3,27 @@
 <container xmlns="http://symfony.com/schema/dic/services"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
-
-    <!--
-    <parameters>
-        <parameter key="social_library_readable_media_manga.example.class">SocialLibrary\ReadableMedia\MangaBundle\Example</parameter>
-    </parameters>
-
     <services>
-        <service id="social_library_readable_media_manga.example" class="%social_library_readable_media_manga.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
-        </service>
-    </services>
-    -->
+        <!-- Serie -->
+       <service id="sonata.admin.serie" class="SocialLibrary\ReadableMedia\MangaBundle\Admin\SerieAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="Mangas" label="Serie"/>
+          <argument />
+          <argument>SocialLibrary\ReadableMedia\MangaBundle\Entity\Serie</argument>
+          <argument>SonataAdminBundle:CRUD</argument>
+          <call method="setTranslationDomain">
+              <argument>SocialLibrary\ReadableMedia\MangaBundle</argument>
+          </call>
+      </service>
+      
+        <!-- Manga volume -->
+       <service id="sonata.admin.manga" class="SocialLibrary\ReadableMedia\MangaBundle\Admin\MangaAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="Mangas" label="Volume"/>
+          <argument />
+          <argument>SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga</argument>
+          <argument>SonataAdminBundle:CRUD</argument>
+          <call method="setTranslationDomain">
+              <argument>SocialLibrary\ReadableMedia\MangaBundle</argument>
+          </call>
+      </service>
+   </services>
 </container>
