@@ -1,3 +1,8 @@
+social_library_readable_media_manga:
+    resource: "@SocialLibraryReadableMediaMangaBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 social_library_base:
     resource: "@SocialLibraryBaseBundle/Controller/"
     type:     annotation
