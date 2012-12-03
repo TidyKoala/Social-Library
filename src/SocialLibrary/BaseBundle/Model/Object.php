@@ -46,7 +46,8 @@ abstract class Object implements ObjectInterface
 	/**
 	 * Constructor
 	 */
-	public function __construct(){
+	public function __construct()
+	{
 		$this->creators = new ArrayCollection();
 		$this->owners = new ArrayCollection();
 	}
@@ -54,7 +55,8 @@ abstract class Object implements ObjectInterface
 	/**
      * {@inheritdoc}
 	 */
-	public function setOwners(ArrayCollection $owners) {
+	public function setOwners(ArrayCollection $owners)
+	{
 		$this->owners = $owners;
 		
 		return $this;
@@ -63,14 +65,16 @@ abstract class Object implements ObjectInterface
     /**
      * {@inheritdoc}
      */
-    public function getOwners() {
+    public function getOwners() 
+    {
     	return $this->owners;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function addOwner(User $owner) {
+    public function addOwner(User $owner) 
+    {
         if (!in_array($owner, $this->owners, true)) {
             $this->owners[] = $owner;
         }
@@ -81,7 +85,8 @@ abstract class Object implements ObjectInterface
     /**
      * {@inheritdoc}
      */
-    public function removeOwner(User $owner) {
+    public function removeOwner(User $owner) 
+    {
         if (false !== $key = array_search(strtoupper($owner), $this->owners, true)) {
             unset($this->owners[$key]);
             $this->owners = array_values($this->owners);
@@ -93,7 +98,8 @@ abstract class Object implements ObjectInterface
     /**
      * {@inheritdoc}
      */
-    public function setName($name) {
+    public function setName($name) 
+    {
     	$this->name = $name;
     	
     	return $this;
@@ -102,14 +108,16 @@ abstract class Object implements ObjectInterface
     /**
      * {@inheritdoc}
      */
-    public function getName() {
+    public function getName() 
+    {
     	return $this->name;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setNameSlug($nameSlug) {
+    public function setNameSlug($nameSlug) 
+    {
     	$this->nameSlug = $nameSlug;
     	
     	return $this;
@@ -118,14 +126,16 @@ abstract class Object implements ObjectInterface
     /**
      * {@inheritdoc}
      */
-    public function getNameSlug() {
+    public function getNameSlug() 
+    {
     	return $this->nameSlug;
     }
     
     /**
      * {@inheritdoc}
      */
-    public function setCreators(ArrayCollection $creators) {
+    public function setCreators(ArrayCollection $creators) 
+    {
     	$this->creators = $creators;
     	
     	return $this;
@@ -134,14 +144,16 @@ abstract class Object implements ObjectInterface
     /**
      * {@inheritdoc}
      */
-    public function getCreators() {
+    public function getCreators() 
+    {
     	return $this->creators;
     }
     
     /**
      * {@inheritdoc}
      */
-    public function addCreator(ObjectCreatorInterface $creator) {
+    public function addCreator(ObjectCreatorInterface $creator) 
+    {
         if (!in_array($creator, $this->creators, true)) {
             $this->creators[] = $creator;
         }
@@ -152,7 +164,8 @@ abstract class Object implements ObjectInterface
     /**
      * {@inheritdoc}
      */
-    public function removeCreator(ObjectCreatorInterface $creator) {
+    public function removeCreator(ObjectCreatorInterface $creator) 
+    {
         if (false !== $key = array_search(strtoupper($creator), $this->creators, true)) {
             unset($this->creators[$key]);
             $this->creators = array_values($this->creators);

@@ -37,9 +37,18 @@ abstract class ObjectCreator implements ObjectCreatorInterface
 	
 	
 	/**
+	 * {@inheritdoc}
+	 */
+	public function __toString()
+	{
+		return $this->getFullname();
+	}
+	
+	/**
      * {@inheritdoc}
 	 */
-	public function setFirstname($firstname) {
+	public function setFirstname($firstname) 
+	{
 		$this->firstname = $firstname;
 		
 		return $this;
@@ -48,14 +57,16 @@ abstract class ObjectCreator implements ObjectCreatorInterface
 	/**
      * {@inheritdoc}
 	 */
-	public function getFirstname() {
+	public function getFirstname() 
+	{
 		return $this->firstname;
 	}
 	
 	/**
      * {@inheritdoc}
 	 */
-	public function setLastname($lastname) {
+	public function setLastname($lastname) 
+	{
 		$this->lastname = strtoupper($lastname);
 		
 		return $this;
@@ -64,28 +75,24 @@ abstract class ObjectCreator implements ObjectCreatorInterface
 	/**
      * {@inheritdoc}
 	 */
-	public function getLastname() {
+	public function getLastname() 
+	{
 		return $this->lastname;
 	}
 	
 	/**
      * {@inheritdoc}
 	 */
-	public function getFullname() {
+	public function getFullname() 
+	{
 		return sprintf("%s %s", $this->getFirstname(), $this->getLastname());
 	}
 	
 	/**
      * {@inheritdoc}
 	 */
-	public function getNameSlug() {
+	public function getNameSlug() 
+	{
 		return $this->nameSlug;
-	}
-	
-	/**
-     * {@inheritdoc}
-	 */
-	public function __toString() {
-		return $this->getFullname();
 	}
 }
