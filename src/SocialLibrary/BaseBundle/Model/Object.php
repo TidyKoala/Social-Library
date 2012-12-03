@@ -55,6 +55,14 @@ abstract class Object implements ObjectInterface
 	/**
      * {@inheritdoc}
 	 */
+	public function __toString()
+	{
+	    return $this->getName();
+	}
+	
+	/**
+     * {@inheritdoc}
+	 */
 	public function setOwners(ArrayCollection $owners)
 	{
 		$this->owners = $owners;
