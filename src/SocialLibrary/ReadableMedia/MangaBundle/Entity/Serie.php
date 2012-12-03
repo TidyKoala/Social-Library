@@ -55,6 +55,14 @@ class Serie
     }
     
     /**
+     * {@inheritdoc}
+     */
+    public function __toString()
+    {
+    	return $this->getName();
+    }
+    
+    /**
      * Get id
      *
      * @return integer 
