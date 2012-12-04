@@ -29,9 +29,8 @@ class ObjectCreatorAdmin extends Admin
 	protected function configureListFields(ListMapper $listMapper)
 	{
 		$listMapper
-		->addIdentifier('nameSlug')
+		->addIdentifier('lastname')
 		->add('firstname')
-		->add('lastname')
 		;
 	}
 
