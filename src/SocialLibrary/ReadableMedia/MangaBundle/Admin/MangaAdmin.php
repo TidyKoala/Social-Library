@@ -40,6 +40,7 @@ class MangaAdmin extends Admin
 	{
 		$listMapper
 		->addIdentifier('name')
+		->add('volume')
 		->add('serie')
 		->add('creators')
 		->add('illustrators')
