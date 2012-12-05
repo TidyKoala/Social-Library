@@ -11,7 +11,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga
  * 
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="SocialLibrary\ReadableMedia\MangaBundle\Entity\MangaRepository")
  * @ORM\Table(name="manga")
  */
 
