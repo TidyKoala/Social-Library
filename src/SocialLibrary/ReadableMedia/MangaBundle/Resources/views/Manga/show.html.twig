@@ -1,0 +1,57 @@
+<h1>Manga</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Volume</th>
+            <td>{{ entity.volume }}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ entity.name }}</td>
+        </tr>
+        <tr>
+            <th>Serie</th>
+            <td>{{ entity.serie }}</td>
+        </tr>
+        <tr>
+            <th>Authors</th>
+            <td>{{ entity.creators|join(', ') }}</td>
+        </tr>
+        <tr>
+            <th>Illustrators</th>
+            <td>{{ entity.illustrators|join(', ') }}</td>
+        </tr>
+        <tr>
+            <th>Language</th>
+            <td>{{ entity.language }}</td>
+        </tr>
+        <tr>
+            <th>Isbn10</th>
+            <td>{{ entity.isbn10 }}</td>
+        </tr>
+        <tr>
+            <th>Isbn13</th>
+            <td>{{ entity.isbn13 }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('manga') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('manga_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('manga_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
