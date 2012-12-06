@@ -86,13 +86,22 @@ class MangaController extends Controller
         $entity  = new Manga();
         $form = $this->createForm(new MangaType(), $entity);
         $form->bind($request);
+        $entity->addOwner($this->get('security.context')->getToken()->getUser());
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('manga_show', array('id' => $entity->getId())));
+            return $this->redirect(
+                $this->generateUrl(
+                    'manga_show',
+                    array(
+                        'id' => $entity->getId(),
+                        'nameSlug' => $entity->getNameSlug()
+                    )
+                )
+            );
         }
 
         return array(
@@ -104,14 +113,16 @@ class MangaController extends Controller
     /**
      * Displays a form to edit an existing Manga entity.
      *
-     * @Route("/{id}/edit", name="manga_edit")
+     * @Route("/edit/{id}/{nameSlug}/", name="manga_edit")
      * @Template()
      */
-    public function editAction($id)
+    public function editAction($id, $nameSlug)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SocialLibraryReadableMediaMangaBundle:Manga')->find($id);
+        $entity = $em
+            ->getRepository('SocialLibraryReadableMediaMangaBundle:Manga')
+            ->findManga($id, $nameSlug);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Manga entity.');
@@ -130,7 +141,7 @@ class MangaController extends Controller
     /**
      * Edits an existing Manga entity.
      *
-     * @Route("/{id}/update", name="manga_update")
+     * @Route("/update/{id}", name="manga_update")
      * @Method("POST")
      * @Template("SocialLibraryReadableMediaMangaBundle:Manga:edit.html.twig")
      */
@@ -163,12 +174,31 @@ class MangaController extends Controller
     }
 
     /**
-     * Deletes a Manga entity.
+     * Add ownership of a Manga entity.
      *
-     * @Route("/{id}/delete", name="manga_delete")
+     * @Route("/add/{id}/{nameSlug}", name="manga_add_owner")
+     */
+    public function addOwnerAction($id, $nameSlug)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em
+            ->getRepository('SocialLibraryReadableMediaMangaBundle:Manga')
+            ->findManga($id, $nameSlug);
+        $entity->addOwner($this->get('security.context')->getToken()->getUser());
+        
+        $em->persist($entity);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('manga'));
+    }
+
+    /**
+     * Remove ownership of a Manga entity.
+     *
+     * @Route("/remove/{id}", name="manga_remove_owner")
      * @Method("POST")
      */
-    public function deleteAction(Request $request, $id)
+    public function removeOwnerAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
         $form->bind($request);
@@ -180,8 +210,9 @@ class MangaController extends Controller
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Manga entity.');
             }
-
-            $em->remove($entity);
+            
+            $entity->removeOwner($this->get('security.context')->getToken()->getUser());
+            $em->persist($entity);
             $em->flush();
         }
 
