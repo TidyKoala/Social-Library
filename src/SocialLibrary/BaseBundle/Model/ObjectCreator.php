@@ -29,7 +29,7 @@ abstract class ObjectCreator implements ObjectCreatorInterface
 	
 	/**
 	 * @ORM\Column(type="string", name="name_slug")
-	 * @Gedmo\Slug(fields={"firstname","lastname"})
+	 * @Gedmo\Slug(fields={"lastname","firstname"})
 	 * 
 	 * @var string nameSlug
 	 */
