@@ -134,7 +134,7 @@ class Manga extends Object
      * @param SocialLibrary\BaseBundle\ObjectCreatorInterface $illustrator
      */
     public function addIllustrator(ObjectCreatorInterface $illustrator) {
-        if (!in_array($illustrator, $this->illustrators, true)) {
+        if (!$this->illustrators->contains($illustrator)) {
             $this->illustrators[] = $illustrator;
         }
     	
@@ -147,10 +147,7 @@ class Manga extends Object
      * @param SocialLibrary\BaseBundle\ObjectCreatorInterface $illustrator
      */
     public function removeIllustrator(ObjectCreatorInterface $illustrator) {
-        if (false !== $key = array_search(strtoupper($illustrator), $this->illustrators, true)) {
-            unset($this->illustrators[$key]);
-            $this->illustrators = array_values($this->illustrators);
-        }
+        $this->illustrators->removeElement($illustrator);
         
         return $this;
     }
