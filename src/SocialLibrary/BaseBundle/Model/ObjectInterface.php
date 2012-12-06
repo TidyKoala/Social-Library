@@ -2,7 +2,7 @@
 
 namespace SocialLibrary\BaseBundle\Model;
 
-use Application\Sonata\UserBundle\User;
+use Application\Sonata\UserBundle\Entity\User;
 use SocialLibrary\BaseBundle\Model\ObjectCreatorInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 

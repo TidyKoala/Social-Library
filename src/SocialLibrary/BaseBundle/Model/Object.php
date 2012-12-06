@@ -2,7 +2,7 @@
 
 namespace SocialLibrary\BaseBundle\Model;
 
-use Application\Sonata\UserBundle\User;
+use Application\Sonata\UserBundle\Entity\User;
 use SocialLibrary\BaseBundle\Model\ObjectInterface;
 use SocialLibrary\BaseBundle\Model\ObjectCreatorInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -83,7 +83,7 @@ abstract class Object implements ObjectInterface
      */
     public function addOwner(User $owner) 
     {
-        if (!in_array($owner, $this->owners, true)) {
+        if (!in_array($owner, $this->owners->toArray(), true)) {
             $this->owners[] = $owner;
         }
     	
@@ -95,7 +95,7 @@ abstract class Object implements ObjectInterface
      */
     public function removeOwner(User $owner) 
     {
-        if (false !== $key = array_search(strtoupper($owner), $this->owners, true)) {
+        if (false !== $key = array_search(strtoupper($owner), $this->owners->toArray(), true)) {
             unset($this->owners[$key]);
             $this->owners = array_values($this->owners);
         }
@@ -162,7 +162,7 @@ abstract class Object implements ObjectInterface
      */
     public function addCreator(ObjectCreatorInterface $creator) 
     {
-        if (!in_array($creator, $this->creators, true)) {
+        if (!in_array($creator, $this->creators->toArray(), true)) {
             $this->creators[] = $creator;
         }
     	
@@ -174,7 +174,7 @@ abstract class Object implements ObjectInterface
      */
     public function removeCreator(ObjectCreatorInterface $creator) 
     {
-        if (false !== $key = array_search(strtoupper($creator), $this->creators, true)) {
+        if (false !== $key = array_search(strtoupper($creator), $this->creators->toArray(), true)) {
             unset($this->creators[$key]);
             $this->creators = array_values($this->creators);
         }
