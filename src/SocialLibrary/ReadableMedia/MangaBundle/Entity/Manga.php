@@ -27,6 +27,17 @@ class Manga extends Object
 	protected $id;
 	
 	/**
+	 * @ORM\ManyToMany(targetEntity="Application\Sonata\UserBundle\Entity\User")
+     * @ORM\JoinTable(name="manga_owner",
+     *      joinColumns={@ORM\JoinColumn(name="owner_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="object_id", referencedColumnName="id")}
+     *      )
+	 *
+	 * @var ArrayCollection creators
+	 */
+	protected $owners;
+	
+	/**
 	 * @ORM\ManyToMany(targetEntity="SocialLibrary\BaseBundle\Entity\ObjectCreator")
      * @ORM\JoinTable(name="manga_creators",
      *      joinColumns={@ORM\JoinColumn(name="creator_id", referencedColumnName="id")},
