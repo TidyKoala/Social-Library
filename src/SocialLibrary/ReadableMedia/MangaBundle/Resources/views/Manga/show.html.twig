@@ -49,7 +49,12 @@
         </a>
     </li>
     <li>
-        <form action="{{ path('manga_delete', { 'id': entity.id }) }}" method="post">
+        <a href="{{ path('manga_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
+            I own the manga too
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('manga_remove_owner', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
             <button type="submit">Delete</button>
         </form>
