@@ -83,7 +83,7 @@ abstract class Object implements ObjectInterface
      */
     public function addOwner(User $owner) 
     {
-        if (!in_array($owner, $this->owners->toArray(), true)) {
+        if (!$this->owners->contains($owner)) {
             $this->owners[] = $owner;
         }
     	
@@ -95,10 +95,7 @@ abstract class Object implements ObjectInterface
      */
     public function removeOwner(User $owner) 
     {
-        if (false !== $key = array_search(strtoupper($owner), $this->owners->toArray(), true)) {
-            unset($this->owners[$key]);
-            $this->owners = array_values($this->owners);
-        }
+        $this->owners->removeElement($owner);
         
         return $this;
     }
@@ -162,7 +159,7 @@ abstract class Object implements ObjectInterface
      */
     public function addCreator(ObjectCreatorInterface $creator) 
     {
-        if (!in_array($creator, $this->creators->toArray(), true)) {
+        if (!$this->owners->contains($creator)) {
             $this->creators[] = $creator;
         }
     	
@@ -174,10 +171,7 @@ abstract class Object implements ObjectInterface
      */
     public function removeCreator(ObjectCreatorInterface $creator) 
     {
-        if (false !== $key = array_search(strtoupper($creator), $this->creators->toArray(), true)) {
-            unset($this->creators[$key]);
-            $this->creators = array_values($this->creators);
-        }
+        $this->creators->removeElement($creator);
         
         return $this;
     }
