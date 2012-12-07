@@ -1,11 +1,51 @@
 <h1>Manga edit</h1>
 
-<form action="{{ path('manga_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
-    {{ form_widget(edit_form) }}
-    <p>
+<edit_form action="{{ path('manga_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    <div>
+        {{ form_label(edit_form.name) }}
+        {{ form_widget(edit_form.name) }}
+        {{ form_errors(edit_form.name) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.volume) }}
+        {{ form_widget(edit_form.volume) }}
+        {{ form_errors(edit_form.volume) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.serie) }}
+        {{ form_widget(edit_form.serie) }}
+        {{ form_errors(edit_form.serie) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.creators) }}
+        {{ form_widget(edit_form.creators) }}
+        {{ form_errors(edit_form.creators) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.illustrators) }}
+        {{ form_widget(edit_form.illustrators) }}
+        {{ form_errors(edit_form.illustrators) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.language) }}
+        {{ form_widget(edit_form.language) }}
+        {{ form_errors(edit_form.language) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.isbn10) }}
+        {{ form_widget(edit_form.isbn10) }}
+        {{ form_errors(edit_form.isbn10) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.isbn13) }}
+        {{ form_widget(edit_form.isbn13) }}
+        {{ form_errors(edit_form.isbn13) }}
+    </div>
+    {{ form_rest(edit_form) }}
+    <div>
         <button type="submit">Edit</button>
-    </p>
-</form>
+    </div>
+</edit_form>
 
 <ul class="record_actions">
     <li>

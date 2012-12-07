@@ -1,10 +1,50 @@
 <h1>Manga creation</h1>
 
 <form action="{{ path('manga_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
-    <p>
+    <div>
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+        {{ form_errors(form.name) }}
+    </div>
+    <div>
+        {{ form_label(form.volume) }}
+        {{ form_widget(form.volume) }}
+        {{ form_errors(form.volume) }}
+    </div>
+    <div>
+        {{ form_label(form.serie) }}
+        {{ form_widget(form.serie) }}
+        {{ form_errors(form.serie) }}
+    </div>
+    <div>
+        {{ form_label(form.creators) }}
+        {{ form_widget(form.creators) }}
+        {{ form_errors(form.creators) }}
+    </div>
+    <div>
+        {{ form_label(form.illustrators) }}
+        {{ form_widget(form.illustrators) }}
+        {{ form_errors(form.illustrators) }}
+    </div>
+    <div>
+        {{ form_label(form.language) }}
+        {{ form_widget(form.language) }}
+        {{ form_errors(form.language) }}
+    </div>
+    <div>
+        {{ form_label(form.isbn10) }}
+        {{ form_widget(form.isbn10) }}
+        {{ form_errors(form.isbn10) }}
+    </div>
+    <div>
+        {{ form_label(form.isbn13) }}
+        {{ form_widget(form.isbn13) }}
+        {{ form_errors(form.isbn13) }}
+    </div>
+    {{ form_rest(form) }}
+    <div>
         <button type="submit">Create</button>
-    </p>
+    </div>
 </form>
 
 <ul class="record_actions">
