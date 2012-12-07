@@ -41,7 +41,7 @@
                         <a href="{{ path('manga_show', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('manga_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('manga_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">edit</a>
                     </li>
                     <li>
                         <a href="{{ path('manga_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">I own the manga too</a>
