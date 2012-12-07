@@ -13,7 +13,7 @@ use SocialLibrary\ReadableMedia\MangaBundle\Form\Type\MangaType;
 /**
  * Manga controller.
  *
- * @Route("/manga")
+ * @Route("/manga/{_locale}", defaults={"_locale" = "en"})
  */
 class MangaController extends Controller
 {

@@ -4,16 +4,16 @@
     <thead>
     	<tr>
     		<th>
-    		    {{ entities.sortable('Volume', 'm.volume')|raw }}
+    		    {{ entities.sortable('manga_header_volume', 'm.volume', {'translationDomain' : 'messages'})|raw }}
     		</th>
     		<th>
-    		    {% trans %}Name{% endtrans %}
+    		    {% trans %}manga_header_name{% endtrans %}
 		    </th>
     		<th>
-    		    {{ entities.sortable('Serie', 's.nameSlug')|raw }}
+    		    {{ entities.sortable('manga_header_serie', 's.nameSlug', {'translationDomain' : 'messages'})|raw }}
 		    </th>
     		<th>
-    		    {{ entities.sortable('Authors', 'c.lastname')|raw }}
+    		    {{ entities.sortable('manga_header_authors', 'c.lastname', {'translationDomain' : 'messages' })|raw }}
 		    </th>
             <th>
                 Actions
@@ -38,13 +38,13 @@
             <td>
                 <ul>
                     <li>
-                        <a href="{{ path('manga_show', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">show</a>
+                        <a href="{{ path('manga_show', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">{% trans %}manga_details{% endtrans %}</a>
                     </li>
                     <li>
-                        <a href="{{ path('manga_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">edit</a>
+                        <a href="{{ path('manga_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">{% trans %}manga_edit{% endtrans %}</a>
                     </li>
                     <li>
-                        <a href="{{ path('manga_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">I own the manga too</a>
+                        <a href="{{ path('manga_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">{% trans %}manga_own{% endtrans %}</a>
                     </li>
                 </ul>
             </td>
@@ -56,7 +56,7 @@
 <ul>
     <li>
         <a href="{{ path('manga_new') }}">
-            Create a new entry
+            {% trans %}manga_add{% endtrans %}
         </a>
     </li>
 </ul>

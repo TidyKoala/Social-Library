@@ -43,20 +43,24 @@
     </div>
     {{ form_rest(edit_form) }}
     <div>
-        <button type="submit">Edit</button>
+        <button type="submit">
+            {% trans %}manga_edit{% endtrans %}
+        </button>
     </div>
 </edit_form>
 
 <ul class="record_actions">
     <li>
         <a href="{{ path('manga') }}">
-            Back to the list
+            {% trans %}manga_back_list{% endtrans %}
         </a>
     </li>
     <li>
         <form action="{{ path('manga_remove_owner', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit">
+                {% trans %}manga_delete{% endtrans %}
+            </button>
         </form>
     </li>
 </ul>
