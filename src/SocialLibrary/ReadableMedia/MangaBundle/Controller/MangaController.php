@@ -50,11 +50,8 @@ class MangaController extends Controller
             ->getRepository('SocialLibraryReadableMediaMangaBundle:Manga')
             ->findManga($id, $nameSlug);
         
-        $deleteForm = $this->createDeleteForm($id);
-        
         return array(
             'entity' => $entity,
-            'delete_form' => $deleteForm->createView(),
         );
     }
 
@@ -142,12 +139,10 @@ class MangaController extends Controller
         }
 
         $editForm = $this->createForm(new MangaType(), $entity);
-        $deleteForm = $this->createDeleteForm($id);
 
         return array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         );
     }
 
@@ -172,7 +167,6 @@ class MangaController extends Controller
             throw $this->createNotFoundException('Unable to find Manga entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new MangaType(), $entity);
         $editForm->bind($request);
 
@@ -186,7 +180,6 @@ class MangaController extends Controller
         return array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         );
     }
 
@@ -216,39 +209,27 @@ class MangaController extends Controller
     /**
      * Remove ownership of a Manga entity.
      *
-     * @Route("/remove/{id}", name="manga_remove_owner")
-     * @Method("POST")
+     * @Route("/remove/{id}/{nameSlug}", name="manga_remove_owner")
      */
-    public function removeOwnerAction(Request $request, $id)
+    public function removeOwnerAction($id, $nameSlug)
     {
         if (false === $this->get('security.context')->isGranted('ROLE_USER')) {
             throw new AccessDeniedException();
         }
         
-        $form = $this->createDeleteForm($id);
-        $form->bind($request);
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em
+            ->getRepository('SocialLibraryReadableMediaMangaBundle:Manga')
+            ->findManga($id, $nameSlug);
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('SocialLibraryReadableMediaMangaBundle:Manga')->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Manga entity.');
-            }
-            
-            $entity->removeOwner($this->get('security.context')->getToken()->getUser());
-            $em->persist($entity);
-            $em->flush();
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Manga entity.');
         }
+        
+        $entity->removeOwner($this->get('security.context')->getToken()->getUser());
+        $em->persist($entity);
+        $em->flush();
 
         return $this->redirect($this->generateUrl('manga'));
-    }
-
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder(array('id' => $id))
-            ->add('id', 'hidden')
-            ->getForm()
-        ;
     }
 }

@@ -56,11 +56,8 @@
         </a>
     </li>
     <li>
-        <form action="{{ path('manga_remove_owner', { 'id': entity.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button type="submit">
-                {% trans %}manga_delete{% endtrans %}
-            </button>
-        </form>
+        <a href="{{ path('manga_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
+            {% trans %}manga_delete{% endtrans %}
+        </a>
     </li>
 </ul>
