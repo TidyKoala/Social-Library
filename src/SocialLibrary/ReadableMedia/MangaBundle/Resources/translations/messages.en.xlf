@@ -94,6 +94,22 @@
         <source>manga_label_isbn13</source>
         <target>ISBN 13</target>
       </trans-unit>
+      <trans-unit id="24">
+        <source>manga_added_library</source>
+        <target>We are happy that you have now the manga "%manga_name%" in your library.</target>
+      </trans-unit>
+      <trans-unit id="25">
+        <source>this_manga_added_library</source>
+        <target>We are happy that you have now this manga in your library.</target>
+      </trans-unit>
+      <trans-unit id="26">
+        <source>manga_removed_library</source>
+        <target>The manga "%manga_name%" is no more part of your library.</target>
+      </trans-unit>
+      <trans-unit id="27">
+        <source>manga_updated</source>
+        <target>The manga "%manga_name%" has been successfully updated.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

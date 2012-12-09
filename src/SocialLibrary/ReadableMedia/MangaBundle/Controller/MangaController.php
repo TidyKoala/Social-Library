@@ -98,7 +98,13 @@ class MangaController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-
+            
+            $flashMessage = $this
+                ->get('translator')
+                ->trans(
+                    'manga_this_added_library'
+                );
+            $this->get('session')->getFlashBag()->add('success', 'manga_this_added_library');
             return $this->redirect(
                 $this->generateUrl(
                     'manga_show',
@@ -173,7 +179,16 @@ class MangaController extends Controller
         if ($editForm->isValid()) {
             $em->persist($entity);
             $em->flush();
-
+            
+            $flashMessage = $this
+            ->get('translator')
+            ->trans(
+                    'manga_updated',
+                    array(
+                            '%manga_name%' => $entity->getVolume() . ' - ' . $entity->getSerie()
+                    )
+            );
+            $this->get('session')->getFlashBag()->add('success', $flashMessage);
             return $this->redirect($this->generateUrl('manga'));
         }
 
@@ -202,7 +217,16 @@ class MangaController extends Controller
         
         $em->persist($entity);
         $em->flush();
-
+        
+        $flashMessage = $this
+        ->get('translator')
+        ->trans(
+                'manga_added_library',
+                array(
+                        '%manga_name%' => $entity->getVolume() . ' - ' . $entity->getSerie()
+                )
+        );
+        $this->get('session')->getFlashBag()->add('success', $flashMessage);
         return $this->redirect($this->generateUrl('manga'));
     }
 
@@ -229,7 +253,16 @@ class MangaController extends Controller
         $entity->removeOwner($this->get('security.context')->getToken()->getUser());
         $em->persist($entity);
         $em->flush();
-
+        
+        $flashMessage = $this
+            ->get('translator')
+            ->trans(
+                'manga_removed_library',
+                array(
+                    '%manga_name%' => $entity->getVolume() . ' - ' . $entity->getSerie()
+                )
+            );
+        $this->get('session')->getFlashBag()->add('success', $flashMessage);
         return $this->redirect($this->generateUrl('manga'));
     }
 }

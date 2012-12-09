@@ -1,5 +1,11 @@
 <h1>Manga</h1>
 
+{% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="flash-success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
 <table class="record_properties">
     <tbody>
         <tr>
