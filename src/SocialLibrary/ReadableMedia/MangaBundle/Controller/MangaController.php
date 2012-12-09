@@ -174,7 +174,7 @@ class MangaController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('manga_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('manga'));
         }
 
         return array(
