@@ -2,6 +2,7 @@
 
 namespace SocialLibrary\ReadableMedia\MangaBundle\Controller;
 
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -65,6 +66,10 @@ class MangaController extends Controller
      */
     public function newAction()
     {
+        if (false === $this->get('security.context')->isGranted('ROLE_USER')) {
+            throw new AccessDeniedException();
+        }
+        
         $entity = new Manga();
         $form   = $this->createForm(new MangaType(), $entity);
 
@@ -83,6 +88,10 @@ class MangaController extends Controller
      */
     public function createAction(Request $request)
     {
+        if (false === $this->get('security.context')->isGranted('ROLE_USER')) {
+            throw new AccessDeniedException();
+        }
+        
         $entity  = new Manga();
         $form = $this->createForm(new MangaType(), $entity);
         $form->bind($request);
@@ -118,6 +127,10 @@ class MangaController extends Controller
      */
     public function editAction($id, $nameSlug)
     {
+        if (false === $this->get('security.context')->isGranted('ROLE_USER')) {
+            throw new AccessDeniedException();
+        }
+        
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em
@@ -147,6 +160,10 @@ class MangaController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
+        if (false === $this->get('security.context')->isGranted('ROLE_USER')) {
+            throw new AccessDeniedException();
+        }
+        
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('SocialLibraryReadableMediaMangaBundle:Manga')->find($id);
@@ -180,6 +197,10 @@ class MangaController extends Controller
      */
     public function addOwnerAction($id, $nameSlug)
     {
+        if (false === $this->get('security.context')->isGranted('ROLE_USER')) {
+            throw new AccessDeniedException();
+        }
+        
         $em = $this->getDoctrine()->getManager();
         $entity = $em
             ->getRepository('SocialLibraryReadableMediaMangaBundle:Manga')
@@ -200,6 +221,10 @@ class MangaController extends Controller
      */
     public function removeOwnerAction(Request $request, $id)
     {
+        if (false === $this->get('security.context')->isGranted('ROLE_USER')) {
+            throw new AccessDeniedException();
+        }
+        
         $form = $this->createDeleteForm($id);
         $form->bind($request);
 
