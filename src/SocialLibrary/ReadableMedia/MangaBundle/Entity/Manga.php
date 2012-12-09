@@ -29,8 +29,8 @@ class Manga extends Object
 	/**
 	 * @ORM\ManyToMany(targetEntity="Application\Sonata\UserBundle\Entity\User")
      * @ORM\JoinTable(name="manga_owner",
-     *      joinColumns={@ORM\JoinColumn(name="owner_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="object_id", referencedColumnName="id")}
+     *      joinColumns={@ORM\JoinColumn(name="object_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="owner_id", referencedColumnName="id")}
      *      )
 	 *
 	 * @var ArrayCollection creators
@@ -40,8 +40,8 @@ class Manga extends Object
 	/**
 	 * @ORM\ManyToMany(targetEntity="SocialLibrary\BaseBundle\Entity\ObjectCreator")
      * @ORM\JoinTable(name="manga_creators",
-     *      joinColumns={@ORM\JoinColumn(name="creator_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="object_id", referencedColumnName="id")}
+     *      joinColumns={@ORM\JoinColumn(name="object_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="creator_id", referencedColumnName="id")}
      *      )
 	 *
 	 * @var ArrayCollection creators
@@ -51,8 +51,8 @@ class Manga extends Object
 	/**
 	 * @ORM\ManyToMany(targetEntity="SocialLibrary\BaseBundle\Entity\ObjectCreator")
 	 * @ORM\JoinTable(name="manga_illustrators",
-	 *      joinColumns={@ORM\JoinColumn(name="illustrator_id", referencedColumnName="id")},
-	 *      inverseJoinColumns={@ORM\JoinColumn(name="object_id", referencedColumnName="id")}
+	 *      joinColumns={@ORM\JoinColumn(name="object_id", referencedColumnName="id")},
+	 *      inverseJoinColumns={@ORM\JoinColumn(name="illustrator_id", referencedColumnName="id")}
 	 *      )
 	 *
 	 * @var ArrayCollection illustrators
