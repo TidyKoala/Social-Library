@@ -1,0 +1,10 @@
+{% set order = '' %}
+<a 
+{% for attr, value in options %}
+    {{ attr }}="{{ value }}"
+    {% if value == "asc" %}
+        {% set order = '<i class="icon-down-open"></i> ' %}
+    {% elseif value == "desc" %}
+        {% set order = '<i class="icon-up-open"></i> ' %}
+    {% endif %}
+{% endfor %}>{{ order|raw }}{{ title }}</a>
