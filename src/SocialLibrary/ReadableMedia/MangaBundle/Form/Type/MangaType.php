@@ -17,7 +17,7 @@ class MangaType extends AbstractType
                     'required' => true,
                     'label' => 'manga_label_name',
                 ))
-            ->add('volume', 'text', array(
+            ->add('volume', 'integer', array(
                     'required' => true,
                     'label' => 'manga_label_volume',
                 ))
