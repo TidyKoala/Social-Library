@@ -18,7 +18,8 @@ class MangaRepository extends EntityRepository
             ->createQuery('SELECT m, s, c, o FROM SocialLibraryReadableMediaMangaBundle:Manga m
                     JOIN m.serie s
                     JOIN m.creators c
-                    LEFT JOIN m.owners o');
+                    LEFT JOIN m.owners o
+                    ORDER BY m.volume');
         
         try {
             return $paginator->paginate($query, $page);
