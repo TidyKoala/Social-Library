@@ -47,12 +47,18 @@
                         <a href="{{ path('manga_show', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">{% trans %}manga_details{% endtrans %}</a>
                     </li>
                     {% if is_granted('ROLE_ADMIN') %}
+                        {% if entity.isOwner(app.user) %}
                     <li>
                         <a href="{{ path('manga_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">{% trans %}manga_edit{% endtrans %}</a>
                     </li>
                     <li>
+                        <a href="{{ path('manga_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">{% trans %}manga_delete{% endtrans %}</a>
+                    </li>
+                        {% else %}
+                    <li>
                         <a href="{{ path('manga_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">{% trans %}manga_own{% endtrans %}</a>
                     </li>
+                        {% endif %}
                     {% endif %}
                 </ul>
             </td>
