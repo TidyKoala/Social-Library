@@ -45,6 +45,14 @@ interface ObjectInterface
     public function removeOwner(User $owner);
 
     /**
+     * Returns TRUE if user is owner of object
+     *
+     * @param Application\Sonata\UserBundle\User $owner
+     * @return boolean 
+     */
+    public function isOwner(User $owner);
+
+    /**
      * Set name
      *
      * @param string $name

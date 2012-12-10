@@ -103,6 +103,14 @@ abstract class Object implements ObjectInterface
     /**
      * {@inheritdoc}
      */
+    public function isOwner(User $owner) 
+    {
+        return $this->owners->contains($owner);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function setName($name) 
     {
     	$this->name = $name;
