@@ -15,9 +15,10 @@ class MangaRepository extends EntityRepository
     public function findAllPaginated($paginator, $page)
     {
         $query = $this->getEntityManager()
-            ->createQuery('SELECT m, s, c FROM SocialLibraryReadableMediaMangaBundle:Manga m
+            ->createQuery('SELECT m, s, c, o FROM SocialLibraryReadableMediaMangaBundle:Manga m
                     JOIN m.serie s
-                    JOIN m.creators c');
+                    JOIN m.creators c
+                    JOIN m.owners o');
         
         try {
             return $paginator->paginate($query, $page);
@@ -29,9 +30,10 @@ class MangaRepository extends EntityRepository
     public function findManga($id, $nameSlug)
     {
         $query = $this->getEntityManager()
-            ->createQuery('SELECT m, s, c FROM SocialLibraryReadableMediaMangaBundle:Manga m
+            ->createQuery('SELECT m, s, c, o FROM SocialLibraryReadableMediaMangaBundle:Manga m
                     JOIN m.serie s
                     JOIN m.creators c
+                    JOIN m.owners o
                     WHERE m.id = :id AND m.nameSlug = :nameSlug')
             ->setParameter('id', $id)
             ->setParameter('nameSlug', $nameSlug);
