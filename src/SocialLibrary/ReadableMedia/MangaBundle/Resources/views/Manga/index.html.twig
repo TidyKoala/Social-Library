@@ -72,6 +72,10 @@
     </tbody>
 </table>
 
+<div class="pagination">
+    {{ entities.render()|raw }}
+</div>
+
 {% if is_granted('ROLE_ADMIN') %}
 <ul>
     <li>
