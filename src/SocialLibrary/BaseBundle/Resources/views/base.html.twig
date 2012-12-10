@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Social Library{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('bundles/sociallibrarybase/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/sociallibrarybase/css/fontello.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/sociallibrarybase/css/animation.css') }}"><!--[if IE 7]>
+        <link rel="stylesheet" href="{{ asset('bundles/sociallibrarybase/css/fontello-ie7.css') }}"><![endif]-->
+        <link rel="stylesheet" href="{{ asset('bundles/sociallibrarybase/css/style.css') }}">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div id="main_menu">
+                {% block mainMenu %}{% endblock %}
+            </div>
+            <div id="content"> 
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+        <script src="{{ asset('bundles/sociallibrarybase/js/jquery-1.8.3.min.js') }}"></script>
+        <script src="{{ asset('bundles/sociallibrarybase/js/bootstrap.min.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

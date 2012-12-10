@@ -1,12 +1,19 @@
-<h1>Manga</h1>
+{% extends 'SocialLibraryBaseBundle::base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - {% trans %}manga_section_title{% endtrans %} - {{ entity.volume ~ '/' ~ entity.name ~ '/' ~ entity.serie }}
+{% endblock %}
+
+{% block body %}
+<h1>{{ entity.volume ~ ' - ' ~ entity.name ~ ' - ' ~ entity.serie }}</h1>
 
 {% for flashMessage in app.session.flashbag.get('success') %}
-    <div class="flash-success">
+    <div class="alert alert-success">
         {{ flashMessage }}
     </div>
 {% endfor %}
 
-<table class="record_properties">
+<table class="record_properties table table-striped table-bordered">
     <tbody>
         <tr>
             <th>{% trans %}manga_header_volume{% endtrans %}</th>
@@ -46,27 +53,29 @@
 <ul class="record_actions">
     <li>
         <a href="{{ path('manga') }}">
-            {% trans %}manga_back_list{% endtrans %}
+            <i class="icon-back"></i> {% trans %}manga_back_list{% endtrans %}
         </a>
     </li>
     {% if is_granted('ROLE_ADMIN') %}
             {% if entity.isOwner(app.user) %}
     <li>
         <a href="{{ path('manga_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
-            {% trans %}manga_edit{% endtrans %}
+            <i class="icon-pencil"></i> {% trans %}manga_edit{% endtrans %}
         </a>
     </li>
     <li>
         <a href="{{ path('manga_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
-            {% trans %}manga_delete{% endtrans %}
+            <i class="icon-logout"></i> {% trans %}manga_delete{% endtrans %}
         </a>
     </li>
             {% else %}
     <li>
         <a href="{{ path('manga_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
-            {% trans %}manga_own{% endtrans %}
+            <i class="icon-login"></i> {% trans %}manga_own{% endtrans %}
         </a>
     </li>
             {% endif %}
     {% endif %}
 </ul>
+
+{% endblock %}

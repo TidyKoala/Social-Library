@@ -1,58 +1,81 @@
-<h1>Manga edit</h1>
+{% extends 'SocialLibraryBaseBundle::base.html.twig' %}
 
-<edit_form action="{{ path('manga_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
-    <div>
-        {{ form_label(edit_form.name) }}
-        {{ form_widget(edit_form.name) }}
-        {{ form_errors(edit_form.name) }}
+{% block title %}
+    {{ parent() }} - {% trans %}manga_section_title{% endtrans %} - {% trans %}manga_update_title{% endtrans %} {{ entity.volume ~ '/' ~ entity.name ~ '/' ~ entity.serie }}
+{% endblock %}
+
+{% block body %}
+<h1>{{ entity.volume ~ ' - ' ~ entity.name ~ ' - ' ~ entity.serie }}</h1>
+
+<form action="{{ path('manga_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }} class="form-horizontal">
+    <div class="control-group">
+        {{ form_label(edit_form.name, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
+        <div class="controls">
+            {{ form_widget(edit_form.name) }}
+            {{ form_errors(edit_form.name) }}
+        </div>
     </div>
-    <div>
-        {{ form_label(edit_form.volume) }}
-        {{ form_widget(edit_form.volume) }}
-        {{ form_errors(edit_form.volume) }}
+    <div class="control-group">
+        {{ form_label(edit_form.volume, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
+        <div class="controls">
+            {{ form_widget(edit_form.volume) }}
+            {{ form_errors(edit_form.volume) }}
+        </div>
     </div>
-    <div>
-        {{ form_label(edit_form.serie) }}
-        {{ form_widget(edit_form.serie) }}
-        {{ form_errors(edit_form.serie) }}
+    <div class="control-group">
+        {{ form_label(edit_form.serie, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
+        <div class="controls">
+            {{ form_widget(edit_form.serie) }}
+            {{ form_errors(edit_form.serie) }}
+        </div>
     </div>
-    <div>
-        {{ form_label(edit_form.creators) }}
-        {{ form_widget(edit_form.creators) }}
-        {{ form_errors(edit_form.creators) }}
+    <div class="control-group">
+        {{ form_label(edit_form.creators, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
+        <div class="controls">
+            {{ form_widget(edit_form.creators) }}
+            {{ form_errors(edit_form.creators) }}
+        </div>
     </div>
-    <div>
-        {{ form_label(edit_form.illustrators) }}
-        {{ form_widget(edit_form.illustrators) }}
-        {{ form_errors(edit_form.illustrators) }}
+    <div class="control-group">
+        {{ form_label(edit_form.illustrators, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
+        <div class="controls">
+            {{ form_widget(edit_form.illustrators) }}
+            {{ form_errors(edit_form.illustrators) }}
+        </div>
     </div>
-    <div>
-        {{ form_label(edit_form.language) }}
-        {{ form_widget(edit_form.language) }}
-        {{ form_errors(edit_form.language) }}
+    <div class="control-group">
+        {{ form_label(edit_form.language, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
+        <div class="controls">
+            {{ form_widget(edit_form.language) }}
+            {{ form_errors(edit_form.language) }}
+        </div>
     </div>
-    <div>
-        {{ form_label(edit_form.isbn10) }}
-        {{ form_widget(edit_form.isbn10) }}
-        {{ form_errors(edit_form.isbn10) }}
+    <div class="control-group">
+        {{ form_label(edit_form.isbn10, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
+        <div class="controls">
+            {{ form_widget(edit_form.isbn10) }}
+            {{ form_errors(edit_form.isbn10) }}
+        </div>
     </div>
-    <div>
-        {{ form_label(edit_form.isbn13) }}
-        {{ form_widget(edit_form.isbn13) }}
-        {{ form_errors(edit_form.isbn13) }}
+    <div class="control-group">
+        {{ form_label(edit_form.isbn13, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
+        <div class="controls">
+            {{ form_widget(edit_form.isbn13) }}
+            {{ form_errors(edit_form.isbn13) }}
+        </div>
     </div>
     {{ form_rest(edit_form) }}
-    <div>
-        <button type="submit">
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">
             {% trans %}manga_edit{% endtrans %}
         </button>
     </div>
-</edit_form>
+</form>
 
 <ul class="record_actions">
     <li>
         <a href="{{ path('manga') }}">
-            {% trans %}manga_back_list{% endtrans %}
+            <i class="icon-back"></i> {% trans %}manga_back_list{% endtrans %}
         </a>
     </li>
     <li>
@@ -61,3 +84,5 @@
         </a>
     </li>
 </ul>
+
+{% endblock %}
