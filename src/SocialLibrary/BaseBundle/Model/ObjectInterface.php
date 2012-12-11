@@ -81,6 +81,56 @@ interface ObjectInterface
     public function getNameSlug();
     
     /**
+     * Set filename of the picture
+     * 
+     * @param string $picture
+     * @return ObjectInterface
+     */
+    public function setPicture($picture);
+    
+    /**
+     * Returns filename of the picture
+     * 
+     * @return string
+     */
+    public function getPicture();
+    
+    /**
+     * Set the file object
+     * 
+     * @return ObjectInterface
+     */
+    public function setPictureFile($pictureFile);
+    
+    /**
+     * Returns the file object
+     * 
+     * @return string
+     */
+    public function getPictureFile();
+    
+    /**
+     * Returns the path of the picture relative to the web directory
+     * 
+     * @return string
+     */
+    public function getWebPicturePath();
+    
+    /**
+     * Returns the path of the picture relative to the root directory
+     * 
+     * @return string
+     */
+    public function getRootPicturePath();
+    
+    /**
+     * Uploads the picture
+     * 
+     * @return ObjectInterface
+     */
+    public function upload();
+    
+    /**
      * Set one or more creators
      * 
      * @param ArrayCollection $creators

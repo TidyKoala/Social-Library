@@ -8,6 +8,7 @@ use SocialLibrary\BaseBundle\Model\ObjectCreatorInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * SocialLibrary\BaseBundle\Model\Object
@@ -37,6 +38,18 @@ abstract class Object implements ObjectInterface
 	 * @var string nameSlug
 	 */
 	protected $nameSlug;
+	
+	/**
+	 * @ORM\Column(type="string", nullable=true, unique=true)
+	 *
+	 * @var string picture
+	 */
+	protected $picture;
+	
+	/**
+	 * @var File pictureFile
+	 */
+	protected $pictureFile;
 	
 	/**
 	 * @var ArrayCollection creators
@@ -142,6 +155,77 @@ abstract class Object implements ObjectInterface
     public function getNameSlug() 
     {
     	return $this->nameSlug;
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+        
+        return $this;
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function setPictureFile($pictureFile)
+    {
+        $this->pictureFile = $pictureFile;
+        
+        return $this;
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function getPictureFile()
+    {
+        return $this->pictureFile;
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function getWebPicturePath()
+    {
+        return 'uploads/';
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function upload()
+    {
+        if( $this->pictureFile === null) {
+            return $this;
+        }
+        $file = sha1(
+            $this->pictureFile->getClientOriginalName() . uniqid(
+                mt_rand(),
+                true
+            )
+        );
+        $file .= '.' . $this->pictureFile->guessExtension();
+        $this->pictureFile->move(
+            $this->getRootPicturePath(),
+            $file
+        );
+        
+        $this->picture = $file;
+        
+        $this->pictureFile = null;
+        
+        return $this;
     }
     
     /**
