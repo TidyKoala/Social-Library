@@ -13,6 +13,10 @@ class MangaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('pictureFile', 'file', array(
+                    'required' => false,
+                    'label' => 'manga_label_cover',
+                ))
             ->add('name', 'text', array(
                     'required' => true,
                     'label' => 'manga_label_name',

@@ -95,6 +95,7 @@ class MangaController extends Controller
         $entity->addOwner($this->get('security.context')->getToken()->getUser());
 
         if ($form->isValid()) {
+            $entity->upload();
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
@@ -177,6 +178,7 @@ class MangaController extends Controller
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
+            $entity->upload();
             $em->persist($entity);
             $em->flush();
             
