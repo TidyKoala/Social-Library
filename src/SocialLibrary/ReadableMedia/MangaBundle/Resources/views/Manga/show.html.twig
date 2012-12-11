@@ -18,6 +18,11 @@
         <tr>
             <th>{% trans %}manga_header_volume{% endtrans %}</th>
             <td>{{ entity.volume }}</td>
+            {% if entity.picture is not empty %}
+            <td rowspan="9">
+                <img src="{{ asset(entity.getWebPicturePath ~ entity.picture) }}"/>
+            </td>
+            {% endif %}
         </tr>
         <tr>
             <th>{% trans %}manga_header_name{% endtrans %}</th>
@@ -46,6 +51,10 @@
         <tr>
             <th>{% trans %}manga_header_isbn13{% endtrans %}</th>
             <td>{{ entity.isbn13 }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}manga_header_owners{% endtrans %}</th>
+            <td>{% transchoice entity.owners|length with { '%number%' : entity.owners|length } %}manga_owned_by{% endtranschoice %}</td>
         </tr>
     </tbody>
 </table>
