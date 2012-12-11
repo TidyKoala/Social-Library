@@ -4,10 +4,31 @@
     {{ parent() }} - {% trans %}manga_section_title{% endtrans %} - {% trans %}manga_update_title{% endtrans %} {{ entity.volume ~ '/' ~ entity.name ~ '/' ~ entity.serie }}
 {% endblock %}
 
+{% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('bundles/sociallibrarybase/css/bootstrap-jasny.min.css') }}">
+{% endblock %}
+        
 {% block body %}
 <h1>{{ entity.volume ~ ' - ' ~ entity.name ~ ' - ' ~ entity.serie }}</h1>
 
 <form action="{{ path('manga_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }} class="form-horizontal">
+    <div class="control-group">
+        {{ form_label(edit_form.pictureFile, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
+        <div class="controls">
+            <div class="fileupload {% if entity.picture is empty %}fileupload-new{% else %}fileupload-exists{% endif %}" data-provides="fileupload">
+                <div class="fileupload-preview thumbnail" style="width: 150px; height: 150px;">{% if entity.picture is not empty %}<img src="{{ asset(entity.getWebPicturePath ~ entity.picture) }}"/>{% endif %}</div>
+                <div>
+                    <span class="btn btn-file">
+                        <span class="fileupload-new">Select image</span>
+                        <span class="fileupload-exists">Change</span>
+                        {{ form_widget(edit_form.pictureFile) }}
+                    </span>
+                    <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                </div>
+            </div>
+            {{ form_errors(edit_form.pictureFile) }}
+        </div>
+    </div>
     <div class="control-group">
         {{ form_label(edit_form.name, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
@@ -85,4 +106,8 @@
     </li>
 </ul>
 
+{% endblock %}
+
+{% block javascripts %}
+        <script src="{{ asset('bundles/sociallibrarybase/js/bootstrap-jasny.min.js') }}"></script>
 {% endblock %}
