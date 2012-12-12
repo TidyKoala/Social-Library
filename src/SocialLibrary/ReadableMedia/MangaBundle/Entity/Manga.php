@@ -95,8 +95,6 @@ class Manga extends Object
 	 * @Assert\Length(
 	 *     min="10",
 	 *     max="10",
-	 *     minMessage="isbn10_min_length",
-	 *     minMessage="isbn10_max_length",
 	 *     exactMessage="isbn10_exact_length"
 	 * )
 	 * 
@@ -109,8 +107,6 @@ class Manga extends Object
 	 * @Assert\Length(
 	 *     min="13",
 	 *     max="13",
-	 *     minMessage="isbn13_min_length",
-	 *     minMessage="isbn13_max_length",
 	 *     exactMessage="isbn13_exact_length"
 	 * )
 	 * 
