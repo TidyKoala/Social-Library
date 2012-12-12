@@ -12,7 +12,7 @@
 <h1>{{ entity.volume ~ ' - ' ~ entity.name ~ ' - ' ~ entity.serie }}</h1>
 
 <form action="{{ path('manga_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }} class="form-horizontal">
-    <div class="control-group">
+    <div class="control-group{% if form_errors(edit_form.pictureFile) is not empty %} error{% endif %}">
         {{ form_label(edit_form.pictureFile, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             <div class="fileupload {% if entity.picture is empty %}fileupload-new{% else %}fileupload-exists{% endif %}" data-provides="fileupload">
@@ -26,63 +26,81 @@
                     <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
                 </div>
             </div>
-            {{ form_errors(edit_form.pictureFile) }}
+            <span class="help-inline">
+                {{ form_errors(edit_form.pictureFile) }}
+            </span>
         </div>
     </div>
-    <div class="control-group">
+    <div class="control-group{% if form_errors(edit_form.name) is not empty %} error{% endif %}">
         {{ form_label(edit_form.name, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(edit_form.name) }}
-            {{ form_errors(edit_form.name) }}
+            <span class="help-inline">
+                {{ form_errors(edit_form.name) }}
+            </span>
         </div>
     </div>
-    <div class="control-group">
+    <div class="control-group{% if form_errors(edit_form.volume) is not empty %} error{% endif %}">
         {{ form_label(edit_form.volume, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(edit_form.volume) }}
-            {{ form_errors(edit_form.volume) }}
+            <span class="help-inline">
+                {{ form_errors(edit_form.volume) }}
+            </span>
         </div>
     </div>
-    <div class="control-group">
+    <div class="control-group{% if form_errors(edit_form.serie) is not empty %} error{% endif %}">
         {{ form_label(edit_form.serie, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(edit_form.serie) }}
-            {{ form_errors(edit_form.serie) }}
+            <span class="help-inline">
+                {{ form_errors(edit_form.serie) }}
+            </span>
         </div>
     </div>
-    <div class="control-group">
+    <div class="control-group{% if form_errors(edit_form.creators) is not empty %} error{% endif %}">
         {{ form_label(edit_form.creators, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(edit_form.creators) }}
-            {{ form_errors(edit_form.creators) }}
+            <span class="help-inline">
+                {{ form_errors(edit_form.creators) }}
+            </span>
         </div>
     </div>
-    <div class="control-group">
+    <div class="control-group{% if form_errors(edit_form.illustrators) is not empty %} error{% endif %}">
         {{ form_label(edit_form.illustrators, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(edit_form.illustrators) }}
-            {{ form_errors(edit_form.illustrators) }}
+            <span class="help-inline">
+                {{ form_errors(edit_form.illustrators) }}
+            </span>
         </div>
     </div>
-    <div class="control-group">
+    <div class="control-group{% if form_errors(edit_form.language) is not empty %} error{% endif %}">
         {{ form_label(edit_form.language, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(edit_form.language) }}
-            {{ form_errors(edit_form.language) }}
+            <span class="help-inline">
+                {{ form_errors(edit_form.language) }}
+            </span>
         </div>
     </div>
-    <div class="control-group">
+    <div class="control-group{% if form_errors(edit_form.isbn10) is not empty %} error{% endif %}">
         {{ form_label(edit_form.isbn10, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(edit_form.isbn10) }}
-            {{ form_errors(edit_form.isbn10) }}
+            <span class="help-inline">
+                {{ form_errors(edit_form.isbn10) }}
+            </span>
         </div>
     </div>
-    <div class="control-group">
+    <div class="control-group{% if form_errors(edit_form.isbn13) is not empty %} error{% endif %}">
         {{ form_label(edit_form.isbn13, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(edit_form.isbn13) }}
-            {{ form_errors(edit_form.isbn13) }}
+            <span class="help-inline">
+                {{ form_errors(edit_form.isbn13) }}
+            </span>
         </div>
     </div>
     {{ form_rest(edit_form) }}
