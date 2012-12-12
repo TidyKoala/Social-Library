@@ -9,6 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * SocialLibrary\BaseBundle\Model\Object
@@ -19,6 +20,7 @@ abstract class Object implements ObjectInterface
 {
 	/**
 	 * @ORM\Column(type="string")
+	 * @Assert\NotNull(message="owners_not_null")
 	 * 
 	 * @var ArrayCollection owners
 	 */
@@ -26,6 +28,11 @@ abstract class Object implements ObjectInterface
 	
 	/**
 	 * @ORM\Column(type="string")
+	 * @Assert\NotBlank(message="name_not_blank")
+	 * @Assert\MinLength(
+	 *     limit=2,
+	 *     message="name_min_length"
+	 * )
 	 *
 	 * @var string name
 	 */
@@ -47,6 +54,12 @@ abstract class Object implements ObjectInterface
 	protected $picture;
 	
 	/**
+	 * @Assert\Image(
+	 *     uploadErrorMessage="pictureFile_upload_error",
+	 *     uploadIniSizeErrorMessage="pictureFile_ini_size_error",
+	 *     mimeTypesMessage="pictureFile_mime_type_error"
+	 * )
+	 * 
 	 * @var File pictureFile
 	 */
 	protected $pictureFile;

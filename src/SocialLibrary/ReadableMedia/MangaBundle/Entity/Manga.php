@@ -7,6 +7,7 @@ use SocialLibrary\ReadableMedia\MangaBundle\Entity\Serie;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga
@@ -33,7 +34,7 @@ class Manga extends Object
      *      inverseJoinColumns={@ORM\JoinColumn(name="owner_id", referencedColumnName="id")}
      *      )
 	 *
-	 * @var ArrayCollection creators
+	 * @var ArrayCollection owners
 	 */
 	protected $owners;
 	
@@ -43,7 +44,8 @@ class Manga extends Object
      *      joinColumns={@ORM\JoinColumn(name="object_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="creator_id", referencedColumnName="id")}
      *      )
-	 *
+	 * @Assert\NotNull(message="creators_not_null")
+	 * 
 	 * @var ArrayCollection creators
 	 */
 	protected $creators;
@@ -54,6 +56,7 @@ class Manga extends Object
 	 *      joinColumns={@ORM\JoinColumn(name="object_id", referencedColumnName="id")},
 	 *      inverseJoinColumns={@ORM\JoinColumn(name="illustrator_id", referencedColumnName="id")}
 	 *      )
+	 * @Assert\NotNull(message="illustrators_not_null")
 	 *
 	 * @var ArrayCollection illustrators
 	 */
@@ -61,6 +64,12 @@ class Manga extends Object
 	
 	/**
 	 * @ORM\Column(type="integer")
+	 * @Assert\NotBlank(message="volume_not_blank")
+	 * @Assert\Min(
+	 *     limit="1",
+	 *     message="volume_under_min",
+	 *     invalidMessage="volume_invalid_message"
+	 * )
 	 * 
 	 * @var integer volume
 	 */
@@ -69,6 +78,7 @@ class Manga extends Object
 	/**
 	 * @ORM\ManyToOne(targetEntity="SocialLibrary\ReadableMedia\MangaBundle\Entity\Serie", inversedBy="volumes")
 	 * @ORM\JoinColumn(name="serie_id", referencedColumnName="id")
+	 * @Assert\NotNull(message="serie_not_null")
 	 * 
 	 * @var ArrayCollection serie
 	 */
@@ -81,11 +91,29 @@ class Manga extends Object
 	
 	/**
 	 * @ORM\Column(type="string", length=11, unique=true, nullable=true)
+	 * @Assert\Length(
+	 *     min="10",
+	 *     max="10",
+	 *     minMessage="isbn10_min_length",
+	 *     minMessage="isbn10_max_length",
+	 *     exactMessage="isbn10_exact_length"
+	 * )
+	 * 
+	 * @var string isbn10
 	 */
 	protected $isbn10;
 	
 	/**
 	 * @ORM\Column(type="string", length=14, unique=true, nullable=true)
+	 * @Assert\Length(
+	 *     min="13",
+	 *     max="13",
+	 *     minMessage="isbn13_min_length",
+	 *     minMessage="isbn13_max_length",
+	 *     exactMessage="isbn13_exact_length"
+	 * )
+	 * 
+	 * @var string isbn13
 	 */
 	protected $isbn13;
 	
