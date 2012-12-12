@@ -16,7 +16,7 @@
         {{ form_label(edit_form.pictureFile, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             <div class="fileupload {% if entity.picture is empty %}fileupload-new{% else %}fileupload-exists{% endif %}" data-provides="fileupload">
-                <div class="fileupload-preview thumbnail" style="width: 150px; height: 150px;">{% if entity.picture is not empty %}<img src="{{ asset(entity.getWebPicturePath ~ entity.picture) }}"/>{% endif %}</div>
+                <div class="fileupload-preview thumbnail">{% if entity.picture is not empty %}<img src="{{ asset(entity.getWebPicturePath ~ entity.picture) }}"/>{% endif %}</div>
                 <div>
                     <span class="btn btn-file">
                         <span class="fileupload-new">Select image</span>
@@ -35,6 +35,9 @@
         {{ form_label(edit_form.name, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(edit_form.name) }}
+            <a href="#" data-placement="top" rel="tooltip" title="{% trans %}placeholder_name_manga{% endtrans %}" class="tooltip-icon">
+                <i class="icon-help-circled"></i>
+            </a>
             <span class="help-inline">
                 {{ form_errors(edit_form.name) }}
             </span>
@@ -44,6 +47,9 @@
         {{ form_label(edit_form.volume, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(edit_form.volume) }}
+            <a href="#" data-placement="top" rel="tooltip" title="{% trans %}placeholder_volume_manga{% endtrans %}" class="tooltip-icon">
+                <i class="icon-help-circled"></i>
+            </a>
             <span class="help-inline">
                 {{ form_errors(edit_form.volume) }}
             </span>
@@ -89,6 +95,9 @@
         {{ form_label(edit_form.isbn10, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(edit_form.isbn10) }}
+            <a href="#" data-placement="top" rel="tooltip" title="{% trans %}placeholder_isbn10_manga{% endtrans %}" class="tooltip-icon">
+                <i class="icon-help-circled"></i>
+            </a>
             <span class="help-inline">
                 {{ form_errors(edit_form.isbn10) }}
             </span>
@@ -98,6 +107,9 @@
         {{ form_label(edit_form.isbn13, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(edit_form.isbn13) }}
+            <a href="#" data-placement="top" rel="tooltip" title="{% trans %}placeholder_isbn13_manga{% endtrans %}" class="tooltip-icon">
+                <i class="icon-help-circled"></i>
+            </a>
             <span class="help-inline">
                 {{ form_errors(edit_form.isbn13) }}
             </span>

@@ -34,7 +34,10 @@
     <div class="control-group{% if form_errors(form.name) is not empty %} error{% endif %}">
         {{ form_label(form.name, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
-            {{ form_widget(form.name) }}
+            {{ form_widget(form.name, { 'attr' : { 'placeholder' : 'placeholder_name_manga' } }) }}
+            <a href="#" data-placement="top" rel="tooltip" title="{% trans %}placeholder_name_manga{% endtrans %}" class="tooltip-icon">
+                <i class="icon-help-circled"></i>
+            </a>
             <span class="help-inline">
                 {{ form_errors(form.name) }}
             </span>
@@ -43,7 +46,10 @@
     <div class="control-group{% if form_errors(form.volume) is not empty %} error{% endif %}">
         {{ form_label(form.volume, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
-            {{ form_widget(form.volume) }}
+            {{ form_widget(form.volume, { 'attr' : { 'placeholder' : 'placeholder_volume_manga' } }) }}
+            <a href="#" data-placement="top" rel="tooltip" title="{% trans %}placeholder_volume_manga{% endtrans %}" class="tooltip-icon">
+                <i class="icon-help-circled"></i>
+            </a>
             <span class="help-inline">
                 {{ form_errors(form.volume) }}
             </span>
@@ -88,7 +94,10 @@
     <div class="control-group{% if form_errors(form.isbn10) is not empty %} error{% endif %}">
         {{ form_label(form.isbn10, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
-            {{ form_widget(form.isbn10) }}
+            {{ form_widget(form.isbn10, { 'attr' : { 'placeholder' : 'placeholder_isbn10_manga' } }) }}
+            <a href="#" data-placement="top" rel="tooltip" title="{% trans %}placeholder_isbn10_manga{% endtrans %}" class="tooltip-icon">
+                <i class="icon-help-circled"></i>
+            </a>
             <span class="help-inline">
                 {{ form_errors(form.isbn10) }}
             </span>
@@ -97,7 +106,10 @@
     <div class="control-group{% if form_errors(form.isbn13) is not empty %} error{% endif %}">
         {{ form_label(form.isbn13, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
-            {{ form_widget(form.isbn13) }}
+            {{ form_widget(form.isbn13, { 'attr' : { 'placeholder' : 'placeholder_isbn13_manga' } }) }}
+            <a href="#" data-placement="top" rel="tooltip" title="{% trans %}placeholder_isbn13_manga{% endtrans %}" class="tooltip-icon">
+                <i class="icon-help-circled"></i>
+            </a>
             <span class="help-inline">
                 {{ form_errors(form.isbn13) }}
             </span>
@@ -123,4 +135,9 @@
 
 {% block javascripts %}
         <script src="{{ asset('bundles/sociallibrarybase/js/bootstrap-jasny.min.js') }}"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.tooltip-icon').tooltip();
+            });
+        </script>
 {% endblock %}

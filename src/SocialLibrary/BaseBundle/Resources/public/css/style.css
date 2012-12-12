@@ -9,3 +9,9 @@
 {
     color: #333333;
 }
+
+.fileupload-preview.thumbnail
+{
+	height: 150px;
+	width: 150px;
+}
