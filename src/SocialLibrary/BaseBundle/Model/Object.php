@@ -29,9 +29,9 @@ abstract class Object implements ObjectInterface
 	/**
 	 * @ORM\Column(type="string")
 	 * @Assert\NotBlank(message="name_not_blank")
-	 * @Assert\MinLength(
-	 *     limit=2,
-	 *     message="name_min_length"
+	 * @Assert\Length(
+	 *     min=2,
+	 *     minMessage="name_min_length"
 	 * )
 	 *
 	 * @var string name
