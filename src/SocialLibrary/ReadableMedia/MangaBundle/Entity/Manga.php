@@ -86,6 +86,7 @@ class Manga extends Object
 	
 	/**
 	 * @ORM\Column(type="string", length=8, nullable=true)
+	 * @Assert\Language(message="language_invalid")
 	 */
 	protected $language;
 	
