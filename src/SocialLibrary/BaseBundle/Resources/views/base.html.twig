@@ -13,6 +13,30 @@
     <body>
         <div class="container-fluid">
             <div id="main_menu">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="container">
+                            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+                            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </a>
+                            <!-- Be sure to leave the brand out there if you want it shown -->
+                            <a class="brand" href="#">Social Library</a>
+                            <!-- Everything you want hidden at 940px or less, place within here -->
+                            <div class="nav-collapse collapse">
+                                <ul class="nav pull-right">
+                                    <li>
+                                        <a href="{{ path('fos_user_security_login') }}">{% trans %}login_link{% endtrans %}</a>
+                                    </li>
+                                </ul>
+                            <!-- .nav, .navbar-search, .navbar-form, etc -->
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
                 {% block mainMenu %}{% endblock %}
             </div>
             <div id="content"> 
