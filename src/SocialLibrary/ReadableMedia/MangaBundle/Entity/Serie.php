@@ -6,6 +6,7 @@ use SocialLibrary\BaseBundle\Model\Object;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * SocialLibrary\ReadableMedia\MangaBundle\Entity\Serie
@@ -26,6 +27,11 @@ class Serie
 	
 	/**
 	 * @ORM\Column(type="string")
+	 * @Assert\NotBlank(message="serie_name_not_blank")
+	 * @Assert\Length(
+	 *     min="2",
+	 *     minMessage="serie_name_min_length"
+	 * )
 	 *
 	 * @var string name
 	 */
