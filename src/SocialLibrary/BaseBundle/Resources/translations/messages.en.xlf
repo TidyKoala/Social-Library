@@ -7,18 +7,22 @@
         <target>Login</target>
       </trans-unit>
       <trans-unit id="2">
+        <source>create_add</source>
+        <target>Add</target>
+      </trans-unit>
+      <trans-unit id="3">
         <source>placeholder_firstname_creator</source>
         <target>Firstname</target>
       </trans-unit>
-      <trans-unit id="3">
+      <trans-unit id="4">
         <source>placeholder_lastname_creator</source>
         <target>Lastname</target>
       </trans-unit>
-      <trans-unit id="4">
+      <trans-unit id="5">
         <source>object_creator_label_firstname</source>
         <target>Firstname</target>
       </trans-unit>
-      <trans-unit id="5">
+      <trans-unit id="6">
         <source>object_creator_label_lastname</source>
         <target>Lastname</target>
       </trans-unit>
