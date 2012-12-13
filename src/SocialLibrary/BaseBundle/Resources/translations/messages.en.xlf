@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="1">
+        <source>login_link</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>placeholder_firstname_creator</source>
+        <target>Firstname</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>placeholder_lastname_creator</source>
+        <target>Lastname</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>object_creator_label_firstname</source>
+        <target>Firstname</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>object_creator_label_lastname</source>
+        <target>Lastname</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

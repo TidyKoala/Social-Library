@@ -3,112 +3,168 @@
   <file source-language="en" datatype="plaintext" original="file.ext">
     <body>
       <trans-unit id="1">
-        <source>manga_edit</source>
-        <target>Edit</target>
-      </trans-unit>
-      <trans-unit id="2">
-        <source>manga_back_list</source>
-        <target>Return to library</target>
-      </trans-unit>
-      <trans-unit id="3">
-        <source>manga_delete</source>
-        <target>I don't have it anymore</target>
-      </trans-unit>
-      <trans-unit id="4">
-        <source>manga_header_volume</source>
-        <target>Volume</target>
-      </trans-unit>
-      <trans-unit id="5">
-        <source>manga_header_name</source>
-        <target>Name</target>
-      </trans-unit>
-      <trans-unit id="6">
-        <source>manga_header_serie</source>
-        <target>Serie</target>
-      </trans-unit>
-      <trans-unit id="7">
-        <source>manga_header_authors</source>
-        <target>Authors</target>
-      </trans-unit>
-      <trans-unit id="8">
-        <source>manga_header_illustrators</source>
-        <target>Illustrators</target>
-      </trans-unit>
-      <trans-unit id="9">
-        <source>manga_header_language</source>
-        <target>Language</target>
-      </trans-unit>
-      <trans-unit id="10">
-        <source>manga_header_isbn10</source>
-        <target>ISBN 10</target>
-      </trans-unit>
-      <trans-unit id="11">
-        <source>manga_header_isbn13</source>
-        <target>ISBN 13</target>
-      </trans-unit>
-      <trans-unit id="12">
-        <source>manga_own</source>
-        <target>I own this manga too</target>
-      </trans-unit>
-      <trans-unit id="13">
-        <source>manga_details</source>
-        <target>Details</target>
-      </trans-unit>
-      <trans-unit id="14">
-        <source>manga_add</source>
-        <target>Add a manga to my library</target>
-      </trans-unit>
-      <trans-unit id="15">
         <source>manga_create</source>
         <target>Add to my library</target>
       </trans-unit>
+      <trans-unit id="2">
+        <source>manga_section_title</source>
+        <target>Manga section</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>manga_update_title</source>
+        <target>Update of</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>placeholder_name_manga</source>
+        <target>If the volume has no name, enter the name of the serie</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>placeholder_volume_manga</source>
+        <target>If the manga is a one volume serie, it is still volume 1.</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>placeholder_isbn10_manga</source>
+        <target>ISBN-10 is made of 10 characters</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>placeholder_isbn13_manga</source>
+        <target>ISBN-13 is made of 13 characters</target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>manga_edit</source>
+        <target>Edit</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>manga_back_list</source>
+        <target>Return to library</target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>manga_delete</source>
+        <target>I don't have it anymore</target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>manga_header_volume</source>
+        <target>Volume</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>manga_header_name</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="13">
+        <source>manga_header_serie</source>
+        <target>Serie</target>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>manga_header_authors</source>
+        <target>Authors</target>
+      </trans-unit>
+      <trans-unit id="15">
+        <source>manga_header_illustrators</source>
+        <target>Illustrators</target>
+      </trans-unit>
       <trans-unit id="16">
+        <source>manga_header_language</source>
+        <target>Language</target>
+      </trans-unit>
+      <trans-unit id="17">
+        <source>manga_header_isbn10</source>
+        <target>ISBN 10</target>
+      </trans-unit>
+      <trans-unit id="18">
+        <source>manga_header_isbn13</source>
+        <target>ISBN 13</target>
+      </trans-unit>
+      <trans-unit id="19">
+        <source>manga_header_owners</source>
+        <target>Placed in libraries</target>
+      </trans-unit>
+      <trans-unit id="20">
+        <source>manga_owned_by</source>
+        <target>{0} Sadly, person has it in his library|{1} This manga is rare. There is only one person who owns it|[2,Inf] This manga is in %number% libraries</target>
+      </trans-unit>
+      <trans-unit id="21">
+        <source>manga_own</source>
+        <target>I own this manga too</target>
+      </trans-unit>
+      <trans-unit id="22">
+        <source>manga_details</source>
+        <target>Details</target>
+      </trans-unit>
+      <trans-unit id="23">
+        <source>manga_add</source>
+        <target>Add a manga to my library</target>
+      </trans-unit>
+      <trans-unit id="24">
+        <source>manga_add_title</source>
+        <target>Adding a new manga in my library</target>
+      </trans-unit>
+      <trans-unit id="25">
+        <source>placeholder_serie_manga</source>
+        <target>My serie is not known.</target>
+      </trans-unit>
+      <trans-unit id="26">
+        <source>placeholder_creators_manga</source>
+        <target>The author is not known yet.</target>
+      </trans-unit>
+      <trans-unit id="27">
+        <source>placeholder_illustrators_manga</source>
+        <target>The illustrator is not known yet.</target>
+      </trans-unit>
+      <trans-unit id="28">
         <source>manga_label_name</source>
         <target>Name</target>
       </trans-unit>
-      <trans-unit id="17">
+      <trans-unit id="29">
         <source>manga_label_volume</source>
         <target>Volume</target>
       </trans-unit>
-      <trans-unit id="18">
+      <trans-unit id="30">
         <source>manga_label_serie</source>
         <target>Serie</target>
       </trans-unit>
-      <trans-unit id="19">
+      <trans-unit id="31">
         <source>manga_label_creators</source>
         <target>Author(s)</target>
       </trans-unit>
-      <trans-unit id="20">
+      <trans-unit id="32">
         <source>manga_label_illustrators</source>
         <target>Illustrator(s)</target>
       </trans-unit>
-      <trans-unit id="21">
+      <trans-unit id="33">
         <source>manga_label_language</source>
         <target>Language</target>
       </trans-unit>
-      <trans-unit id="22">
+      <trans-unit id="34">
         <source>manga_label_isbn10</source>
         <target>ISBN 10</target>
       </trans-unit>
-      <trans-unit id="23">
+      <trans-unit id="35">
         <source>manga_label_isbn13</source>
         <target>ISBN 13</target>
       </trans-unit>
-      <trans-unit id="24">
+      <trans-unit id="36">
         <source>manga_added_library</source>
         <target>We are happy that you have now the manga "%manga_name%" in your library.</target>
       </trans-unit>
-      <trans-unit id="25">
+      <trans-unit id="37">
         <source>this_manga_added_library</source>
         <target>We are happy that you have now this manga in your library.</target>
       </trans-unit>
-      <trans-unit id="26">
+      <trans-unit id="38">
         <source>manga_removed_library</source>
         <target>The manga "%manga_name%" is no more part of your library.</target>
       </trans-unit>
-      <trans-unit id="27">
+      <trans-unit id="39">
         <source>manga_updated</source>
         <target>The manga "%manga_name%" has been successfully updated.</target>
+      </trans-unit>
+      <trans-unit id="40">
+        <source>serie_label_name</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="41">
+        <source>placeholder_name_serie</source>
+        <target>Name</target>
       </trans-unit>
     </body>
   </file>
