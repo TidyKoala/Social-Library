@@ -59,9 +59,13 @@
         {{ form_label(form.serie, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(form.serie) }}
+            <a href="#" data-request="{{ path('serie_ajax_new') }}" data-select="#sociallibrary_readablemedia_mangabundle_mangatype_serie" data-display="#serie-add-ajax" title="{% trans %}placeholder_volume_manga{% endtrans %}" class="add-ajax">
+                <i class="icon-list-add"></i>
+            </a>
             <span class="help-inline">
                 {{ form_errors(form.serie) }}
             </span>
+            <div id="serie-add-ajax"></div>
         </div>
     </div>
     <div class="control-group{% if form_errors(form.creators) is not empty %} error{% endif %}">
@@ -136,8 +140,50 @@
 {% block javascripts %}
         <script src="{{ asset('bundles/sociallibrarybase/js/bootstrap-jasny.min.js') }}"></script>
         <script type="text/javascript">
+            function ajaxFormSubmit(domObject, selectSelector)
+            {
+                var url_action = domObject.attr('action');
+                $.ajax({
+                    url: url_action,
+                    type: 'POST',
+                    data: domObject.serializeArray(),
+                    success: function(data) {
+                        if(data.code == 200) {
+                            $(selectSelector).append('<option value="' + data.id + '">' + data.name + '</option>');
+                            $(selectSelector).val(data.id);
+                        }
+                        else if(data.code == 400) {
+                            // TODO: display the form error message
+                            //alert(data.error);
+                        }
+                    },
+                    error: function(data) {
+                    }
+                });
+            }
+            
             $(document).ready(function() {
                 $('.tooltip-icon').tooltip();
+                $('.add-ajax').click(function() {
+                    var domObject = $(this);
+                    var url_post = domObject.attr('data-request');
+                    $.ajax({
+                        url: url_post,
+                        success: function(data) {
+                        	domObject.popover({
+                                html: true,
+                                content: data
+                            }).popover('show');
+                            $('.ajax-submit').submit(function() {
+                                ajaxFormSubmit( $(this), domObject.attr('data-select'));
+                            	domObject.popover('destroy');
+                            	
+                                return false;
+                            });
+                        }
+                    });
+                    return false;
+                });
             });
         </script>
 {% endblock %}
