@@ -59,19 +59,21 @@
         {{ form_label(form.serie, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(form.serie) }}
-            <a href="#" data-request="{{ path('serie_ajax_new') }}" data-select="#sociallibrary_readablemedia_mangabundle_mangatype_serie" data-display="#serie-add-ajax" title="{% trans %}placeholder_volume_manga{% endtrans %}" class="add-ajax">
+            <a href="#" data-request="{{ path('serie_ajax_new') }}" data-select="#sociallibrary_readablemedia_mangabundle_mangatype_serie" title="{% trans %}placeholder_volume_manga{% endtrans %}" class="add-ajax">
                 <i class="icon-list-add"></i>
             </a>
             <span class="help-inline">
                 {{ form_errors(form.serie) }}
             </span>
-            <div id="serie-add-ajax"></div>
         </div>
     </div>
     <div class="control-group{% if form_errors(form.creators) is not empty %} error{% endif %}">
         {{ form_label(form.creators, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
-            {{ form_widget(form.creators) }}
+            {{ form_widget(form.creators, { 'attr' : { 'class' : 'add-creator' } }) }}
+            <a href="#" data-request="{{ path('object_creator_ajax_new') }}" data-select=".add-creator" title="{% trans %}placeholder_creators_manga{% endtrans %}" class="add-ajax">
+                <i class="icon-list-add"></i>
+            </a>
             <span class="help-inline">
                 {{ form_errors(form.creators) }}
             </span>
@@ -80,7 +82,10 @@
     <div class="control-group{% if form_errors(form.illustrators) is not empty %} error{% endif %}">
         {{ form_label(form.illustrators, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
-            {{ form_widget(form.illustrators) }}
+            {{ form_widget(form.illustrators, { 'attr' : { 'class' : 'add-creator' } }) }}
+            <a href="#" data-request="{{ path('object_creator_ajax_new') }}" data-select=".add-creator" title="{% trans %}placeholder_illustrators_manga{% endtrans %}" class="add-ajax">
+                <i class="icon-list-add"></i>
+            </a>
             <span class="help-inline">
                 {{ form_errors(form.illustrators) }}
             </span>
@@ -164,6 +169,7 @@
             
             $(document).ready(function() {
                 $('.tooltip-icon').tooltip();
+                //$('.add-ajax').popover();
                 $('.add-ajax').click(function() {
                     var domObject = $(this);
                     var url_post = domObject.attr('data-request');
