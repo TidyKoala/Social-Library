@@ -1,9 +1,7 @@
 
 <form action="{{ path('object_creator_ajax_create') }}" method="post" {{ form_enctype(form) }} class="ajax-submit">
-    {{ form_label(form.firstname, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
     {{ form_widget(form.firstname, { 'attr' : { 'placeholder' : 'placeholder_firstname_creator' } }) }}
     {{ form_errors(form.firstname) }}
-    {{ form_label(form.lastname, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
     {{ form_widget(form.lastname, { 'attr' : { 'placeholder' : 'placeholder_lastname_creator' } }) }}
     {{ form_errors(form.lastname) }}
     {{ form_rest(form) }}

@@ -1,6 +1,5 @@
 
 <form action="{{ path('serie_ajax_create') }}" method="post" {{ form_enctype(form) }} class="ajax-submit">
-    {{ form_label(form.name, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
     {{ form_widget(form.name, { 'attr' : { 'placeholder' : 'placeholder_name_serie' } }) }}
     {{ form_errors(form.name) }}
     {{ form_rest(form) }}
