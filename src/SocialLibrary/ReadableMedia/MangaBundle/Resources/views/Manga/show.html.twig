@@ -68,7 +68,12 @@
             <i class="icon-back"></i> {% trans %}manga_back_list{% endtrans %}
         </a>
     </li>
-    {% if is_granted('ROLE_ADMIN') %}
+    {% if is_granted('ROLE_USER') %}
+    <li>
+        <a href="{{ path('manga') }}">
+            {% trans %}manga_back_owner{% endtrans %}
+        </a>
+    </li>
             {% if entity.isOwner(app.user) %}
     <li>
         <a href="{{ path('manga_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">

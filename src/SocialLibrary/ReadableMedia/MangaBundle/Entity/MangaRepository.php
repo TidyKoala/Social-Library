@@ -2,6 +2,7 @@
 
 namespace SocialLibrary\ReadableMedia\MangaBundle\Entity;
 
+use Application\Sonata\UserBundle\Entity\User;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -20,6 +21,23 @@ class MangaRepository extends EntityRepository
                     JOIN m.creators c
                     LEFT JOIN m.owners o
                     ORDER BY m.volume');
+        
+        try {
+            return $paginator->paginate($query, $page);
+        } catch (\Doctrine\ORM\NoResultException $e) {
+            return null;
+        }
+    }
+    public function findOwnerPaginated($paginator, $page, User $user)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery('SELECT m, s, c, o FROM SocialLibraryReadableMediaMangaBundle:Manga m
+                    JOIN m.serie s
+                    JOIN m.creators c
+                    LEFT JOIN m.owners o
+                    WHERE o.usernameCanonical = :username
+                    ORDER BY m.volume')
+            ->setParameter('username', $user->getUsernameCanonical());
         
         try {
             return $paginator->paginate($query, $page);

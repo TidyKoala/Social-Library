@@ -37,6 +37,26 @@ class MangaController extends Controller
             'entities' => $entities,
         );
     }
+    /**
+     * Lists all Manga entities of owner.
+     *
+     * @Route("/owner", name="manga_owner")
+     * @Template("SocialLibraryReadableMediaMangaBundle:Manga:index.html.twig")
+     */
+    public function ownerAction()
+    {
+        $entities = $this->getDoctrine()
+            ->getRepository('SocialLibraryReadableMediaMangaBundle:Manga')
+            ->findOwnerPaginated(
+                    $this->get('knp_paginator'),
+                    $this->get('request')->query->get('page', 1),
+                    $this->getUser()
+                );
+        
+        return array(
+            'entities' => $entities,
+        );
+    }
 
     /**
      * Finds and displays a Manga entity.
