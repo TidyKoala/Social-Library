@@ -28,7 +28,11 @@
                             <div class="nav-collapse collapse">
                                 <ul class="nav pull-right">
                                     <li>
+                                    {% if is_granted('ROLE_USER') %}
+                                        <a href="{{ path('fos_user_security_logout') }}">{% trans %}logout_link{% endtrans %}</a>
+                                    {% else %}
                                         <a href="{{ path('fos_user_security_login') }}">{% trans %}login_link{% endtrans %}</a>
+                                    {% endif %}
                                     </li>
                                 </ul>
                             <!-- .nav, .navbar-search, .navbar-form, etc -->
