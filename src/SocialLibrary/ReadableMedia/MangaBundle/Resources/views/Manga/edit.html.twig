@@ -7,6 +7,26 @@
 {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('bundles/sociallibrarybase/css/bootstrap-jasny.min.css') }}">
 {% endblock %}
+
+{% block secondMenu %}
+<ul class="record_actions nav nav-pills nav-stacked">
+    <li>
+        <a href="{{ path('manga') }}">
+            <i class="icon-back"></i> {% trans %}manga_back_list{% endtrans %}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('manga_new') }}">
+            <i class="icon-list-add"></i> {% trans %}manga_add{% endtrans %}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('manga_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
+            <i class="icon-logout"></i> {% trans %}manga_delete{% endtrans %}
+        </a>
+    </li>
+</ul>
+{% endblock %}
         
 {% block body %}
 <h1>{{ entity.volume ~ ' - ' ~ entity.name ~ ' - ' ~ entity.serie }}</h1>
@@ -131,19 +151,6 @@
         </button>
     </div>
 </form>
-
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('manga') }}">
-            <i class="icon-back"></i> {% trans %}manga_back_list{% endtrans %}
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('manga_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
-            {% trans %}manga_delete{% endtrans %}
-        </a>
-    </li>
-</ul>
 
 {% endblock %}
 

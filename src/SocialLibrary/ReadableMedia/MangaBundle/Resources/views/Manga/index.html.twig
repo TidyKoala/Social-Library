@@ -2,6 +2,18 @@
 
 {% block title %}{{ parent() }} - {% trans %}manga_section_title{% endtrans %}{% endblock %}
 
+{% block secondMenu %}
+{% if is_granted('ROLE_USER') %}
+<ul class="record_actions nav nav-pills nav-stacked">
+    <li>
+        <a href="{{ path('manga_new') }}">
+            <i class="icon-list-add"></i> {% trans %}manga_add{% endtrans %}
+        </a>
+    </li>
+</ul>
+{% endif %}
+{% endblock %}
+
 {% block body %}
 <h1>Manga library</h1>
 
@@ -75,15 +87,5 @@
 <div class="pagination">
     {{ entities.render()|raw }}
 </div>
-
-{% if is_granted('ROLE_ADMIN') %}
-<ul>
-    <li>
-        <a href="{{ path('manga_new') }}">
-            <i class="icon-list-add"></i> {% trans %}manga_add{% endtrans %}
-        </a>
-    </li>
-</ul>
-{% endif %}
 
 {% endblock %}

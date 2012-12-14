@@ -59,7 +59,10 @@
     </tbody>
 </table>
 
-<ul class="record_actions">
+{% endblock %}
+
+{% block secondMenu %}
+<ul class="record_actions nav nav-pills nav-stacked">
     <li>
         <a href="{{ path('manga') }}">
             <i class="icon-back"></i> {% trans %}manga_back_list{% endtrans %}
@@ -86,5 +89,4 @@
             {% endif %}
     {% endif %}
 </ul>
-
 {% endblock %}

@@ -8,6 +8,16 @@
         <link rel="stylesheet" href="{{ asset('bundles/sociallibrarybase/css/bootstrap-jasny.min.css') }}">
 {% endblock %}
 
+{% block secondMenu %}
+<ul class="record_actions nav nav-pills nav-stacked">
+    <li>
+        <a href="{{ path('manga') }}">
+            <i class="icon-back"></i> {% trans %}manga_back_list{% endtrans %}
+        </a>
+    </li>
+</ul>
+{% endblock %}
+
 {% block body %}
 <h1>{% trans %}manga_add_title{% endtrans %}</h1>
 
@@ -131,14 +141,6 @@
         </button>
     </div>
 </form>
-
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('manga') }}">
-            <i class="icon-back"></i> {% trans %}manga_back_list{% endtrans %}
-        </a>
-    </li>
-</ul>
 
 {% endblock %}
 
