@@ -15,14 +15,12 @@ use SocialLibrary\BaseBundle\Form\Type\ObjectCreatorType;
 /**
  * Manga controller.
  *
- * @Route("/object-creator/{_locale}", defaults={"_locale" = "en"})
  */
 class ObjectCreatorController extends Controller
 {
     /**
      * Displays a form to create a new Manga entity.
      *
-     * @Route("/ajax-new", name="object_creator_ajax_new")
      * @Template()
      */
     public function newAjaxAction()
@@ -43,9 +41,7 @@ class ObjectCreatorController extends Controller
     /**
      * Creates a new Manga entity.
      *
-     * @Route("/ajax-create", name="object_creator_ajax_create", defaults={ "_format"="xml|json"})
      * @Template("SocialLibraryReadableMediaMangaBundle:Serie:newAjax.html.twig")
-     * @Method("POST")
      */
     public function createAjaxAction(Request $request)
     {

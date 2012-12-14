@@ -3,7 +3,6 @@
 namespace SocialLibrary\ReadableMedia\MangaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
-
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -16,14 +15,12 @@ use SocialLibrary\ReadableMedia\MangaBundle\Form\Type\SerieAjaxType;
 /**
  * Manga controller.
  *
- * @Route("/serie/{_locale}", defaults={"_locale" = "en"})
  */
 class SerieController extends Controller
 {
     /**
      * Displays a form to create a new Manga entity.
      *
-     * @Route("/ajax-new", name="serie_ajax_new")
      * @Template()
      */
     public function newAjaxAction()
@@ -44,9 +41,7 @@ class SerieController extends Controller
     /**
      * Creates a new Manga entity.
      *
-     * @Route("/ajax-create", name="serie_ajax_create", defaults={ "_format"="xml|json"})
      * @Template("SocialLibraryReadableMediaMangaBundle:Serie:newAjax.html.twig")
-     * @Method("POST")
      */
     public function createAjaxAction(Request $request)
     {

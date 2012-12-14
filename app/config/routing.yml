@@ -1,17 +1,20 @@
-social_library_readable_media_manga:
-    resource: "@SocialLibraryReadableMediaMangaBundle/Controller/"
-    type:     annotation
-    prefix:   /
+social_library_readable_media_serie:
+    resource: "@SocialLibraryReadableMediaMangaBundle/Resources/config/routing/serie.xml"
+    prefix:   /serie
 
-social_library_base:
-    resource: "@SocialLibraryBaseBundle/Controller/"
-    type:     annotation
-    prefix:   /
+social_library_readable_media_manga:
+    resource: "@SocialLibraryReadableMediaMangaBundle/Resources/config/routing/manga.xml"
+    prefix:   /manga
+
+social_library_base_object_creator:
+    resource: "@SocialLibraryBaseBundle/Resources/config/routing/object_creator.xml"
+    prefix: /object-creator
 
 # Internal routing configuration to handle ESI
 #_internal:
 #    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
 #    prefix:   /_internal
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 

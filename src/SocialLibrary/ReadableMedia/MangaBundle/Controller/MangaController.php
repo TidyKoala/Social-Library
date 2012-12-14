@@ -14,14 +14,12 @@ use SocialLibrary\ReadableMedia\MangaBundle\Form\Type\MangaType;
 /**
  * Manga controller.
  *
- * @Route("/manga/{_locale}", defaults={"_locale" = "en"})
  */
 class MangaController extends Controller
 {
     /**
      * Lists all Manga entities.
      *
-     * @Route("/", name="manga")
      * @Template()
      */
     public function indexAction()
@@ -40,7 +38,6 @@ class MangaController extends Controller
     /**
      * Lists all Manga entities of owner.
      *
-     * @Route("/owner", name="manga_owner")
      * @Template("SocialLibraryReadableMediaMangaBundle:Manga:index.html.twig")
      */
     public function ownerAction()
@@ -61,7 +58,6 @@ class MangaController extends Controller
     /**
      * Finds and displays a Manga entity.
      *
-     * @Route("/show/{id}/{nameSlug}/", name="manga_show")
      * @Template()
      */
     public function showAction($id, $nameSlug)
@@ -78,7 +74,6 @@ class MangaController extends Controller
     /**
      * Displays a form to create a new Manga entity.
      *
-     * @Route("/new", name="manga_new")
      * @Template()
      */
     public function newAction()
@@ -99,8 +94,6 @@ class MangaController extends Controller
     /**
      * Creates a new Manga entity.
      *
-     * @Route("/create", name="manga_create")
-     * @Method("POST")
      * @Template("SocialLibraryReadableMediaMangaBundle:Manga:new.html.twig")
      */
     public function createAction(Request $request)
@@ -146,7 +139,6 @@ class MangaController extends Controller
     /**
      * Displays a form to edit an existing Manga entity.
      *
-     * @Route("/edit/{id}/{nameSlug}/", name="manga_edit")
      * @Template()
      */
     public function editAction($id, $nameSlug)
@@ -176,8 +168,6 @@ class MangaController extends Controller
     /**
      * Edits an existing Manga entity.
      *
-     * @Route("/update/{id}", name="manga_update")
-     * @Method("POST")
      * @Template("SocialLibraryReadableMediaMangaBundle:Manga:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
@@ -223,7 +213,6 @@ class MangaController extends Controller
     /**
      * Add ownership of a Manga entity.
      *
-     * @Route("/add/{id}/{nameSlug}", name="manga_add_owner")
      */
     public function addOwnerAction($id, $nameSlug)
     {
@@ -255,7 +244,6 @@ class MangaController extends Controller
     /**
      * Remove ownership of a Manga entity.
      *
-     * @Route("/remove/{id}/{nameSlug}", name="manga_remove_owner")
      */
     public function removeOwnerAction($id, $nameSlug)
     {
