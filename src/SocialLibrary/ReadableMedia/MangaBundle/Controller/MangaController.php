@@ -241,7 +241,12 @@ class MangaController extends Controller
                 )
         );
         $this->get('session')->getFlashBag()->add('success', $flashMessage);
-        return $this->redirect($this->generateUrl('manga'));
+        return $this->redirect(
+            $this->getRequest()->headers->get(
+                'referer',
+                $this->generateUrl('manga')
+            )
+        );
     }
 
     /**
@@ -276,6 +281,11 @@ class MangaController extends Controller
                 )
             );
         $this->get('session')->getFlashBag()->add('success', $flashMessage);
-        return $this->redirect($this->generateUrl('manga'));
+        return $this->redirect(
+            $this->getRequest()->headers->get(
+                'referer',
+                $this->generateUrl('manga')
+            )
+        );
     }
 }
