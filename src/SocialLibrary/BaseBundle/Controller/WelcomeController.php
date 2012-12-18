@@ -2,6 +2,8 @@
 
 namespace SocialLibrary\BaseBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Session\Session;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -21,6 +23,11 @@ class WelcomeController extends Controller
      */
     public function indexAction()
     {
+        $languages = $this->getRequest()->getLanguages();
+        if( count($languages) > 0 ) {
+            $this->get('session')->set('_locale', $languages[0]);
+            $this->get('session')->save();
+        }
         return array();
     }
 }
