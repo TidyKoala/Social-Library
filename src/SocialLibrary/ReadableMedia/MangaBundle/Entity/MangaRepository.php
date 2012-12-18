@@ -13,31 +13,23 @@ use Doctrine\ORM\EntityRepository;
  */
 class MangaRepository extends EntityRepository
 {
-    public function findAllPaginated($paginator, $page)
+    public function findAllPaginated($paginator, $page, User $user = null)
     {
-        $query = $this->getEntityManager()
-            ->createQuery('SELECT m, s, c, o FROM SocialLibraryReadableMediaMangaBundle:Manga m
-                    JOIN m.serie s
-                    JOIN m.creators c
-                    LEFT JOIN m.owners o
-                    ORDER BY m.volume');
+        $query = $this
+            ->getEntityManager()
+            ->createQueryBuilder()
+            ->select(array('m', 's', 'c', 'o'))
+            ->from('SocialLibraryReadableMediaMangaBundle:Manga', 'm')
+            ->innerJoin('m.serie', 's')
+            ->innerJoin('m.creators', 'c')
+            ->leftJoin('m.owners', 'o')
+            ->orderBy('m.volume');
         
-        try {
-            return $paginator->paginate($query, $page);
-        } catch (\Doctrine\ORM\NoResultException $e) {
-            return null;
+        if($user != null) {
+            $query = $query
+                ->where('o.usernameCanonical = :username')
+                ->setParameter('username', $user->getUsernameCanonical());
         }
-    }
-    public function findOwnerPaginated($paginator, $page, User $user)
-    {
-        $query = $this->getEntityManager()
-            ->createQuery('SELECT m, s, c, o FROM SocialLibraryReadableMediaMangaBundle:Manga m
-                    JOIN m.serie s
-                    JOIN m.creators c
-                    LEFT JOIN m.owners o
-                    WHERE o.usernameCanonical = :username
-                    ORDER BY m.volume')
-            ->setParameter('username', $user->getUsernameCanonical());
         
         try {
             return $paginator->paginate($query, $page);

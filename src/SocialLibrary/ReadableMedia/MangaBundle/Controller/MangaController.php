@@ -22,39 +22,32 @@ class MangaController extends Controller
      *
      * @Template()
      */
-    public function indexAction($view)
+    public function indexAction($view, $selection)
     {
+        if( $selection == 'all') {
+            $user = null;
+        }
+        elseif ( $selection == 'my') {
+            $user = $this->getUser();
+        }
+        else {
+            $user = null;
+        }
+        
         $entities = $this->getDoctrine()
             ->getRepository('SocialLibraryReadableMediaMangaBundle:Manga')
             ->findAllPaginated(
                     $this->get('knp_paginator'),
-                    $this->get('request')->query->get('page', 1)
+                    $this->get('request')->query->get('page', 1),
+                    $user
                 );
         
         return $this->render(
             'SocialLibraryReadableMediaMangaBundle:Manga:' . $view . '.html.twig',
             array(
                 'entities' => $entities,
+                'selection' => $selection
             )
-        );
-    }
-    /**
-     * Lists all Manga entities of owner.
-     *
-     * @Template("SocialLibraryReadableMediaMangaBundle:Manga:index.html.twig")
-     */
-    public function ownerAction()
-    {
-        $entities = $this->getDoctrine()
-            ->getRepository('SocialLibraryReadableMediaMangaBundle:Manga')
-            ->findOwnerPaginated(
-                    $this->get('knp_paginator'),
-                    $this->get('request')->query->get('page', 1),
-                    $this->getUser()
-                );
-        
-        return array(
-            'entities' => $entities,
         );
     }
 

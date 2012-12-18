@@ -11,8 +11,13 @@
         </a>
     </li>
     <li>
-        <a href="{{ path('manga_owner') }}">
+    {% if selection == 'my' %}
+        <a href="{{ path('manga', {'selection' : 'all'}) }}">
+            {% trans %}manga_all{% endtrans %}
+    {% else %}
+        <a href="{{ path('manga', {'selection' : 'my'}) }}">
             {% trans %}manga_my{% endtrans %}
+    {% endif %}
         </a>
     </li>
 </ul>
@@ -39,13 +44,13 @@
 <div class="row-fluid">
     <div class="offset9 span3">
         <div class="btn-group">
-            <a href="{{ path('manga', {'view' : 'list'}) }}" title="{% trans %}manga_list_view{% endtrans %}" class="btn">
+            <a href="{{ path('manga', {'view' : 'list', 'selection' : selection}) }}" title="{% trans %}manga_list_view{% endtrans %}" class="btn">
                 <i class="icon-menu"></i>
             </a>
-            <a href="{{ path('manga', {'view' : 'listThumbs'}) }}" title="{% trans %}manga_list_thumb_view{% endtrans %}" class="btn">
+            <a href="{{ path('manga', {'view' : 'listThumbs', 'selection' : selection}) }}" title="{% trans %}manga_list_thumb_view{% endtrans %}" class="btn">
                 <i class="icon-list"></i>
             </a>
-            <a href="{{ path('manga', {'view' : 'thumbnails'}) }}" title="{% trans %}manga_thumb_view{% endtrans %}" class="btn">
+            <a href="{{ path('manga', {'view' : 'thumbnails', 'selection' : selection}) }}" title="{% trans %}manga_thumb_view{% endtrans %}" class="btn">
                 <i class="icon-layout"></i>
             </a>
         </div>
