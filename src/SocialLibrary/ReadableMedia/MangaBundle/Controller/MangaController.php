@@ -22,7 +22,7 @@ class MangaController extends Controller
      *
      * @Template()
      */
-    public function indexAction()
+    public function indexAction($view)
     {
         $entities = $this->getDoctrine()
             ->getRepository('SocialLibraryReadableMediaMangaBundle:Manga')
@@ -31,8 +31,11 @@ class MangaController extends Controller
                     $this->get('request')->query->get('page', 1)
                 );
         
-        return array(
-            'entities' => $entities,
+        return $this->render(
+            'SocialLibraryReadableMediaMangaBundle:Manga:' . $view . '.html.twig',
+            array(
+                'entities' => $entities,
+            )
         );
     }
     /**

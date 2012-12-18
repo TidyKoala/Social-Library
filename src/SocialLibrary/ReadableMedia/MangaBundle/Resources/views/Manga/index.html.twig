@@ -20,77 +20,38 @@
 {% endblock %}
 
 {% block body %}
-<h1>Manga library</h1>
+<div class="row-fluid">
+    <div class="span12">
+        <h1>Manga library</h1>
+    </div>
+</div>
 
 {% for flashMessage in app.session.flashbag.get('success') %}
-    <div class="alert alert-success">
-        {{ flashMessage }}
+<div class="row-fluid">
+    <div class="span12">
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
     </div>
+</div>
 {% endfor %}
 
-<table class="records_list table table-striped table-bordered table-hover">
-    <thead>
-    	<tr>
-    		<th>
-                {% trans %}manga_header_volume{% endtrans %}
-    		</th>
-    		<th>
-    		    {% trans %}manga_header_name{% endtrans %}
-		    </th>
-    		<th>
-    		    {{ entities.sortable('manga_header_serie', 's.nameSlug', {'translationDomain' : 'messages'})|raw }}
-		    </th>
-    		<th>
-    		    {{ entities.sortable('manga_header_authors', 'c.lastname', {'translationDomain' : 'messages' })|raw }}
-		    </th>
-            <th>
-                Actions
-            </th>
-    	</tr>
-    </thead>
-    <tbody>
-    {% for entity in entities %}
-     	<tr>
-     		<td>
-     		    {{ entity.volume }}
- 		    </td>
-     		<td>
-     		    <a href="{{ path('manga_show', {'id': entity.id, 'nameSlug': entity.nameSlug }) }}">{{ entity.name }}</a>
- 		    </td>
-     		<td>
- 		        {{ entity.serie }}
-	        </td>
-     		<td>
-     		    {{ entity.creators|join(', ') }}
- 		    </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('manga_show', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-eye"></i> {% trans %}manga_details{% endtrans %}</a>
-                    </li>
-                    {% if is_granted('ROLE_ADMIN') %}
-                        {% if entity.isOwner(app.user) %}
-                    <li>
-                        <a href="{{ path('manga_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-pencil"></i> {% trans %}manga_edit{% endtrans %}</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('manga_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-logout"></i> {% trans %}manga_delete{% endtrans %}</a>
-                    </li>
-                        {% else %}
-                    <li>
-                        <a href="{{ path('manga_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-login"></i> {% trans %}manga_own{% endtrans %}</a>
-                    </li>
-                        {% endif %}
-                    {% endif %}
-                </ul>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-<div class="pagination">
-    {{ entities.render()|raw }}
+<div class="row-fluid">
+    <div class="offset9 span3">
+        <div class="btn-group">
+            <a href="{{ path('manga', {'view' : 'list'}) }}" title="{% trans %}manga_list_view{% endtrans %}" class="btn">
+                <i class="icon-menu"></i>
+            </a>
+            <a href="{{ path('manga', {'view' : 'listThumbs'}) }}" title="{% trans %}manga_list_thumb_view{% endtrans %}" class="btn">
+                <i class="icon-list"></i>
+            </a>
+            <a href="{{ path('manga', {'view' : 'thumbnails'}) }}" title="{% trans %}manga_thumb_view{% endtrans %}" class="btn">
+                <i class="icon-layout"></i>
+            </a>
+        </div>
+    </div>
 </div>
+
+{% block list %}{% endblock %}
 
 {% endblock %}

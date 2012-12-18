@@ -20,3 +20,41 @@
 {
 	margin-top: 55px;
 }
+
+.thumbs-view img
+{
+    max-width: 300px;
+    max-height: 300px;
+}
+
+@media screen and (min-width: 1000px)
+{
+    .thumbs-view img
+    {
+        max-width: 300px;
+        max-height: 300px;
+    }
+}
+
+@media screen and (max-width: 800px)and (min-width: 769px)
+{
+	.thumbs-view img
+	{
+	    max-width: 190px;
+	    max-height: 190px;
+	}
+}
+
+@media screen and (max-width: 768px)
+{
+    .thumbs-view img
+    {
+        max-width: 175px;
+        max-height: 175px;
+    }
+}
+
+.thumbs-view .first-column
+{
+	margin-left: 0;
+}
