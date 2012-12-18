@@ -1,3 +1,7 @@
+_welcome:
+    pattern:  /
+    defaults: { _controller: SocialLibraryBaseBundle:Welcome:index }
+
 social_library_readable_media_serie:
     resource: "@SocialLibraryReadableMediaMangaBundle/Resources/config/routing/serie.xml"
     prefix:   /serie
