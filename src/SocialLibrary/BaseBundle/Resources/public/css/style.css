@@ -63,3 +63,13 @@
 {
 	margin-left: 0;
 }
+
+label.required
+{
+	font-weight: bold;
+}
+
+label.required:AFTER
+{
+    content: ' *';
+}
