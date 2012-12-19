@@ -237,7 +237,7 @@ class MangaController extends Controller
         return $this->redirect(
             $this->getRequest()->headers->get(
                 'referer',
-                $this->generateUrl('manga')
+                $this->generateUrl('manga_index')
             )
         );
     }
@@ -277,7 +277,7 @@ class MangaController extends Controller
         return $this->redirect(
             $this->getRequest()->headers->get(
                 'referer',
-                $this->generateUrl('manga')
+                $this->generateUrl('manga_index')
             )
         );
     }
