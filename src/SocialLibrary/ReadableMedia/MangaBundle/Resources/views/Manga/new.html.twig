@@ -11,12 +11,12 @@
 {% block secondMenu %}
 <ul class="record_actions nav nav-pills nav-stacked">
     <li>
-        <a href="{{ path('manga') }}">
+        <a href="{{ path('manga_index') }}">
             <i class="icon-back"></i> {% trans %}manga_back_list{% endtrans %}
         </a>
     </li>
     <li>
-        <a href="{{ path('manga', {'selection' : 'my'}) }}">
+        <a href="{{ path('manga_index', {'selection' : 'my'}) }}">
             {% trans %}manga_back_owner{% endtrans %}
         </a>
     </li>
