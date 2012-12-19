@@ -3,26 +3,38 @@
   <file source-language="en" datatype="plaintext" original="file.ext">
     <body>
       <trans-unit id="1">
+        <source>link_library_sections</source>
+        <target>Sections</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>manga_section_link</source>
+        <target>Manga</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>logout_link</source>
+        <target>Logout</target>
+      </trans-unit>
+      <trans-unit id="4">
         <source>login_link</source>
         <target>Login</target>
       </trans-unit>
-      <trans-unit id="2">
+      <trans-unit id="5">
         <source>create_add</source>
         <target>Add</target>
       </trans-unit>
-      <trans-unit id="3">
+      <trans-unit id="6">
         <source>placeholder_firstname_creator</source>
         <target>Firstname</target>
       </trans-unit>
-      <trans-unit id="4">
+      <trans-unit id="7">
         <source>placeholder_lastname_creator</source>
         <target>Lastname</target>
       </trans-unit>
-      <trans-unit id="5">
+      <trans-unit id="8">
         <source>object_creator_label_firstname</source>
         <target>Firstname</target>
       </trans-unit>
-      <trans-unit id="6">
+      <trans-unit id="9">
         <source>object_creator_label_lastname</source>
         <target>Lastname</target>
       </trans-unit>

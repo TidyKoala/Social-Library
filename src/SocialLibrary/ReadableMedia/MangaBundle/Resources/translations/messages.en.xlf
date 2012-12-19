@@ -170,6 +170,22 @@
         <source>placeholder_name_serie</source>
         <target>Name</target>
       </trans-unit>
+      <trans-unit id="43">
+        <source>manga_all</source>
+        <target>All mangas</target>
+      </trans-unit>
+      <trans-unit id="44">
+        <source>manga_my</source>
+        <target>My mangas</target>
+      </trans-unit>
+      <trans-unit id="45">
+        <source>manga_back_owner</source>
+        <target>Return to my library</target>
+      </trans-unit>
+      <trans-unit id="46">
+        <source>manga_label_cover</source>
+        <target>Cover</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
