@@ -14,21 +14,16 @@ use Gedmo\Mapping\Annotation as Gedmo;
 abstract class ObjectCreator implements ObjectCreatorInterface
 {
 	/**
-	 * @ORM\Column(type="string")
-	 * 
 	 * @var string firstname
 	 */
 	protected $firstname;
 	
 	/**
-	 * @ORM\Column(type="string", nullable=true)
-	 *
 	 * @var string lastname
 	 */
 	protected $lastname;
 	
 	/**
-	 * @ORM\Column(type="string", name="name_slug")
 	 * @Gedmo\Slug(fields={"lastname","firstname"})
 	 * 
 	 * @var string nameSlug

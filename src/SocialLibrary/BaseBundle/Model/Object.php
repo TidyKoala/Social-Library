@@ -19,7 +19,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 abstract class Object implements ObjectInterface
 {
 	/**
-	 * @ORM\Column(type="string")
 	 * @Assert\NotNull(message="owners_not_null")
 	 * 
 	 * @var ArrayCollection owners
@@ -27,7 +26,6 @@ abstract class Object implements ObjectInterface
 	protected $owners;
 	
 	/**
-	 * @ORM\Column(type="string")
 	 * @Assert\NotBlank(message="name_not_blank")
 	 * @Assert\Length(
 	 *     min=2,
@@ -39,7 +37,6 @@ abstract class Object implements ObjectInterface
 	protected $name;
 	
 	/**
-	 * @ORM\Column(type="string")
 	 * @Gedmo\Slug(fields={"name"})
 	 *
 	 * @var string nameSlug
@@ -47,7 +44,6 @@ abstract class Object implements ObjectInterface
 	protected $nameSlug;
 	
 	/**
-	 * @ORM\Column(type="string", nullable=true, unique=true)
 	 *
 	 * @var string picture
 	 */

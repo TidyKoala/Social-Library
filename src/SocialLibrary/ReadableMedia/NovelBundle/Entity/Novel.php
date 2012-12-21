@@ -2,82 +2,52 @@
 
 namespace SocialLibrary\ReadableMedia\NovelBundle\Entity;
 
-use SocialLibrary\BaseBundle\Model\Object;
+use SocialLibrary\BaseBundle\Entity\Object;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Mapping as ORM;
 
 /**
  * SocialLibrary\ReadableMedia\NovelBundle\Entity\Novel
- *
- * @ORM\Entity(repositoryClass="SocialLibrary\ReadableMedia\NovelBundle\Entity\NovelRepository")
- * @ORM\Table(name="novel__novel")
+ * 
  */
 
 class Novel extends Object
 {
     /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * 
      * @var integer id
      */
 	protected $id;
 	
 	/**
-	 * @ORM\ManyToMany(targetEntity="Application\Sonata\UserBundle\Entity\User")
-     * @ORM\JoinTable(name="novel__owner",
-     *      joinColumns={@ORM\JoinColumn(name="object_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="owner_id", referencedColumnName="id")}
-     * )
-	 *
 	 * @var ArrayCollection owners
 	 */
 	protected $owners;
 	
 	/**
-	 * @ORM\ManyToMany(targetEntity="SocialLibrary\BaseBundle\Entity\ObjectCreator")
-     * @ORM\JoinTable(name="novel__creators",
-     *      joinColumns={@ORM\JoinColumn(name="object_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="creator_id", referencedColumnName="id")}
-     * )
-	 * 
 	 * @var ArrayCollection creators
 	 */
 	protected $creators;
 	
 	/**
-	 * @ORM\Column(type="integer", nullable=true)
-	 * 
 	 * @var integer volume
 	 */
 	protected $volume;
 	
 	/**
-	 * @ORM\ManyToOne(targetEntity="SocialLibrary\ReadableMedia\NovelBundle\Entity\Serie", inversedBy="volumes")
-	 * @ORM\JoinColumn(name="serie_id", referencedColumnName="id")
-	 * 
 	 * @var \SocialLibrary\ReadableMedia\NovelBundle\Entity\Serie serie
 	 */
 	protected $serie;
 	
 	/**
-	 * @ORM\Column(type="string", length=8, nullable=true)
-	 * 
 	 * @var string language
 	 */
 	protected $language;
 	
 	/**
-	 * @ORM\Column(type="string", length=11, unique=true, nullable=true)
-	 * 
 	 * @var string isbn10
 	 */
 	protected $isbn10;
 	
 	/**
-	 * @ORM\Column(type="string", length=14, unique=true, nullable=true)
-	 * 
 	 * @var string isbn13
 	 */
 	protected $isbn13;

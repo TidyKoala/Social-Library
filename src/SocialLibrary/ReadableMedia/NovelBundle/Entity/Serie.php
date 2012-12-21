@@ -5,47 +5,34 @@ namespace SocialLibrary\ReadableMedia\NovelBundle\Entity;
 use SocialLibrary\BaseBundle\Model\Object;
 use SocialLibrary\ReadableMedia\NovelBundle\Entity\Novel;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * SocialLibrary\ReadableMedia\NovelBundle\Entity\Serie
  * 
- * @ORM\Entity(repositoryClass="SocialLibrary\ReadableMedia\NovelBundle\Entity\SerieRepository")
- * @ORM\Table(name="novel__serie")
  */
 class Serie
 {
     /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * 
      * @var integer id
      */
 	protected $id;
 	
 	/**
-	 * @ORM\Column(type="string")
-	 *
 	 * @var string name
 	 */
 	protected $name;
 	
 	/**
-	 * @ORM\Column(type="string", name="name_slug")
-	 * @Gedmo\Slug(fields={"name"}, unique=true, separator="-", updatable=true)
-	 *
 	 * @var string nameSlug
 	 */
 	protected $nameSlug;
 	
 	/**
-	 * @ORM\OneToMany(targetEntity="SocialLibrary\ReadableMedia\NovelBundle\Entity\Novel", mappedBy="serie")
-	 * 
 	 * @var ArrayCollection volumes
 	 */
 	protected $volumes;
+	
 	
     /**
      * Constructor
