@@ -22,8 +22,7 @@ class NovelRepository extends EntityRepository
             ->from('SocialLibraryReadableMediaNovelBundle:Novel', 'n')
             ->leftJoin('n.serie', 's')
             ->innerJoin('n.creators', 'c')
-            ->leftJoin('n.owners', 'o')
-            ->orderBy('n.volume');
+            ->leftJoin('n.owners', 'o');
         
         if($user != null) {
             $query = $query
