@@ -8,7 +8,7 @@
                 {% trans %}novel_header_volume{% endtrans %}
     		</th>
     		<th>
-    		    {% trans %}novel_header_name{% endtrans %}
+    		    {{ entities.sortable('novel_header_name', 'n.nameSlug', {'translationDomain' : 'messages'})|raw }}
 		    </th>
     		<th>
     		    {{ entities.sortable('novel_header_serie', 's.nameSlug', {'translationDomain' : 'messages'})|raw }}
