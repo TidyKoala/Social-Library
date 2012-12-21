@@ -5,7 +5,6 @@ namespace SocialLibrary\ReadableMedia\NovelBundle\Entity;
 use SocialLibrary\BaseBundle\Model\Object;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * SocialLibrary\ReadableMedia\NovelBundle\Entity\Novel
@@ -49,11 +48,6 @@ class Novel extends Object
 	
 	/**
 	 * @ORM\Column(type="integer", nullable=true)
-	 * @Assert\Min(
-	 *     limit="1",
-	 *     message="volume_under_min",
-	 *     invalidMessage="volume_invalid_message"
-	 * )
 	 * 
 	 * @var integer volume
 	 */
@@ -69,17 +63,13 @@ class Novel extends Object
 	
 	/**
 	 * @ORM\Column(type="string", length=8, nullable=true)
-	 * @Assert\Language(message="language_invalid")
+	 * 
+	 * @var string language
 	 */
 	protected $language;
 	
 	/**
 	 * @ORM\Column(type="string", length=11, unique=true, nullable=true)
-	 * @Assert\Length(
-	 *     min="10",
-	 *     max="10",
-	 *     exactMessage="isbn10_exact_length"
-	 * )
 	 * 
 	 * @var string isbn10
 	 */
@@ -87,11 +77,6 @@ class Novel extends Object
 	
 	/**
 	 * @ORM\Column(type="string", length=14, unique=true, nullable=true)
-	 * @Assert\Length(
-	 *     min="13",
-	 *     max="13",
-	 *     exactMessage="isbn13_exact_length"
-	 * )
 	 * 
 	 * @var string isbn13
 	 */
