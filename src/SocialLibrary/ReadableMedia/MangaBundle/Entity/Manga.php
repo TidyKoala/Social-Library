@@ -80,7 +80,7 @@ class Manga extends Object
 	 * @ORM\JoinColumn(name="serie_id", referencedColumnName="id")
 	 * @Assert\NotNull(message="serie_not_null")
 	 * 
-	 * @var ArrayCollection serie
+	 * @var \SocialLibrary\ReadableMedia\MangaBundle\Entity\Serie serie
 	 */
 	protected $serie;
 	
