@@ -2,6 +2,14 @@ _welcome:
     pattern:  /
     defaults: { _controller: SocialLibraryBaseBundle:Welcome:index }
 
+social_library_readable_media_novel:
+    resource: "@SocialLibraryReadableMediaNovelBundle/Resources/config/routing/novel.xml"
+    prefix:   /novel
+
+social_library_readable_media_novel_serie:
+    resource: "@SocialLibraryReadableMediaNovelBundle/Resources/config/routing/serie.xml"
+    prefix:   /novel-serie
+
 social_library_readable_media_serie:
     resource: "@SocialLibraryReadableMediaMangaBundle/Resources/config/routing/serie.xml"
     prefix:   /serie
