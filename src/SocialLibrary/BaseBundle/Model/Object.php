@@ -50,12 +50,6 @@ abstract class Object implements ObjectInterface
 	protected $picture;
 	
 	/**
-	 * @Assert\Image(
-	 *     uploadErrorMessage="pictureFile_upload_error",
-	 *     uploadIniSizeErrorMessage="pictureFile_ini_size_error",
-	 *     mimeTypesMessage="pictureFile_mime_type_error"
-	 * )
-	 * 
 	 * @var File pictureFile
 	 */
 	protected $pictureFile;

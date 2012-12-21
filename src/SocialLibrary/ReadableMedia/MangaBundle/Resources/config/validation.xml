@@ -11,6 +11,14 @@
             </constraint>
         </property>
         
+        <property name="pictureFile">
+            <constraint name="Image">
+                <option name="uploadErrorMessage">manga_pictureFile_upload_error</option>
+                <option name="uploadIniSizeErrorMessage">manga_pictureFile_ini_size_error</option>
+                <option name="mimeTypesMessage">manga_pictureFile_mime_type_error</option>
+            </constraint>
+        </property>
+        
         <property name="creators">
             <constraint name="Count">
                 <option name="min">1</option>
