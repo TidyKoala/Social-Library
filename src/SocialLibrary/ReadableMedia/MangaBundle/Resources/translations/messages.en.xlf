@@ -186,6 +186,18 @@
         <source>manga_label_cover</source>
         <target>Cover</target>
       </trans-unit>
+      <trans-unit id="47">
+        <source>manga_list_view</source>
+        <target>List view</target>
+      </trans-unit>
+      <trans-unit id="48">
+        <source>manga_list_thumb_view</source>
+        <target>Mini-thumbnails view</target>
+      </trans-unit>
+      <trans-unit id="49">
+        <source>manga_thumb_view</source>
+        <target>Thumbnails view</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
