@@ -10,7 +10,13 @@
         <field name="nameSlug" column="nameSlug" type="string" length="255">
             <gedmo:slug unique="true" style="default" updatable="true" separator="-" fields="name" />
         </field>
-        <field name="picture" column="picture" type="string" length="255" unique="true" nullable="true" />
+        <one-to-one field="picture" target-entity="Application\Sonata\MediaBundle\Entity\Media">
+            <cascade>
+                <cascade-remove />
+                <cascade-persist/>
+            </cascade>
+            <join-column name="picture_id" referenced-column-name="id" nullable="true" />
+        </one-to-one>
     </mapped-superclass>
 
 </doctrine-mapping>

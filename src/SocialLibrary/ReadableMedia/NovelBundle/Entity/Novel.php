@@ -2,6 +2,7 @@
 
 namespace SocialLibrary\ReadableMedia\NovelBundle\Entity;
 
+use Application\Sonata\MediaBundle\Entity\Media;
 use SocialLibrary\BaseBundle\Entity\Object;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -68,22 +69,6 @@ class Novel extends Object
     public function getId()
     {
         return $this->id;
-    }
-    
-    /**
-     * {@inheritdoc}
-     */
-    public function getWebPicturePath()
-    {
-        return parent::getWebPicturePath() . 'readablemedia/novel/';
-    }
-    
-    /**
-     * {@inheritdoc}
-     */
-    public function getRootPicturePath()
-    {
-        return __DIR__ . '/../../../../../web/' . $this->getWebPicturePath();
     }
 
     /**

@@ -8,7 +8,7 @@
         {% if entity.picture is empty %}
             <img src="{{ asset('bundles/sociallibrarybase/img/unknown-manga.png') }}" alt="{{ entity.name }}">
         {% else %}
-            <img src="{{ asset(entity.getWebPicturePath ~ entity.picture) }}" alt="{{ entity.name }}">
+            {% thumbnail entity.picture, 'big' %}
         {% endif %}
         </a>
     </li>

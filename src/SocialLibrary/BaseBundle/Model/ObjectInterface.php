@@ -2,6 +2,7 @@
 
 namespace SocialLibrary\BaseBundle\Model;
 
+use Application\Sonata\MediaBundle\Entity\Media;
 use Application\Sonata\UserBundle\Entity\User;
 use SocialLibrary\BaseBundle\Model\ObjectCreatorInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -81,17 +82,17 @@ interface ObjectInterface
     public function getNameSlug();
     
     /**
-     * Set filename of the picture
+     * Set metada of the picture
      * 
-     * @param string $picture
+     * @param \Application\Sonata\MediaBundle\Entity\Media $picture
      * @return ObjectInterface
      */
-    public function setPicture($picture);
+    public function setPicture(Media $picture);
     
     /**
-     * Returns filename of the picture
+     * Returns Metadata of the picture
      * 
-     * @return string
+     * @return \Application\Sonata\MediaBundle\Entity\Media
      */
     public function getPicture();
     
@@ -108,27 +109,6 @@ interface ObjectInterface
      * @return string
      */
     public function getPictureFile();
-    
-    /**
-     * Returns the path of the picture relative to the web directory
-     * 
-     * @return string
-     */
-    public function getWebPicturePath();
-    
-    /**
-     * Returns the path of the picture relative to the root directory
-     * 
-     * @return string
-     */
-    public function getRootPicturePath();
-    
-    /**
-     * Uploads the picture
-     * 
-     * @return ObjectInterface
-     */
-    public function upload();
     
     /**
      * Set one or more creators

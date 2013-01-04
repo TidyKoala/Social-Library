@@ -20,7 +20,7 @@
             <td>{{ entity.volume }}</td>
             {% if entity.picture is not empty %}
             <td rowspan="9">
-                <img src="{{ asset(entity.getWebPicturePath ~ entity.picture) }}"/>
+                {% thumbnail entity.picture, 'big' %}
             </td>
             {% endif %}
         </tr>

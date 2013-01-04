@@ -21,7 +21,7 @@
                     {% if entity.picture is empty %}
                         <img class="media-object" src="{{ asset('bundles/sociallibrarybase/img/unknown-manga.png') }}" alt="{{ entity.name }}">
                     {% else %}
-                        <img class="media-object" src="{{ asset(entity.getWebPicturePath ~ entity.picture) }}" alt="{{ entity.name }}">
+                        {% thumbnail entity.picture, 'small' %}
                     {% endif %}
                     </a>
                     <div class="media-body">

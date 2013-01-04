@@ -3,6 +3,7 @@
 namespace SocialLibrary\BaseBundle\Model;
 
 use Application\Sonata\UserBundle\Entity\User;
+use Application\Sonata\MediaBundle\Entity\Media;
 use SocialLibrary\BaseBundle\Model\ObjectInterface;
 use SocialLibrary\BaseBundle\Model\ObjectCreatorInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -43,7 +44,7 @@ abstract class Object implements ObjectInterface
 	
 	/**
 	 *
-	 * @var string picture
+	 * @var \Application\Sonata\MediaBundle\Entity\Media picture
 	 */
 	protected $picture;
 	
@@ -161,7 +162,7 @@ abstract class Object implements ObjectInterface
     /**
      * {@inheritdoc}
      */
-    public function setPicture($picture)
+    public function setPicture(Media $picture)
     {
         $this->picture = $picture;
         
@@ -192,41 +193,6 @@ abstract class Object implements ObjectInterface
     public function getPictureFile()
     {
         return $this->pictureFile;
-    }
-    
-    /**
-     * {@inheritdoc}
-     */
-    public function getWebPicturePath()
-    {
-        return 'uploads/';
-    }
-    
-    /**
-     * {@inheritdoc}
-     */
-    public function upload()
-    {
-        if( $this->pictureFile === null) {
-            return $this;
-        }
-        $file = sha1(
-            $this->pictureFile->getClientOriginalName() . uniqid(
-                mt_rand(),
-                true
-            )
-        );
-        $file .= '.' . $this->pictureFile->guessExtension();
-        $this->pictureFile->move(
-            $this->getRootPicturePath(),
-            $file
-        );
-        
-        $this->picture = $file;
-        
-        $this->pictureFile = null;
-        
-        return $this;
     }
     
     /**

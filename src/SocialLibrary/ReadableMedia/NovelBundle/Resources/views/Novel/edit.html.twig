@@ -41,7 +41,7 @@
         {{ form_label(edit_form.pictureFile, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             <div class="fileupload {% if entity.picture is empty %}fileupload-new{% else %}fileupload-exists{% endif %}" data-provides="fileupload">
-                <div class="fileupload-preview thumbnail">{% if entity.picture is not empty %}<img src="{{ asset(entity.getWebPicturePath ~ entity.picture) }}"/>{% endif %}</div>
+                <div class="fileupload-preview thumbnail">{% if entity.picture is not empty %}{% media entity.picture, 'big' %}{% endif %}</div>
                 <div>
                     <span class="btn btn-file">
                         <span class="fileupload-new">Select image</span>
