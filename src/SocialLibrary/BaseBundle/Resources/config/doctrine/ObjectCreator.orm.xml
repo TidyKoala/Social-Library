@@ -2,7 +2,8 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
-                  http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+                  http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping">
 
     <entity name="SocialLibrary\BaseBundle\Entity\ObjectCreator" table="object_creator">
         
@@ -14,7 +15,9 @@
 
         <field name="lastname" column="lastname" type="string" length="255" nullable="true" />
 
-        <field name="nameSlug" column="name_slug" type="string" length="255" />
+        <field name="nameSlug" column="name_slug" type="string" length="255">
+            <gedmo:slug unique="true" style="default" updatable="true" separator="-" fields="lastname,firstname" />
+        </field>
 
     </entity>
 

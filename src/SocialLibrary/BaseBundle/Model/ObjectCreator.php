@@ -24,8 +24,6 @@ abstract class ObjectCreator implements ObjectCreatorInterface
 	protected $lastname;
 	
 	/**
-	 * @Gedmo\Slug(fields={"lastname","firstname"})
-	 * 
 	 * @var string nameSlug
 	 */
 	protected $nameSlug;

@@ -37,8 +37,6 @@ abstract class Object implements ObjectInterface
 	protected $name;
 	
 	/**
-	 * @Gedmo\Slug(fields={"name"})
-	 *
 	 * @var string nameSlug
 	 */
 	protected $nameSlug;
