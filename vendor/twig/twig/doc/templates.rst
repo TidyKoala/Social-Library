@@ -57,6 +57,7 @@ Many IDEs support syntax highlighting and auto-completion for Twig:
 * *Coda 2* via the `other Twig syntax mode`_
 * *Komodo* and *Komodo Edit* via the Twig highlight/syntax check mode
 * *Notepad++* via the `Notepad++ Twig Highlighter`_
+* *Emacs* via `web-mode.el`_
 
 Variables
 ---------
@@ -488,7 +489,8 @@ expression:
 
     {{ '{{' }}
 
-For bigger sections it makes sense to mark a block :doc:`raw<tags/raw>`.
+For bigger sections it makes sense to mark a block
+:doc:`verbatim<tags/verbatim>`.
 
 Macros
 ------
@@ -721,8 +723,8 @@ tests.
 Other Operators
 ~~~~~~~~~~~~~~~
 
-.. versionadded:: 1.11.2
-    Support for the extended ternary operator was added in Twig 1.11.2.
+.. versionadded:: 1.12.0
+    Support for the extended ternary operator was added in Twig 1.12.0.
 
 The following operators are very useful but don't fit into any of the other
 categories:
@@ -745,7 +747,7 @@ categories:
 
       {{ foo ? 'yes' : 'no' }}
 
-      {# as of Twig 1.11.2 #}
+      {# as of Twig 1.12.0 #}
       {{ foo ?: 'no' }} == {{ foo ? foo : 'no' }}
       {{ foo ? 'yes' }} == {{ foo ? 'yes' : '' }}
 
@@ -832,3 +834,4 @@ Extension<creating_extensions>` chapter.
 .. _`Twig syntax mode`:           https://github.com/bobthecow/Twig-HTML.mode
 .. _`other Twig syntax mode`:     https://github.com/muxx/Twig-HTML.mode
 .. _`Notepad++ Twig Highlighter`: https://github.com/Banane9/notepadplusplus-twig
+.. _`web-mode.el`:                http://web-mode.org/

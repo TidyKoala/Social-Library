@@ -1,5 +1,5 @@
 {
-    "hash": "9cbef417e675b05fa259308100c86659",
+    "hash": "5b252d29343d3011c9e17019a857e58b",
     "packages": [
         {
             "name": "doctrine/common",
@@ -2294,16 +2294,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.1.4",
+            "version": "v2.1.6",
             "source": {
                 "type": "git",
                 "url": "git://github.com/symfony/symfony.git",
-                "reference": "v2.1.4"
+                "reference": "v2.1.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/symfony/archive/v2.1.4.zip",
-                "reference": "v2.1.4",
+                "url": "https://github.com/symfony/symfony/archive/v2.1.6.zip",
+                "reference": "v2.1.6",
                 "shasum": ""
             },
             "require": {
@@ -2352,13 +2352,8 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": "1.*"
             },
-            "time": "2012-11-29 11:56:19",
+            "time": "2012-12-21 10:24:53",
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1-dev"
-                }
-            },
             "installation-source": "source",
             "autoload": {
                 "psr-0": {
@@ -2366,6 +2361,7 @@
                     "SessionHandlerInterface": "src/Symfony/Component/HttpFoundation/Resources/stubs"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2438,18 +2434,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Twig.git",
-                "reference": "b58df0e1ae4b664f561bfaeffdb673829daa6b79"
+                "reference": "ddd4b732f9aa182edb54b89891c7fd25668354a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Twig/archive/b58df0e1ae4b664f561bfaeffdb673829daa6b79.zip",
-                "reference": "b58df0e1ae4b664f561bfaeffdb673829daa6b79",
+                "url": "https://github.com/fabpot/Twig/archive/ddd4b732f9aa182edb54b89891c7fd25668354a4.zip",
+                "reference": "ddd4b732f9aa182edb54b89891c7fd25668354a4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2012-11-26 10:25:49",
+            "time": "2013-01-05 10:14:46",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2462,6 +2458,7 @@
                     "Twig_": "lib/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3"
             ],

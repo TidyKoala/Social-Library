@@ -1,6 +1,14 @@
 * 1.12.0 (2012-XX-XX)
 
- * changed the way extension filters/tests/functions/node visitors/globals/token parsers are registered (they were loaded as late as possible, they are now loaded as early as possible)
+ * renamed the raw tag to verbatim to avoid confusion with the raw filter (the raw tag still works though)
+ * fixed registration of tests and functions as anonymous functions
+ * fixed global management
+
+* 1.12.0-RC1 (2012-12-29)
+
+ * added an include function (does the same as the include tag but in a more flexible way)
+ * added the ability to use any PHP callable to define filters, functions, and tests
+ * added a syntax error when using a loop variable that is not defined
  * added the ability to set default values for macro arguments
  * added support for named arguments for filters, tests, and functions
  * moved filters/functions/tests syntax errors to the parser
