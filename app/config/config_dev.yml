@@ -24,3 +24,8 @@ assetic:
 
 #swiftmailer:
 #    delivery_address: me@example.com
+
+sonata_media:
+    cdn:
+        server:
+            path: /SocialLibrary/uploads/media # http://media.sonata-project.org/
