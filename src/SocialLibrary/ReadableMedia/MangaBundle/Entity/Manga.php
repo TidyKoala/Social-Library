@@ -78,22 +78,6 @@ class Manga extends Object
     }
     
     /**
-     * {@inheritdoc}
-     */
-    public function getWebPicturePath()
-    {
-        return parent::getWebPicturePath() . 'readablemedia/manga/';
-    }
-    
-    /**
-     * {@inheritdoc}
-     */
-    public function getRootPicturePath()
-    {
-        return __DIR__ . '/../../../../../web/' . $this->getWebPicturePath();
-    }
-    
-    /**
      * Set one or more illustrators
      * 
      * @param ArrayCollection $illustrators
