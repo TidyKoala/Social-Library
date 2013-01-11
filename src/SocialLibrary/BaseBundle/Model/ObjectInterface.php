@@ -25,7 +25,7 @@ interface ObjectInterface
     /**
      * Get owners
      *
-     * @return Collection
+     * @return ArrayCollection
      */
     public function getOwners();
 
