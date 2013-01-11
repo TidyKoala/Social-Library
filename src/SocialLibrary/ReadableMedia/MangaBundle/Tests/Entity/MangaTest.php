@@ -7,7 +7,7 @@ use SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga
+ * SocialLibrary\ReadableMedia\MangaBundle\Tests\Entity\MangaTest
  * 
  */
 class MangaTest extends \PHPUnit_Framework_TestCase
