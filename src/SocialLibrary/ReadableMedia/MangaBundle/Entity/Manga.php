@@ -11,7 +11,6 @@ use Doctrine\Common\Collections\ArrayCollection;
  * SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga
  * 
  */
-
 class Manga extends Object
 {
     /**

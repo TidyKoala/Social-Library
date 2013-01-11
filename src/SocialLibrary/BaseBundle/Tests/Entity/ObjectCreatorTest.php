@@ -8,7 +8,6 @@ use SocialLibrary\BaseBundle\Entity\ObjectCreator;
  * SocialLibrary\BaseBundle\Tests\Entity\ObjectCreatorTest
  * 
  */
-
 class ObjectCreatorTest extends \PHPUnit_Framework_TestCase
 {
     public function testLastname()

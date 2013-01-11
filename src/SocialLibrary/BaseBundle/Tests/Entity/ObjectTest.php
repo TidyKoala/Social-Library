@@ -10,7 +10,6 @@ use Doctrine\Common\Collections\ArrayCollection;
  * SocialLibrary\BaseBundle\Tests\Entity\ObjectTest
  * 
  */
-
 class ObjectTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -73,7 +72,7 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Tests all functions related to the creator: setCreator(), getCreator(), addCreator(), removeCreator()
+     * Tests all functions related to the creator: setCreators(), getCreators(), addCreator(), removeCreator()
      */
     public function testCreators()
     {
