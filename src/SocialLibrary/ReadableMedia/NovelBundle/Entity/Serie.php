@@ -107,35 +107,50 @@ class Serie
     }
 
     /**
-     * Add volumes
+     * Set one or more volumes. Deletes the present ones
      *
-     * @param \SocialLibrary\ReadableMedia\NovelBundle\Entity\Novel $volumes
-     * @return Serie
+	 * @param Doctrine\Common\Collections\ArrayCollection volumes
+     * @return SocialLibrary\ReadableMedia\NovelBundle\Entity\Serie
      */
-    public function addVolume(Novel $volumes)
+    public function setVolumes(ArrayCollection $volumes)
     {
-        $this->volumes[] = $volumes;
-    
+        $this->volumes = $volumes;
+        
         return $this;
-    }
-
-    /**
-     * Remove volumes
-     *
-     * @param \SocialLibrary\ReadableMedia\NovelBundle\Entity\Novel $volumes
-     */
-    public function removeVolume(Novel $volumes)
-    {
-        $this->volumes->removeElement($volumes);
     }
 
     /**
      * Get volumes
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\ArrayCollection 
      */
     public function getVolumes()
     {
         return $this->volumes;
+    }
+
+    /**
+     * Add a volume
+     *
+     * @param SocialLibrary\ReadableMedia\NovelBundle\Entity\Novel $volume
+     * @return SocialLibrary\ReadableMedia\NovelBundle\Entity\Serie
+     */
+    public function addVolume(Novel $volume)
+    {
+        if(!$this->volumes->contains($volume)) {
+            $this->volumes[] = $volume;
+        }
+    
+        return $this;
+    }
+
+    /**
+     * Remove a volume
+     *
+     * @param SocialLibrary\ReadableMedia\NovelBundle\Entity\Novel $volume
+     */
+    public function removeVolume(Novel $volume)
+    {
+        $this->volumes->removeElement($volume);
     }
 }
