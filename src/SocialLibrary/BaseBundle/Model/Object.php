@@ -218,7 +218,7 @@ abstract class Object implements ObjectInterface
      */
     public function addCreator(ObjectCreatorInterface $creator) 
     {
-        if (!$this->owners->contains($creator)) {
+        if (!$this->creators->contains($creator)) {
             $this->creators[] = $creator;
         }
     	
