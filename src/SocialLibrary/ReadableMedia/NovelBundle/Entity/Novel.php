@@ -4,6 +4,7 @@ namespace SocialLibrary\ReadableMedia\NovelBundle\Entity;
 
 use Application\Sonata\MediaBundle\Entity\Media;
 use SocialLibrary\BaseBundle\Entity\Object;
+use SocialLibrary\ReadableMedia\NovelBundle\Entity\Serie;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -75,7 +76,7 @@ class Novel extends Object
      * Set volume
      *
      * @param integer $volume
-     * @return Novel
+     * @return SocialLibrary\ReadableMedia\NovelBundle\Entity\Novel
      */
     public function setVolume($volume)
     {
@@ -98,7 +99,7 @@ class Novel extends Object
      * Set language
      *
      * @param string $language
-     * @return Novel
+     * @return SocialLibrary\ReadableMedia\NovelBundle\Entity\Novel
      */
     public function setLanguage($language)
     {
@@ -121,7 +122,7 @@ class Novel extends Object
      * Set isbn10
      *
      * @param string $isbn10
-     * @return Novel
+     * @return SocialLibrary\ReadableMedia\NovelBundle\Entity\Novel
      */
     public function setIsbn10($isbn10)
     {
@@ -144,7 +145,7 @@ class Novel extends Object
      * Set isbn13
      *
      * @param string $isbn13
-     * @return Novel
+     * @return SocialLibrary\ReadableMedia\NovelBundle\Entity\Novel
      */
     public function setIsbn13($isbn13)
     {
@@ -166,10 +167,10 @@ class Novel extends Object
     /**
      * Set serie
      *
-     * @param \SocialLibrary\ReadableMedia\NovelBundle\Entity\Serie $serie
-     * @return Novel
+     * @param SocialLibrary\ReadableMedia\NovelBundle\Entity\Serie $serie
+     * @return SocialLibrary\ReadableMedia\NovelBundle\Entity\Novel
      */
-    public function setSerie(\SocialLibrary\ReadableMedia\NovelBundle\Entity\Serie $serie = null)
+    public function setSerie(Serie $serie = null)
     {
         $this->serie = $serie;
     
@@ -179,7 +180,7 @@ class Novel extends Object
     /**
      * Get serie
      *
-     * @return \SocialLibrary\ReadableMedia\NovelBundle\Entity\Serie 
+     * @return SocialLibrary\ReadableMedia\NovelBundle\Entity\Serie 
      */
     public function getSerie()
     {
