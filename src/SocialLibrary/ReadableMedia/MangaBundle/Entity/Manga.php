@@ -3,6 +3,7 @@
 namespace SocialLibrary\ReadableMedia\MangaBundle\Entity;
 
 use SocialLibrary\BaseBundle\Entity\Object;
+use SocialLibrary\BaseBundle\Model\ObjectCreatorInterface;
 use SocialLibrary\ReadableMedia\MangaBundle\Entity\Serie;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -81,6 +82,7 @@ class Manga extends Object
      * Set one or more illustrators
      * 
      * @param ArrayCollection $illustrators
+     * @return SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga
      */
     public function setIllustrators(ArrayCollection $illustrators) {
     	$this->illustrators = $illustrators;
@@ -100,7 +102,8 @@ class Manga extends Object
     /**
      * Add an illustrator
      * 
-     * @param SocialLibrary\BaseBundle\ObjectCreatorInterface $illustrator
+     * @param SocialLibrary\BaseBundle\Entity\ObjectCreatorInterface $illustrator
+     * @return SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga
      */
     public function addIllustrator(ObjectCreatorInterface $illustrator) {
         if (!$this->illustrators->contains($illustrator)) {
@@ -113,7 +116,8 @@ class Manga extends Object
     /**
      * Remove an illustrator
      * 
-     * @param SocialLibrary\BaseBundle\ObjectCreatorInterface $illustrator
+     * @param SocialLibrary\BaseBundle\Entity\ObjectCreatorInterface $illustrator
+     * @return SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga
      */
     public function removeIllustrator(ObjectCreatorInterface $illustrator) {
         $this->illustrators->removeElement($illustrator);
@@ -125,7 +129,7 @@ class Manga extends Object
      * Set volume
      *
      * @param integer $volume
-     * @return Manga
+     * @return SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga
      */
     public function setVolume($volume)
     {
@@ -148,7 +152,7 @@ class Manga extends Object
      * Set language
      *
      * @param string $language
-     * @return Manga
+     * @return SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga
      */
     public function setLanguage($language)
     {
@@ -171,7 +175,7 @@ class Manga extends Object
      * Set isbn10
      *
      * @param string $isbn10
-     * @return Manga
+     * @return SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga
      */
     public function setIsbn10($isbn10)
     {
@@ -194,7 +198,7 @@ class Manga extends Object
      * Set isbn13
      *
      * @param string $isbn13
-     * @return Manga
+     * @return SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga
      */
     public function setIsbn13($isbn13)
     {
@@ -217,7 +221,7 @@ class Manga extends Object
      * Set serie
      *
      * @param \SocialLibrary\ReadableMedia\MangaBundle\Entity\Serie $serie
-     * @return Manga
+     * @return SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga
      */
     public function setSerie(Serie $serie = null)
     {
