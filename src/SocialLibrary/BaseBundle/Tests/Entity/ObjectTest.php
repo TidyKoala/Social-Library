@@ -107,7 +107,7 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
         $object->removeCreator($objectCreator3);
         $this->assertEquals(1, $object->getCreators()->count());
         
-        /* Tests setting users */
+        /* Tests setting creators */
         $arrayCollection->add($objectCreator1);
         $arrayCollection->add($objectCreator2);
         $arrayCollection->add($objectCreator3);
