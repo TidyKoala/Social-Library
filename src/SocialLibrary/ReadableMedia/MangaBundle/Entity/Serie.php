@@ -2,9 +2,8 @@
 
 namespace SocialLibrary\ReadableMedia\MangaBundle\Entity;
 
-use SocialLibrary\BaseBundle\Model\Object;
+use SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga;
 use Doctrine\Common\Collections\ArrayCollection;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * SocialLibrary\ReadableMedia\MangaBundle\Entity\Serie
@@ -28,7 +27,7 @@ class Serie
 	protected $nameSlug;
 	
 	/**
-	 * @var ArrayCollection volumes
+	 * @var Doctrine\Common\Collections\ArrayCollection volumes
 	 */
 	protected $volumes;
 	
@@ -38,7 +37,7 @@ class Serie
      */
     public function __construct()
     {
-        $this->volumes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->volumes = new ArrayCollection();
     }
     
     /**
@@ -63,7 +62,7 @@ class Serie
      * Set name
      *
      * @param string $name
-     * @return Serie
+     * @return SocialLibrary\ReadableMedia\MangaBundle\Entity\Serie
      */
     public function setName($name)
     {
@@ -86,7 +85,7 @@ class Serie
      * Set nameSlug
      *
      * @param string $nameSlug
-     * @return Serie
+     * @return SocialLibrary\ReadableMedia\MangaBundle\Entity\Serie
      */
     public function setNameSlug($nameSlug)
     {
@@ -106,35 +105,50 @@ class Serie
     }
 
     /**
-     * Add volumes
+     * Set one or more volumes. Deletes the present ones
      *
-     * @param \SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga $volumes
-     * @return Serie
+	 * @param Doctrine\Common\Collections\ArrayCollection volumes
+     * @return SocialLibrary\ReadableMedia\MangaBundle\Entity\Serie
      */
-    public function addVolume(\SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga $volumes)
+    public function setVolumes(ArrayCollection $volumes)
     {
-        $this->volumes[] = $volumes;
-    
+        $this->volumes = $volumes;
+        
         return $this;
-    }
-
-    /**
-     * Remove volumes
-     *
-     * @param \SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga $volumes
-     */
-    public function removeVolume(\SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga $volumes)
-    {
-        $this->volumes->removeElement($volumes);
     }
 
     /**
      * Get volumes
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\ArrayCollection 
      */
     public function getVolumes()
     {
         return $this->volumes;
+    }
+
+    /**
+     * Add a volume
+     *
+     * @param SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga $volumes
+     * @return SocialLibrary\ReadableMedia\MangaBundle\Entity\Serie
+     */
+    public function addVolume(Manga $volume)
+    {
+        if(!$this->volumes->contains($volume)) {
+            $this->volumes[] = $volume;
+        }
+    
+        return $this;
+    }
+
+    /**
+     * Remove a volume
+     *
+     * @param SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga $volumes
+     */
+    public function removeVolume(Manga $volume)
+    {
+        $this->volumes->removeElement($volume);
     }
 }
