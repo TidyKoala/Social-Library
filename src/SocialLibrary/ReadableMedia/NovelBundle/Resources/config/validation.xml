@@ -46,6 +46,10 @@
                 <option name="max">10</option>
                 <option name="exactMessage">isbn10_exact_length</option>
             </constraint>
+            <constraint name="SocialLibrary\ReadableMedia\MangaBundle\Validator\Constraints\Isbn">
+                <option name="isbn10">true</option>
+                <option name="isbn10Message">isbn10_incorrect</option>
+            </constraint>
         </property>
 
         <property name="isbn13">
@@ -53,6 +57,10 @@
                 <option name="min">13</option>
                 <option name="max">13</option>
                 <option name="exactMessage">isbn13_exact_length</option>
+            </constraint>
+            <constraint name="SocialLibrary\ReadableMedia\MangaBundle\Validator\Constraints\Isbn">
+                <option name="isbn13">true</option>
+                <option name="isbn13Message">isbn13_incorrect</option>
             </constraint>
         </property>
     </class>
