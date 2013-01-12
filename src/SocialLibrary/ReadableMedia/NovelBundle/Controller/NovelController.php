@@ -105,14 +105,16 @@ class NovelController extends Controller
         $entity->addOwner($this->get('security.context')->getToken()->getUser());
 
         if ($form->isValid()) {
+            if($entity->getPictureFile()) {
+                $mediaManager = $this->get('sonata.media.manager.media');
+                $photo = $mediaManager->create();
+                $photo->setBinaryContent($entity->getPictureFile());
+                $photo->setContext('novel');
+                $photo->setProviderName('sonata.media.provider.image');
+                $mediaManager->save($photo);
+                $entity->setPicture($photo);
+            }
             $em = $this->getDoctrine()->getManager();
-            $mediaManager = $this->get('sonata.media.manager.media');
-            $photo = $mediaManager->create();
-            $photo->setBinaryContent($entity->getPictureFile());
-            $photo->setContext('novel');
-            $photo->setProviderName('sonata.media.provider.image');
-            $mediaManager->save($photo);
-            $entity->setPicture($photo);
             $em->persist($entity);
             $em->flush();
             
@@ -191,13 +193,15 @@ class NovelController extends Controller
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
-            $mediaManager = $this->get('sonata.media.manager.media');
-            $photo = $mediaManager->create();
-            $photo->setBinaryContent($entity->getPictureFile());
-            $photo->setContext('novel');
-            $photo->setProviderName('sonata.media.provider.image');
-            $mediaManager->save($photo);
-            $entity->setPicture($photo);
+            if($entity->getPictureFile()) {
+                $mediaManager = $this->get('sonata.media.manager.media');
+                $photo = $mediaManager->create();
+                $photo->setBinaryContent($entity->getPictureFile());
+                $photo->setContext('novel');
+                $photo->setProviderName('sonata.media.provider.image');
+                $mediaManager->save($photo);
+                $entity->setPicture($photo);
+            }
             $em->persist($entity);
             $em->flush();
             
