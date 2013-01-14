@@ -17,17 +17,22 @@ use Assetic\Filter\PngoutFilter;
 /**
  * @group integration
  */
-class PngoutFilterTest extends BaseImageFilterTest
+class PngoutFilterTest extends FilterTestCase
 {
     private $filter;
 
     protected function setUp()
     {
-        if (!isset($_SERVER['PNGOUT_BIN'])) {
-            $this->markTestSkipped('No pngout configuration.');
+        if (!$pngoutBin = $this->findExecutable('pngout', 'PNGOUT_BIN')) {
+            $this->markTestSkipped('Unable to locate `pngout` executable.');
         }
 
-        $this->filter = new PngoutFilter($_SERVER['PNGOUT_BIN']);
+        $this->filter = new PngoutFilter($pngoutBin);
+    }
+
+    protected function tearDown()
+    {
+        $this->filter = null;
     }
 
     /**

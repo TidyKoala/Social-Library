@@ -17,17 +17,21 @@ use Assetic\Filter\StylusFilter;
 /**
  * @group integration
  */
-class StylusFilterTest extends \PHPUnit_Framework_TestCase
+class StylusFilterTest extends FilterTestCase
 {
     private $filter;
 
     protected function setUp()
     {
-        if (!isset($_SERVER['NODE_BIN']) || !isset($_SERVER['NODE_PATH'])) {
-            $this->markTestSkipped('No node.js configuration.');
+        if (!$nodeBin = $this->findExecutable('node', 'NODE_BIN')) {
+            $this->markTestSkipped('Unable to find `node` executable.');
         }
 
-        $this->filter = new StylusFilter($_SERVER['NODE_BIN'], array($_SERVER['NODE_PATH']));
+        if (!$this->checkNodeModule('stylus', $nodeBin)) {
+            $this->markTestSkipped('The "stylus" module is not installed.');
+        }
+
+        $this->filter = new StylusFilter($nodeBin, isset($_SERVER['NODE_PATH']) ? array($_SERVER['NODE_PATH']) : array());
     }
 
     public function testFilterLoad()

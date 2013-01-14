@@ -18,17 +18,21 @@ use Assetic\Filter\LessFilter;
 /**
  * @group integration
  */
-class LessFilterTest extends \PHPUnit_Framework_TestCase
+class LessFilterTest extends FilterTestCase
 {
     protected $filter;
 
     protected function setUp()
     {
-        if (!isset($_SERVER['NODE_BIN']) || !isset($_SERVER['NODE_PATH'])) {
-            $this->markTestSkipped('No node.js configuration.');
+        if (!$nodeBin = $this->findExecutable('node', 'NODE_BIN')) {
+            $this->markTestSkipped('Unable to find `node` executable.');
         }
 
-        $this->filter = new LessFilter($_SERVER['NODE_BIN'], array($_SERVER['NODE_PATH']));
+        if (!$this->checkNodeModule('less', $nodeBin)) {
+            $this->markTestSkipped('The "less" module is not installed.');
+        }
+
+        $this->filter = new LessFilter($nodeBin, isset($_SERVER['NODE_PATH']) ? array($_SERVER['NODE_PATH']) : array());
     }
 
     public function testFilterLoad()

@@ -26,10 +26,6 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class DropDatabaseDoctrineCommand extends DoctrineCommand
 {
-    const RETURN_CODE_NOT_DROP = 1;
-
-    const RETURN_CODE_NO_FORCE = 2;
-
     /**
      * {@inheritDoc}
      */
@@ -86,8 +82,6 @@ EOT
             } catch (\Exception $e) {
                 $output->writeln(sprintf('<error>Could not drop database for connection named <comment>%s</comment></error>', $name));
                 $output->writeln(sprintf('<error>%s</error>', $e->getMessage()));
-
-                return self::RETURN_CODE_NOT_DROP;
             }
         } else {
             $output->writeln('<error>ATTENTION:</error> This operation should not be executed in a production environment.');
@@ -95,8 +89,6 @@ EOT
             $output->writeln(sprintf('<info>Would drop the database named <comment>%s</comment>.</info>', $name));
             $output->writeln('Please run the operation with --force to execute');
             $output->writeln('<error>All data will be lost!</error>');
-
-            return self::RETURN_CODE_NO_FORCE;
         }
     }
 }

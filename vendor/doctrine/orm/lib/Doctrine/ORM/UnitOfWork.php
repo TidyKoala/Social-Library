@@ -2415,17 +2415,23 @@ class UnitOfWork implements PropertyChangedListener
                 if ($entity instanceof NotifyPropertyChanged) {
                     $entity->addPropertyChangedListener($this);
                 }
+
+                // inject ObjectManager into just loaded proxies.
+                if ($overrideLocalValues && $entity instanceof ObjectManagerAware) {
+                    $entity->injectObjectManager($this->em, $class);
+                }
+
             } else {
                 $overrideLocalValues = isset($hints[Query::HINT_REFRESH]);
 
                 // If only a specific entity is set to refresh, check that it's the one
                 if(isset($hints[Query::HINT_REFRESH_ENTITY])) {
                     $overrideLocalValues = $hints[Query::HINT_REFRESH_ENTITY] === $entity;
+                }
 
-                    // inject ObjectManager into just loaded proxies.
-                    if ($overrideLocalValues && $entity instanceof ObjectManagerAware) {
-                        $entity->injectObjectManager($this->em, $class);
-                    }
+                // inject ObjectManager upon refresh.
+                if ($overrideLocalValues && $entity instanceof ObjectManagerAware) {
+                    $entity->injectObjectManager($this->em, $class);
                 }
             }
 
@@ -2571,6 +2577,10 @@ class UnitOfWork implements PropertyChangedListener
                             $newValueOid = spl_object_hash($newValue);
                             $this->entityIdentifiers[$newValueOid] = $associatedId;
                             $this->identityMap[$targetClass->rootEntityName][$relatedIdHash] = $newValue;
+
+                            if ($newValue instanceof NotifyPropertyChanged) {
+                                $newValue->addPropertyChangedListener($this);
+                            }
                             $this->entityStates[$newValueOid] = self::STATE_MANAGED;
                             // make sure that when an proxy is then finally loaded, $this->originalEntityData is set also!
                             break;

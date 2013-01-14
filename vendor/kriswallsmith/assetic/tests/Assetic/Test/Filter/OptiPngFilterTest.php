@@ -17,17 +17,22 @@ use Assetic\Filter\OptiPngFilter;
 /**
  * @group integration
  */
-class OptiPngFilterTest extends BaseImageFilterTest
+class OptiPngFilterTest extends FilterTestCase
 {
     private $filter;
 
     protected function setUp()
     {
-        if (!isset($_SERVER['OPTIPNG_BIN'])) {
-            $this->markTestSkipped('No OptiPNG configuration.');
+        if (!$optipngBin = $this->findExecutable('optipng', 'OPTIPNG_BIN')) {
+            $this->markTestSkipped('Unable to find `optipng` executable.');
         }
 
-        $this->filter = new OptiPngFilter($_SERVER['OPTIPNG_BIN']);
+        $this->filter = new OptiPngFilter($optipngBin);
+    }
+
+    protected function tearDown()
+    {
+        $this->filter = null;
     }
 
     /**
