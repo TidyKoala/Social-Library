@@ -1,6 +1,6 @@
 _welcome:
+    resource: "@SocialLibraryBaseBundle/Resources/config/routing/welcome.xml"
     pattern:  /
-    defaults: { _controller: SocialLibraryBaseBundle:Welcome:index }
 
 social_library_readable_media_novel:
     resource: "@SocialLibraryReadableMediaNovelBundle/Resources/config/routing/novel.xml"
