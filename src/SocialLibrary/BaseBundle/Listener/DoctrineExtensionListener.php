@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\DemoBundle\Listener;
+namespace SocialLibrary\BaseBundle\Listener;
 
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
