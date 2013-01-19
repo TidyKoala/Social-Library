@@ -15,12 +15,10 @@ class ObjectCreatorType extends AbstractType
             ->add('firstname', 'text', array(
                     'required' => true,
                     'label' => 'object_creator_label_firstname',
-//                     'error_bubbling' => true,
                 ))
             ->add('lastname', 'text', array(
                     'required' => false,
                     'label' => 'object_creator_label_lastname',
-//                     'error_bubbling' => true,
                 ))
         ;
     }
