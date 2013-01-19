@@ -12,3 +12,17 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        dbname:   "%database_name%-test"
+
+security:
+    firewalls:
+        admin:
+            http_basic: 
+                provider: fos_userbundle
+        main:
+            http_basic: 
+                provider: fos_userbundle
