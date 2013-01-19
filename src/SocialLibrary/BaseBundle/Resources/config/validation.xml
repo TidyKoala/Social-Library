@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping
+        http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
+
+    <class name="SocialLibrary\BaseBundle\Entity\ObjectCreator">
+        <property name="firstname">
+            <constraint name="NotBlank">
+                <option name="message">creator_firstname_not_blank</option>
+            </constraint>
+        </property>
+    </class>
+
+</constraint-mapping>

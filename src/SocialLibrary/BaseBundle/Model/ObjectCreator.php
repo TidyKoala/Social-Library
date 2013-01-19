@@ -4,7 +4,6 @@ namespace SocialLibrary\BaseBundle\Model;
 
 use SocialLibrary\BaseBundle\Model\ObjectCreatorInterface;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 
 /**
