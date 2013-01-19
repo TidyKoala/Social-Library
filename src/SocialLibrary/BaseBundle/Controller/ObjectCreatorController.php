@@ -2,6 +2,8 @@
 
 namespace SocialLibrary\BaseBundle\Controller;
 
+use Symfony\Component\Translation\IdentityTranslator;
+
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
@@ -60,9 +62,12 @@ class ObjectCreatorController extends Controller
             $em->persist($entity);
             $em->flush();
             $response['code'] = 200;
+        } else {
+            $translator = $this->get('translator');
+            foreach ($form->get('firstname')->getErrors() as $formError) {
+                $errors[] = $translator->trans($formError->getMessageTemplate(), array(), 'validators');
+            }
         }
-        
-        // TODO: send the error message when necessary
         
         $response = array_merge($response, array('id' => $entity->getId(), 'name' => $entity->getFullname(), 'error' => $errors ) );
         
