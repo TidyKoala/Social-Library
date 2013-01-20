@@ -33,7 +33,7 @@ abstract class ObjectCreator implements ObjectCreatorInterface
 	 */
 	public function __toString()
 	{
-		return $this->getFullname();
+		return ($this->getFullname() === null) ? '' : $this->getFullname();
 	}
 	
 	/**
@@ -77,7 +77,13 @@ abstract class ObjectCreator implements ObjectCreatorInterface
 	 */
 	public function getFullname() 
 	{
-		return sprintf("%s %s", $this->getFirstname(), $this->getLastname());
+	    if ($this->getFirstname() === null || $this->getFirstname() === '') {
+		    return null;
+	    } elseif ($this->getLastname() === null || $this->getLastname() === '') {
+		    return sprintf("%s", $this->getFirstname());
+	    } else {
+		    return sprintf("%s %s", $this->getFirstname(), $this->getLastname());
+	    }
 	}
 	
 	/**

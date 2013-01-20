@@ -10,53 +10,89 @@ use SocialLibrary\BaseBundle\Entity\ObjectCreator;
  */
 class ObjectCreatorTest extends \PHPUnit_Framework_TestCase
 {
-    public function testLastname()
-    {
-        $objectCreator = $this->getObjectCreator();
-        $this->assertNull($objectCreator->getLastname());
-        
-        $objectCreator->setLastname('foobar');
-        $this->assertEquals('FOOBAR', $objectCreator->getLastname());
-        $objectCreator->setLastname('Foobar');
-        $this->assertEquals('FOOBAR', $objectCreator->getLastname());
-        $objectCreator->setLastname('fooBar');
-        $this->assertEquals('FOOBAR', $objectCreator->getLastname());
-        $objectCreator->setLastname('FooBar');
-        $this->assertEquals('FOOBAR', $objectCreator->getLastname());
-        $objectCreator->setLastname('foo bar');
-        $this->assertEquals('FOO BAR', $objectCreator->getLastname());
-        $objectCreator->setLastname('foo Bar');
-        $this->assertEquals('FOO BAR', $objectCreator->getLastname());
-    }
-    
-    public function testFullname()
-    {
-        $objectCreator = $this->getObjectCreator();
-        $this->assertEquals(' ', $objectCreator->getFullname());
-        
-        $objectCreator->setFirstname('foofoo');
-        $this->assertEquals('foofoo ', $objectCreator->getFullname());
-        $objectCreator->setLastname('foobar');
-        $this->assertEquals('foofoo FOOBAR', $objectCreator->getFullname());
-    }
-    
-    public function testToString()
-    {
-        $objectCreator = $this->getObjectCreator();
-        $this->assertEquals(' ', $objectCreator);
-        
-        $objectCreator->setFirstname('foofoo');
-        $objectCreator->setLastname('foobar');
-        $this->assertEquals($objectCreator->getFullname(), $objectCreator);
-    }
-    
     /**
-     * Creates a mock of SocialLibrary\BaseBundle\Entity\ObjectCreator
+     * Creates an object of SocialLibrary\BaseBundle\Entity\ObjectCreator
      * 
      * @return SocialLibrary\BaseBundle\Entity\ObjectCreator
      */
-    protected function getObjectCreator()
+    public function getObjectCreator()
     {
-        return $this->getMockForAbstractClass('SocialLibrary\BaseBundle\Entity\ObjectCreator');
+        return new ObjectCreator();
+    }
+    
+    public function getLastnames()
+    {
+        return array(
+            array('foobar', 'FOOBAR'),
+            array('Foobar', 'FOOBAR'),
+            array('fooBar', 'FOOBAR'),
+            array('FooBar', 'FOOBAR'),
+            array('foo bar', 'FOO BAR'),
+            array('foo Bar', 'FOO BAR'),
+        );
+    }
+    
+    public function getFullnames()
+    {
+        return array(
+            array('foo', 'bar', 'foo BAR'),
+            array('Foo', '', 'Foo'),
+            array('Foo', null, 'Foo'),
+            array('', 'bar', null),
+            array(null, 'bar', null),
+        );
+    }
+    
+    public function getStrings()
+    {
+        return array(
+            array('foo', 'bar', 'foo BAR'),
+            array('Foo', '', 'Foo'),
+            array('Foo', null, 'Foo'),
+            array('', 'bar', ''),
+            array(null, 'bar', ''),
+        );
+    }
+    
+    public function testNewObject()
+    {
+        $objectCreator = $this->getObjectCreator();
+        $this->assertNull($objectCreator->getFullname());
+        $this->assertEquals('', $objectCreator);
+    }
+    
+    /**
+     * @dataProvider getLastnames
+     */
+    public function testLastname($lastname, $result)
+    {
+        $objectCreator = $this->getObjectCreator();
+        
+        $objectCreator->setLastname($lastname);
+        $this->assertEquals($result, $objectCreator->getLastname());
+    }
+    
+    /**
+     * @dataProvider getFullnames
+     */
+    public function testFullname($firstname, $lastname, $result)
+    {
+        $objectCreator = $this->getObjectCreator();
+        
+        $objectCreator->setFirstname($firstname);
+        $objectCreator->setLastname($lastname);
+        $this->assertEquals($result, $objectCreator->getFullname());
+    }
+    
+    /**
+     * @dataProvider getStrings
+     */
+    public function testToString($firstname, $lastname, $result)
+    {
+        $objectCreator = $this->getObjectCreator();
+        
+        $objectCreator->setFirstname($firstname);
+        $objectCreator->setLastname($lastname);
+        $this->assertEquals($result, $objectCreator);
     }
 }
