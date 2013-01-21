@@ -8,20 +8,18 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use SocialLibrary\BaseBundle\Entity\ObjectCreator;
 use SocialLibrary\BaseBundle\Form\Type\ObjectCreatorType;
 
 /**
- * Manga controller.
+ * 
  *
  */
 class ObjectCreatorController extends Controller
 {
     /**
-     * Displays a form to create a new Manga entity.
+     * Displays a form to create a new ObjectCreator entity.
      *
      * @Template()
      */
@@ -41,7 +39,7 @@ class ObjectCreatorController extends Controller
     }
 
     /**
-     * Creates a new Manga entity.
+     * Creates a new ObjectCreator entity.
      *
      * @Template("SocialLibraryReadableMediaMangaBundle:Serie:newAjax.html.twig")
      */
