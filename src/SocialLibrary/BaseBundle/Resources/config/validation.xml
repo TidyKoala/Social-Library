@@ -6,7 +6,7 @@
 
     <class name="SocialLibrary\BaseBundle\Entity\ObjectCreator">
         <constraint name="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity">
-            <option name="fields">firstname</option>
+            <option name="fields">lastname</option>
             <option name="fields">firstname</option>
             <option name="message">creator_already_exists</option>
         </constraint>
