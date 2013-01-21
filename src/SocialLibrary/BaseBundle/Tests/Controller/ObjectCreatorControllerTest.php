@@ -28,6 +28,7 @@ class ObjectCreatorControllerTest extends WebTestCase
         return array(
             array('Keith', 'Harring', 'Keith HARRING'),
             array('Eminem', '', 'Eminem'),
+            array('Moby', null, 'Moby'),
         );
     }
     
@@ -74,6 +75,26 @@ class ObjectCreatorControllerTest extends WebTestCase
         $this->assertEquals(400, $response['code']);
         $this->assertNull($response['name']);
         $this->assertEquals(1, count($response['error']));
-        $this->assertEquals('The firstname field cannot be left empty', $response['error'][0]);
+        $this->assertEquals('The firstname field cannot be left empty.', $response['error'][0]);
+    }
+    
+    /**
+     * @depends testAddCreatorWithoutErrors
+     * @dataProvider getValidValues
+     */
+    function testAddExistingCreator($firstname, $lastname, $fullname)
+    {        
+        $this->crawler = $this->client->request('GET', '/object-creator/en/ajax-new', array(), array(), array('HTTP_X-Requested-With' => 'XMLHttpRequest'));
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
+        $form = $this->crawler->selectButton('Add')->form(array(
+            'sociallibrary_basebundle_objectcreatortype[firstname]' => $firstname,
+            'sociallibrary_basebundle_objectcreatortype[lastname]' => $lastname,
+        ));
+        $this->client->submit($form);
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
+        $response = json_decode($this->client->getResponse()->getContent(), true);
+        $this->assertEquals(400, $response['code']);
+        $this->assertEquals(1, count($response['error']));
+        $this->assertEquals('The creator is already registred in the database.', $response['error'][0]);
     }
 }

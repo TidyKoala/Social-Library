@@ -5,6 +5,11 @@
         http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
 
     <class name="SocialLibrary\BaseBundle\Entity\ObjectCreator">
+        <constraint name="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity">
+            <option name="fields">firstname</option>
+            <option name="fields">firstname</option>
+            <option name="message">creator_already_exists</option>
+        </constraint>
         <property name="firstname">
             <constraint name="NotBlank">
                 <option name="message">creator_firstname_not_blank</option>

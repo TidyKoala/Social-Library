@@ -4,7 +4,11 @@
     <body>
       <trans-unit id="1">
         <source>creator_firstname_not_blank</source>
-        <target>The firstname field cannot be left empty</target>
+        <target>The firstname field cannot be left empty.</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>creator_already_exists</source>
+        <target>The creator is already registred in the database.</target>
       </trans-unit>
     </body>
   </file>
