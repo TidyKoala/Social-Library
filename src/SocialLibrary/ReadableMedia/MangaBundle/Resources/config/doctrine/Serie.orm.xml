@@ -9,9 +9,9 @@
         <id name="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-        <field name="name" column="name" type="string" length="255" />
+        <field name="name" column="name" type="string" length="255" unique="true" />
         <field name="nameSlug" column="name_slug" type="string" length="255">
-            <gedmo:slug unique="true" style="default" updatable="true" separator="-" fields="name" />
+            <gedmo:slug unique="false" style="default" updatable="true" separator="-" fields="name" />
         </field>
         <one-to-many field="volumes" target-entity="SocialLibrary\ReadableMedia\MangaBundle\Entity\Manga" mapped-by="serie" />
     </entity>

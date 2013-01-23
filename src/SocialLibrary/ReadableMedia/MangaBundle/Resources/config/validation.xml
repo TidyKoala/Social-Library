@@ -82,6 +82,10 @@
     </class>
 
     <class name="SocialLibrary\ReadableMedia\MangaBundle\Entity\Serie">
+        <constraint name="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity">
+            <option name="fields">name</option>
+            <option name="message">serie_already_exists</option>
+        </constraint>
         <property name="name">
             <constraint name="Length">
                 <option name="min">1</option>

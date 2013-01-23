@@ -52,7 +52,7 @@ class SerieController extends Controller
         $entity = new Serie();
         $response = array('code' => 400);
         $errors = array();
-        $form   = $this->createForm(new SerieAjaxType(), $entity);
+        $form = $this->createForm(new SerieAjaxType(), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -60,9 +60,12 @@ class SerieController extends Controller
             $em->persist($entity);
             $em->flush();
             $response['code'] = 200;
+        } else {
+            $translator = $this->get('translator');
+            foreach ($form->get('name')->getErrors() as $formError) {
+                $errors[] = $translator->trans($formError->getMessageTemplate(), array(), 'validators');
+            }
         }
-        
-        // TODO: send the error message when necessary
         
         $response = array_merge($response, array('id' => $entity->getId(), 'name' => $entity->getName(), 'error' => $errors ) );
         

@@ -15,7 +15,6 @@ class SerieAjaxType extends AbstractType
             ->add('name', 'text', array(
                     'required' => true,
                     'label' => 'serie_label_name',
-                    'error_bubbling' => true,
                 ))
         ;
     }
