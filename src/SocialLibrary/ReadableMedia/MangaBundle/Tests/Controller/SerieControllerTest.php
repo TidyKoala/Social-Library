@@ -27,9 +27,9 @@ class SerieControllerTest extends WebTestCase
     function getValidValues()
     {
         return array(
-            array('Naruto', 'Naruto'),
-            array('Bakuman', 'Bakuman'),
-            array('Bleach', 'Bleach'),
+            array('One Piece', 'One Piece'),
+            array('Pokemon', 'Pokemon'),
+            array('Black Cat', 'Black Cat'),
             array('Prince of Tennis', 'Prince of Tennis'),
         );
     }
@@ -39,8 +39,8 @@ class SerieControllerTest extends WebTestCase
         return array(
             array('', 'The serie must have a name'),
             array(null, 'The serie must have a name'),
-            array('naruto', 'serie_already_exists'),
-            array('Bleach', 'serie_already_exists'),
+            array('pokemon', 'serie_already_exists'),
+            array('black Cat', 'serie_already_exists'),
             array('Prince OF tENNIS', 'serie_already_exists'),
         );
     }
