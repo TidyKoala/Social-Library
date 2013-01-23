@@ -3,6 +3,7 @@
 namespace SocialLibrary\ReadableMedia\NovelBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use SocialLibrary\ReadableMedia\NovelBundle\Entity\Novel;
