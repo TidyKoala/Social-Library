@@ -34,8 +34,8 @@ class AppKernel extends Kernel
         	new Sonata\MediaBundle\SonataMediaBundle(),
         	new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new SocialLibrary\BaseBundle\SocialLibraryBaseBundle(),
-            new SocialLibrary\ReadableMedia\MangaBundle\SocialLibraryReadableMediaMangaBundle(),
-            new SocialLibrary\ReadableMedia\NovelBundle\SocialLibraryReadableMediaNovelBundle(),
+            new SocialLibrary\ReadBundle\MangaBundle\SocialLibraryReadBundleMangaBundle(),
+            new SocialLibrary\ReadBundle\NovelBundle\SocialLibraryReadBundleNovelBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
