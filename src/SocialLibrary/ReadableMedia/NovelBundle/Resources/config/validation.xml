@@ -5,12 +5,6 @@
         http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
 
     <class name="SocialLibrary\ReadableMedia\NovelBundle\Entity\Novel">
-        <property name="name">
-            <constraint name="NotBlank">
-                <option name="message">novel_name_not_blank</option>
-            </constraint>
-        </property>
-        
         <property name="pictureFile">
             <constraint name="Image">
                 <option name="uploadErrorMessage">novel_pictureFile_upload_error</option>
