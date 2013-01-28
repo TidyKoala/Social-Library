@@ -2,21 +2,17 @@ _welcome:
     resource: "@SocialLibraryBaseBundle/Resources/config/routing/welcome.xml"
     pattern:  /
 
-social_library_readable_media_novel:
-    resource: "@SocialLibraryReadBundleNovelBundle/Resources/config/routing/novel.xml"
-    prefix:   /novel
-
-social_library_readable_media_novel_serie:
-    resource: "@SocialLibraryReadBundleNovelBundle/Resources/config/routing/serie.xml"
-    prefix:   /novel-serie
+social_library_read_serie:
+    resource: "@SocialLibraryReadBundleCommonBundle/Resources/config/routing/serie.xml"
+    prefix:   /read-serie
 
 social_library_readable_media_manga:
     resource: "@SocialLibraryReadBundleMangaBundle/Resources/config/routing/manga.xml"
     prefix:   /manga
 
-social_library_readable_media_serie:
-    resource: "@SocialLibraryReadBundleMangaBundle/Resources/config/routing/serie.xml"
-    prefix:   /manga-serie
+social_library_readable_media_novel:
+    resource: "@SocialLibraryReadBundleNovelBundle/Resources/config/routing/novel.xml"
+    prefix:   /novel
 
 social_library_base_object_creator:
     resource: "@SocialLibraryBaseBundle/Resources/config/routing/object_creator.xml"

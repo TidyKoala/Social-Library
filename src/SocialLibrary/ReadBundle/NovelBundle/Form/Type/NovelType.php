@@ -27,7 +27,7 @@ class NovelType extends AbstractType
             ->add('serie', 'entity', array(
                     'required' => false,
                     'label' => 'novel_label_serie',
-                    'class' => 'SocialLibrary\ReadBundle\NovelBundle\Entity\Serie',
+                    'class' => 'SocialLibrary\ReadBundle\CommonBundle\Entity\Serie',
                     'query_builder' => function(EntityRepository $er) {
                         return $er->createQueryBuilder('s')
                             ->orderBy('s.nameSlug', 'ASC');

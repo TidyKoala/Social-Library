@@ -4,7 +4,7 @@ namespace SocialLibrary\ReadBundle\MangaBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use SocialLibrary\BaseBundle\Tests\TestObjectCreator;
-use SocialLibrary\ReadBundle\MangaBundle\Tests\TestSerie;
+use SocialLibrary\ReadBundle\CommonBundle\Tests\TestSerie;
 
 class MangaControllerTest extends WebTestCase
 {

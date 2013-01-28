@@ -36,6 +36,7 @@ class AppKernel extends Kernel
             new SocialLibrary\BaseBundle\SocialLibraryBaseBundle(),
             new SocialLibrary\ReadBundle\MangaBundle\SocialLibraryReadBundleMangaBundle(),
             new SocialLibrary\ReadBundle\NovelBundle\SocialLibraryReadBundleNovelBundle(),
+            new SocialLibrary\ReadBundle\CommonBundle\SocialLibraryReadBundleCommonBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

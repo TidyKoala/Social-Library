@@ -4,7 +4,7 @@ namespace SocialLibrary\ReadBundle\NovelBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use SocialLibrary\BaseBundle\Tests\TestObjectCreator;
-use SocialLibrary\ReadBundle\NovelBundle\Tests\TestSerie;
+use SocialLibrary\ReadBundle\CommonBundle\Tests\TestSerie;
 
 class NovelControllerTest extends WebTestCase
 {

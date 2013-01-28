@@ -84,7 +84,7 @@
         {{ form_label(edit_form.serie, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(edit_form.serie) }}
-            <a href="#" data-request="{{ path('novel_serie_ajax_new') }}" data-select="#sociallibrary_readbundle_novelbundle_noveltype_serie" title="{% trans %}placeholder_serie_novel{% endtrans %}" class="add-ajax tooltip-icon">
+            <a href="#" data-request="{{ path('read_serie_ajax_new') }}" data-select="#sociallibrary_readbundle_novelbundle_noveltype_serie" title="{% trans %}placeholder_serie_novel{% endtrans %}" class="add-ajax tooltip-icon">
                 <i class="icon-list-add"></i>
             </a>
             <span class="help-inline">

@@ -40,7 +40,7 @@
                 <option name="max">10</option>
                 <option name="exactMessage">isbn10_exact_length</option>
             </constraint>
-            <constraint name="SocialLibrary\ReadBundle\MangaBundle\Validator\Constraints\Isbn">
+            <constraint name="SocialLibrary\ReadBundle\CommonBundle\Validator\Constraints\Isbn">
                 <option name="isbn10">true</option>
                 <option name="isbn10Message">isbn10_incorrect</option>
             </constraint>
@@ -52,26 +52,9 @@
                 <option name="max">13</option>
                 <option name="exactMessage">isbn13_exact_length</option>
             </constraint>
-            <constraint name="SocialLibrary\ReadBundle\MangaBundle\Validator\Constraints\Isbn">
+            <constraint name="SocialLibrary\ReadBundle\CommonBundle\Validator\Constraints\Isbn">
                 <option name="isbn13">true</option>
                 <option name="isbn13Message">isbn13_incorrect</option>
-            </constraint>
-        </property>
-    </class>
-
-    <class name="SocialLibrary\ReadBundle\NovelBundle\Entity\Serie">
-        <constraint name="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity">
-            <option name="fields">name</option>
-            <option name="message">serie_already_exists</option>
-        </constraint>
-        
-        <property name="name">
-            <constraint name="Length">
-                <option name="min">1</option>
-                <option name="minMessage">serie_name_min_length</option>
-            </constraint>
-            <constraint name="NotBlank">
-                <option name="message">serie_name_not_blank</option>
             </constraint>
         </property>
     </class>
