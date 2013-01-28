@@ -18,9 +18,10 @@ class MangaRepository extends EntityRepository
         $query = $this
             ->getEntityManager()
             ->createQueryBuilder()
-            ->select(array('m', 's', 'c', 'o'))
+            ->select(array('m', 's', 'p', 'c', 'o'))
             ->from('SocialLibraryReadBundleMangaBundle:Manga', 'm')
             ->innerJoin('m.serie', 's')
+            ->innerJoin('m.picture', 'p')
             ->innerJoin('m.creators', 'c')
             ->leftJoin('m.owners', 'o')
             ->orderBy('m.volume');

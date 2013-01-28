@@ -18,11 +18,13 @@ class NovelRepository extends EntityRepository
         $query = $this
             ->getEntityManager()
             ->createQueryBuilder()
-            ->select(array('n', 's', 'c', 'o'))
+            ->select(array('n', 's', 'p', 'c', 'o'))
             ->from('SocialLibraryReadBundleNovelBundle:Novel', 'n')
             ->leftJoin('n.serie', 's')
+            ->leftJoin('n.picture', 'p')
             ->innerJoin('n.creators', 'c')
-            ->leftJoin('n.owners', 'o');
+            ->leftJoin('n.owners', 'o')
+            ->orderBy('n.name');
         
         if($user != null) {
             $query = $query
