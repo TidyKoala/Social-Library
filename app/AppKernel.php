@@ -38,6 +38,7 @@ class AppKernel extends Kernel
             new SocialLibrary\ReadBundle\NovelBundle\SocialLibraryReadBundleNovelBundle(),
             new SocialLibrary\ReadBundle\CommonBundle\SocialLibraryReadBundleCommonBundle(),
             new SocialLibrary\ReadBundle\GraphicNovelBundle\SocialLibraryReadBundleGraphicNovelBundle(),
+            new Lunetics\LocaleBundle\LuneticsLocaleBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

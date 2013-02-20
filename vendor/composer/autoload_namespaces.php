@@ -29,6 +29,7 @@ return array(
     'Sensio\\Bundle\\DistributionBundle' => $vendorDir . '/sensio/distribution-bundle/',
     'Monolog' => $vendorDir . '/monolog/monolog/src/',
     'Metadata\\' => $vendorDir . '/jms/metadata/src/',
+    'Lunetics\\LocaleBundle' => $vendorDir . '/lunetics/locale-bundle/',
     'Knp\\Menu\\' => $vendorDir . '/knplabs/knp-menu/src/',
     'Knp\\Component' => $vendorDir . '/knplabs/knp-components/src/',
     'Knp\\Bundle\\PaginatorBundle' => $vendorDir . '/knplabs/knp-paginator-bundle/',

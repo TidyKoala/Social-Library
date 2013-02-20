@@ -2523,5 +2523,61 @@
             "log",
             "logging"
         ]
+    },
+    {
+        "name": "lunetics/locale-bundle",
+        "version": "2.1.x-dev",
+        "version_normalized": "2.1.9999999.9999999-dev",
+        "target-dir": "Lunetics/LocaleBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/lunetics/LocaleBundle.git",
+            "reference": "ea68c1e530060cadc9623873c4b31a349223a136"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/lunetics/LocaleBundle/zipball/ea68c1e530060cadc9623873c4b31a349223a136",
+            "reference": "ea68c1e530060cadc9623873c4b31a349223a136",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2",
+            "symfony/framework-bundle": "2.1.*",
+            "symfony/yaml": "2.1.*",
+            "symfony/locale": "2.1.*",
+            "ext-intl": "*"
+        },
+        "time": "2012-09-30 04:26:20",
+        "type": "symfony-bundle",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Lunetics\\LocaleBundle": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Lunetics",
+                "homepage": "http://www.lunetics.com"
+            },
+            {
+                "name": "Christophe Willesmen",
+                "homepage": "http://christophewillemsen.com"
+            }
+        ],
+        "description": "A Bundle for switching Languages",
+        "keywords": [
+            "browser",
+            "bundle",
+            "locale",
+            "router",
+            "multilanguage",
+            "language",
+            "cookie"
+        ]
     }
 ]
