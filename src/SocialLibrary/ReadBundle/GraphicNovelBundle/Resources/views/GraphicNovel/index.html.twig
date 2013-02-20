@@ -1,0 +1,62 @@
+{% extends 'SocialLibraryBaseBundle::base.html.twig' %}
+
+{% block title %}{{ parent() }} - {% trans %}graphic_novel_section_title{% endtrans %}{% endblock %}
+
+{% block secondMenu %}
+{% if is_granted('ROLE_USER') %}
+<ul class="record_actions nav nav-pills nav-stacked">
+    <li>
+        <a href="{{ path('graphic_novel_new') }}">
+            <i class="icon-list-add"></i> {% trans %}graphic_novel_add{% endtrans %}
+        </a>
+    </li>
+    <li>
+    {% if selection == 'my' %}
+        <a href="{{ path('graphic_novel_index', {'selection' : 'all'}) }}">
+            {% trans %}graphic_novel_all{% endtrans %}
+    {% else %}
+        <a href="{{ path('graphic_novel_index', {'selection' : 'my'}) }}">
+            {% trans %}graphic_novel_my{% endtrans %}
+    {% endif %}
+        </a>
+    </li>
+</ul>
+{% endif %}
+{% endblock %}
+
+{% block body %}
+<div class="row-fluid">
+    <div class="span12">
+        <h1>{% trans %}graphic_novel_section_title{% endtrans %}</h1>
+    </div>
+</div>
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+<div class="row-fluid">
+    <div class="span12">
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<div class="row-fluid">
+    <div class="offset9 span3">
+        <div class="btn-group">
+            <a href="{{ path('graphic_novel_index', {'view' : 'list', 'selection' : selection}) }}" title="{% trans %}graphic_novel_list_view{% endtrans %}" class="btn">
+                <i class="icon-menu"></i>
+            </a>
+            <a href="{{ path('graphic_novel_index', {'view' : 'listThumbs', 'selection' : selection}) }}" title="{% trans %}graphic_novel_list_thumb_view{% endtrans %}" class="btn">
+                <i class="icon-list"></i>
+            </a>
+            <a href="{{ path('graphic_novel_index', {'view' : 'thumbnails', 'selection' : selection}) }}" title="{% trans %}graphic_novel_thumb_view{% endtrans %}" class="btn">
+                <i class="icon-layout"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% block list %}{% endblock %}
+
+{% endblock %}

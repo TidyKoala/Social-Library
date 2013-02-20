@@ -99,7 +99,7 @@ class MangaControllerTest extends WebTestCase
     function getInvalidValues()
     {
         return array(
-            array('Naruto', '1', '', array('Masashi', 'KISHIMOTO'), array('Masashi', 'KISHIMOTO'), '', '', '', 'The manga must have a name.'),
+            array('Naruto', '1', '', array('Masashi', 'KISHIMOTO'), array('Masashi', 'KISHIMOTO'), '', '', '', 'The novel must have a name.'),
             array('Naruto', '', 'Naruto', array('Masashi', 'KISHIMOTO'), array('Masashi', 'KISHIMOTO'), 'en', '', '', 'manga_volume_not_blank'),
             array('Bakuman', '2', 'Bakuman', array('Tsugumi', 'OHBA'), array('Takeshi', 'OBATA'), 'de', '1234567890', '', 'isbn10_incorrect'),
             array('Bakuman', '3', 'Bakuman', array('Tsugumi', 'OHBA'), array('Takeshi', 'OBATA'), '', '2505009635', '1234567890123', 'isbn13_incorrect'),
@@ -173,6 +173,7 @@ class MangaControllerTest extends WebTestCase
             'sociallibrary_readbundle_mangabundle_mangatype[isbn13]' => $isbn13,
         ));
         $this->client->submit($form);
+        
         $this->assertFalse($this->client->getResponse()->isRedirect());
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         $this->crawler = $this->client->getCrawler();
@@ -221,16 +222,16 @@ class MangaControllerTest extends WebTestCase
         $this->crawler = $this->client->request('GET', '/manga/en/index');
         $this->assertEquals(1 , $this->crawler->filter('h1:contains("Manga section")')->count());
         $this->assertEquals(5, $this->crawler->filter('table th')->count());
-        $this->assertEquals(11, $this->crawler->filter('table tr')->count());
+        $this->assertEquals(count($this->getValidValues()) + 1, $this->crawler->filter('table tr')->count());
         
         $this->crawler = $this->client->request('GET', '/manga/en/index/listThumbs');
         $this->assertEquals(1 , $this->crawler->filter('h1:contains("Manga section")')->count());
         $this->assertEquals(2, $this->crawler->filter('table th')->count());
-        $this->assertEquals(11, $this->crawler->filter('table tr')->count());
+        $this->assertEquals(count($this->getValidValues()) + 1, $this->crawler->filter('table tr')->count());
         
         $this->crawler = $this->client->request('GET', '/manga/en/index/thumbnails');
         $this->assertEquals(1 , $this->crawler->filter('h1:contains("Manga section")')->count());
-        $this->assertEquals(10, $this->crawler->filter('ul.thumbnails.records_list li')->count());
+        $this->assertEquals(count($this->getValidValues()), $this->crawler->filter('ul.thumbnails.records_list li')->count());
     }
     
     /**

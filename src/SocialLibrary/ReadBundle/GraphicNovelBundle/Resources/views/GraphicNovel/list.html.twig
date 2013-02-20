@@ -1,0 +1,67 @@
+{% extends 'SocialLibraryReadBundleGraphicNovelBundle:GraphicNovel:index.html.twig' %}
+
+{% block list %}
+<table class="records_list table table-striped table-bordered table-hover">
+    <thead>
+    	<tr>
+    		<th>
+                {% trans %}graphic_novel_header_volume{% endtrans %}
+    		</th>
+    		<th>
+    		    {% trans %}graphic_novel_header_name{% endtrans %}
+		    </th>
+    		<th>
+    		    {{ entities.sortable('graphic_novel_header_serie', 's.nameSlug', {'translationDomain' : 'messages'})|raw }}
+		    </th>
+    		<th>
+    		    {{ entities.sortable('graphic_novel_header_authors', 'c.lastname', {'translationDomain' : 'messages' })|raw }}
+		    </th>
+            <th>
+                {% trans %}graphic_novel_header_actions{% endtrans %}
+            </th>
+    	</tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+     	<tr>
+     		<td>
+     		    {{ entity.volume }}
+ 		    </td>
+     		<td>
+     		    <a href="{{ path('graphic_novel_show', {'id': entity.id, 'nameSlug': entity.nameSlug }) }}">{{ entity.name }}</a>
+ 		    </td>
+     		<td>
+ 		        {{ entity.serie }}
+	        </td>
+     		<td>
+     		    {{ entity.creators|join(', ') }}
+ 		    </td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('graphic_novel_show', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-eye"></i> {% trans %}graphic_novel_details{% endtrans %}</a>
+                    </li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        {% if entity.isOwner(app.user) %}
+                    <li>
+                        <a href="{{ path('graphic_novel_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-pencil"></i> {% trans %}graphic_novel_edit{% endtrans %}</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('graphic_novel_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-logout"></i> {% trans %}graphic_novel_delete{% endtrans %}</a>
+                    </li>
+                        {% else %}
+                    <li>
+                        <a href="{{ path('graphic_novel_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-login"></i> {% trans %}graphic_novel_own{% endtrans %}</a>
+                    </li>
+                        {% endif %}
+                    {% endif %}
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{{ entities.render()|raw }}
+
+{% endblock %}
