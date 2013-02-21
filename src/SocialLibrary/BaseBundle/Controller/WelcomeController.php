@@ -23,11 +23,6 @@ class WelcomeController extends Controller
      */
     public function indexAction()
     {
-//         $languages = $this->getRequest()->getLanguages();
-//         if( count($languages) > 0 ) {
-//             $this->get('session')->set('_locale', $languages[0]);
-//             $this->get('session')->save();
-//         }
         return array();
     }
 }
