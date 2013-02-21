@@ -198,4 +198,16 @@ sonata_media:
             directory:  "%kernel.root_dir%/../web/uploads/media"
             create:     false
 
+lunetics_locale:
+  allowed_locales:
+    - en
+    - fr
+  guessing_order:
+    - cookie
+    - browser
+    - router
+  cookie:
+    set_on_detection: true
+  switcher:
+    template: SocialLibraryBaseBundle::switcher_links.html.twig
 

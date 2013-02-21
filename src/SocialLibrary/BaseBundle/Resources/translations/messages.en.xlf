@@ -38,6 +38,10 @@
         <source>object_creator_label_lastname</source>
         <target>Lastname</target>
       </trans-unit>
+      <trans-unit id="10">
+        <source>locale_selecter_label</source>
+        <target>Language</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
