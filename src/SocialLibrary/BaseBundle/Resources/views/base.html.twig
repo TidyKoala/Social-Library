@@ -62,7 +62,7 @@
                                             <b class="caret"></b>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            {{ locale_switcher() }}
+                                            {% block localeSwitcher %}{{ locale_switcher() }}{% endblock %}
                                         </ul>
                                     </li>
                                 </ul>
