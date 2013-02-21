@@ -208,4 +208,6 @@ lunetics_locale:
     - router
   cookie:
     set_on_detection: true
+  switcher:
+    template: SocialLibraryBaseBundle::switcher_links.html.twig
 
