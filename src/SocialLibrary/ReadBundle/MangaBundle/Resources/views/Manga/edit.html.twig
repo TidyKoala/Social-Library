@@ -1,5 +1,9 @@
 {% extends 'SocialLibraryBaseBundle::base.html.twig' %}
 
+{% block localeSwitcher %}
+    {{ locale_switcher('manga_show', {'id': entity.id, 'nameSlug':entity.nameSlug }) }}
+{% endblock %}
+
 {% block title %}
     {{ parent() }} - {% trans %}manga_section_title{% endtrans %} - {% trans %}manga_update_title{% endtrans %} {{ entity.volume ~ '/' ~ entity.name ~ '/' ~ entity.serie }}
 {% endblock %}
