@@ -1,6 +1,6 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\CommonBundle\Validator\Constraints;
+namespace SocialLibrary\ReadBundle\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Exception\MissingOptionsException;

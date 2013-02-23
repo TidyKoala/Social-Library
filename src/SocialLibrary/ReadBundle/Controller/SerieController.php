@@ -1,14 +1,14 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\CommonBundle\Controller;
+namespace SocialLibrary\ReadBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use SocialLibrary\ReadBundle\CommonBundle\Entity\Serie;
-use SocialLibrary\ReadBundle\CommonBundle\Form\Type\SerieAjaxType;
+use SocialLibrary\ReadBundle\Entity\Serie;
+use SocialLibrary\ReadBundle\Form\Type\SerieAjaxType;
 
 /**
  * Manga controller.

@@ -1,6 +1,6 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\CommonBundle\Form\Type;
+namespace SocialLibrary\ReadBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,7 +22,7 @@ class SerieType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SocialLibrary\ReadBundle\CommonBundle\Entity\Serie'
+            'data_class' => 'SocialLibrary\ReadBundle\Entity\Serie'
         ));
     }
 

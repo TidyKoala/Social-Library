@@ -1,6 +1,6 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\CommonBundle\Tests\Controller;
+namespace SocialLibrary\ReadBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

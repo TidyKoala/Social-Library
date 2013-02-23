@@ -1,9 +1,9 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\CommonBundle\Tests\Validator\Constraints;
+namespace SocialLibrary\ReadBundle\Tests\Validator\Constraints;
 
-use SocialLibrary\ReadBundle\CommonBundle\Validator\Constraints\Isbn;
-use SocialLibrary\ReadBundle\CommonBundle\Validator\Constraints\IsbnValidator;
+use SocialLibrary\ReadBundle\Validator\Constraints\Isbn;
+use SocialLibrary\ReadBundle\Validator\Constraints\IsbnValidator;
 
 /**
  * @see https://en.wikipedia.org/wiki/Isbn

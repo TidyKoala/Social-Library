@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping
         http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
 
-    <class name="SocialLibrary\ReadBundle\CommonBundle\Entity\Serie">
+    <class name="SocialLibrary\ReadBundle\Entity\Serie">
         <constraint name="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity">
             <option name="fields">name</option>
             <option name="message">serie_already_exists</option>

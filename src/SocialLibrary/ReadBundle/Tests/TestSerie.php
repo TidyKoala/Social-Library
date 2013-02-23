@@ -1,10 +1,10 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\CommonBundle\Tests;
+namespace SocialLibrary\ReadBundle\Tests;
 
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use SocialLibrary\ReadBundle\CommonBundle\Entity\Serie;
+use SocialLibrary\ReadBundle\Entity\Serie;
 
 /**
  * For test purposes. Allows to give basic manipulation on Serie
@@ -16,7 +16,7 @@ class TestSerie extends WebTestCase
      * Adds an Serie and return the saved object.
      * 
      * @param string $name
-     * @return SocialLibrary\ReadBundle\MangaBundle\Entity\Serie
+     * @return SocialLibrary\ReadBundle\Entity\Serie
      */
     public function add($name)
     {
@@ -25,7 +25,7 @@ class TestSerie extends WebTestCase
         } else {
             $client = static::createClient();
             $em = $client->getContainer()->get('doctrine.orm.entity_manager');
-            $entity = $em->getRepository('SocialLibraryReadBundleCommonBundle:Serie')
+            $entity = $em->getRepository('SocialLibraryReadBundle:Serie')
                 ->findOneBy(array(
                     'name' => $name,
                 ));

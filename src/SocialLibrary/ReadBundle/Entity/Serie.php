@@ -1,6 +1,6 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\CommonBundle\Entity;
+namespace SocialLibrary\ReadBundle\Entity;
 
 use SocialLibrary\BaseBundle\Model\ObjectInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -14,7 +14,7 @@ class Serie
      * @var integer id
      */
 	protected $id;
-	
+
 	/**
 	 * @var string name
 	 */
@@ -61,7 +61,7 @@ class Serie
      * Set name
      *
      * @param string $name
-     * @return SocialLibrary\ReadBundle\CommonBundle\Entity\Serie
+     * @return SocialLibrary\ReadBundle\Entity\Serie
      */
     public function setName($name)
     {
@@ -84,7 +84,7 @@ class Serie
      * Set nameSlug
      *
      * @param string $nameSlug
-     * @return SocialLibrary\ReadBundle\CommonBundle\Entity\Serie
+     * @return SocialLibrary\ReadBundle\Entity\Serie
      */
     public function setNameSlug($nameSlug)
     {
@@ -107,7 +107,7 @@ class Serie
      * Set one or more volumes. Deletes the present ones
      *
 	 * @param Doctrine\Common\Collections\ArrayCollection $volumes
-     * @return SocialLibrary\ReadBundle\CommonBundle\Entity\Serie
+     * @return SocialLibrary\ReadBundle\Entity\Serie
      */
     public function setVolumes(ArrayCollection $volumes)
     {
@@ -130,7 +130,7 @@ class Serie
      * Add a volume
      *
      * @param SocialLibrary\BaseBundle\Model\ObjectInterface $volume
-     * @return SocialLibrary\ReadBundle\CommonBundle\Entity\Serie
+     * @return SocialLibrary\ReadBundle\Entity\Serie
      */
     public function addVolume(ObjectInterface $volume)
     {

@@ -1,13 +1,13 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\CommonBundle\Tests\Entity;
+namespace SocialLibrary\ReadBundle\Tests\Entity;
 
-use SocialLibrary\ReadBundle\CommonBundle\Entity\Serie;
+use SocialLibrary\ReadBundle\Entity\Serie;
 use SocialLibrary\ReadBundle\MangaBundle\Entity\Manga;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * SocialLibrary\ReadBundle\MangaBundle\Tests\Entity\SerieTest
+ * SocialLibrary\ReadBundle\Tests\Entity\SerieTest
  * 
  */
 class SerieTest extends \PHPUnit_Framework_TestCase

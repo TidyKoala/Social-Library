@@ -4,7 +4,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <mapped-superclass name="SocialLibrary\ReadBundle\CommonBundle\Entity\Book">
+    <mapped-superclass name="SocialLibrary\ReadBundle\Entity\Book">
         <many-to-many field="owners" target-entity="Application\Sonata\UserBundle\Entity\User">
             <join-table name="book__owner">
                 <join-columns>
@@ -26,7 +26,7 @@
             </join-table>
         </many-to-many>
         <field name="volume" column="volume" type="integer" nullable="true" />
-        <many-to-one field="serie" target-entity="SocialLibrary\ReadBundle\CommonBundle\Entity\Serie" inversed-by="volumes">
+        <many-to-one field="serie" target-entity="SocialLibrary\ReadBundle\Entity\Serie" inversed-by="volumes">
             <join-column name="serie_id" referenced-column-name="id" />
         </many-to-one>
         <field name="language" column="language" type="string" length="8" nullable="true" />

@@ -1,10 +1,10 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\CommonBundle\Entity;
+namespace SocialLibrary\ReadBundle\Entity;
 
 use SocialLibrary\BaseBundle\Entity\Object;
 use SocialLibrary\BaseBundle\Model\ObjectCreatorInterface;
-use SocialLibrary\ReadBundle\CommonBundle\Entity\Serie;
+use SocialLibrary\ReadBundle\Entity\Serie;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -18,7 +18,7 @@ class Book extends Object
 	protected $volume;
 	
 	/**
-	 * @var \SocialLibrary\ReadBundle\CommonBundle\Entity\Serie serie
+	 * @var \SocialLibrary\ReadBundle\Entity\Serie serie
 	 */
 	protected $serie;
 	
@@ -27,11 +27,11 @@ class Book extends Object
 	 */
 	protected $language;
 	
-	/**
+        /**
 	 * @var string isbn10
 	 */
 	protected $isbn10;
-	
+
 	/**
 	 * @var string isbn13
 	 */
@@ -49,7 +49,7 @@ class Book extends Object
      * Set volume
      *
      * @param integer $volume
-     * @return SocialLibrary\ReadBundle\CommonBundle\Entity\Book
+     * @return SocialLibrary\ReadBundle\Entity\Book
      */
     public function setVolume($volume)
     {
@@ -71,8 +71,8 @@ class Book extends Object
     /**
      * Set serie
      *
-     * @param \SocialLibrary\ReadBundle\CommonBundle\Entity\Serie $serie
-     * @return SocialLibrary\ReadBundle\CommonBundle\Entity\Book
+     * @param \SocialLibrary\ReadBundle\Entity\Serie $serie
+     * @return SocialLibrary\ReadBundle\Entity\Book
      */
     public function setSerie(Serie $serie = null)
     {
@@ -84,7 +84,7 @@ class Book extends Object
     /**
      * Get serie
      *
-     * @return \SocialLibrary\ReadBundle\CommonBundle\Entity\Serie 
+     * @return \SocialLibrary\ReadBundle\Entity\Serie 
      */
     public function getSerie()
     {
@@ -95,7 +95,7 @@ class Book extends Object
      * Set language
      *
      * @param string $language
-     * @return SocialLibrary\ReadBundle\CommonBundle\Entity\Book
+     * @return SocialLibrary\ReadBundle\Entity\Book
      */
     public function setLanguage($language)
     {
@@ -118,7 +118,7 @@ class Book extends Object
      * Set isbn10
      *
      * @param string $isbn10
-     * @return SocialLibrary\ReadBundle\CommonBundle\Entity\Book
+     * @return SocialLibrary\ReadBundle\Entity\Book
      */
     public function setIsbn10($isbn10)
     {
@@ -141,7 +141,7 @@ class Book extends Object
      * Set isbn13
      *
      * @param string $isbn13
-     * @return SocialLibrary\ReadBundle\CommonBundle\Entity\Book
+     * @return SocialLibrary\ReadBundle\Entity\Book
      */
     public function setIsbn13($isbn13)
     {
