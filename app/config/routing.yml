@@ -3,7 +3,7 @@ _welcome:
     pattern:  /
 
 social_library_read_serie:
-    resource: "@SocialLibraryReadBundleCommonBundle/Resources/config/routing/serie.xml"
+    resource: "@SocialLibraryReadBundle/Resources/config/routing/serie.xml"
     prefix:   /read-serie
 
 social_library_readable_media_manga:
