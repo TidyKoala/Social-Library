@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="1">
+        <source>owners_not_null</source>
+        <target>You cannot work on this volume as you don't have it in your library.</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>name_not_blank</source>
+        <target>The manga must have a name.</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>name_min_length</source>
+        <target>{0} You did not give the manga a name. The name must have at least {{ limit }} characters.|{1} The name of the manga must have at least {{ limit }} characters.|[2, Inf] The name of the manga must have at least {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>pictureFile_upload_error</source>
+        <target>An error occured during the upload process.</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>pictureFile_ini_size_error</source>
+        <target>The image you submit is bigger then what you are authorized to.</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>pictureFile_mime_type_error</source>
+        <target>The file you submit is no image.</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>creators_not_null</source>
+        <target>The manga has to have someone who wrote it.</target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>illustrators_not_null</source>
+        <target>The manga has to have at least one person who illustrated it.</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>volume_not_blank</source>
+        <target>The manga has to have a volume number.</target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>volume_under_min</source>
+        <target>Mangas start at volume 1. The volume you submit must be {{ limit }} or more.</target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>volume_invalid_message</source>
+        <target>The volume must be a number.</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>serie_not_null</source>
+        <target>The volume must be part of a serie.</target>
+      </trans-unit>
+      <trans-unit id="13">
+        <source>language_invalid</source>
+        <target>The language of the manga is no known language (is it written in alien?).</target>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>isbn10_exact_length</source>
+        <target>ISBN-10 is a code containing {{ limit }} characters|ISBN-10 is a code containing {{ limit }} characters</target>
+      </trans-unit>
+      <trans-unit id="15">
+        <source>isbn13_exact_length</source>
+        <target>ISBN-13 is a code containing {{ limit }} characters|ISBN-13 a code containing {{ limit }} characters</target>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>serie_name_not_blank</source>
+        <target>The serie must have a name</target>
+      </trans-unit>
+      <trans-unit id="17">
+        <source>serie_name_min_length</source>
+        <target>The name of the serie must contain at least {{ limit }} characters|The name of the serie must contain at least {{ limit }} characters</target>
+      </trans-unit>
+      <trans-unit id="18">
+        <source>name_not_blank</source>
+        <target>The novel must have a name.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
