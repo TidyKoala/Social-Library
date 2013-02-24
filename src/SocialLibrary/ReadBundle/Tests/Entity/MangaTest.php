@@ -1,13 +1,13 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\MangaBundle\Tests\Entity;
+namespace SocialLibrary\ReadBundle\Tests\Entity;
 
 use SocialLibrary\BaseBundle\Entity\ObjectCreator;
-use SocialLibrary\ReadBundle\MangaBundle\Entity\Manga;
+use SocialLibrary\ReadBundle\Entity\Manga;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * SocialLibrary\ReadBundle\MangaBundle\Tests\Entity\MangaTest
+ * SocialLibrary\ReadBundle\Tests\Entity\MangaTest
  * 
  */
 class MangaTest extends \PHPUnit_Framework_TestCase

@@ -1,6 +1,6 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\MangaBundle\Entity;
+namespace SocialLibrary\ReadBundle\Entity;
 
 use Application\Sonata\UserBundle\Entity\User;
 use Doctrine\ORM\EntityRepository;
@@ -19,7 +19,7 @@ class MangaRepository extends EntityRepository
             ->getEntityManager()
             ->createQueryBuilder()
             ->select(array('m', 's', 'p', 'c', 'o'))
-            ->from('SocialLibraryReadBundleMangaBundle:Manga', 'm')
+            ->from('SocialLibraryReadBundle:Manga', 'm')
             ->innerJoin('m.serie', 's')
             ->leftJoin('m.picture', 'p')
             ->innerJoin('m.creators', 'c')
@@ -42,7 +42,7 @@ class MangaRepository extends EntityRepository
     public function findManga($id, $nameSlug)
     {
         $query = $this->getEntityManager()
-            ->createQuery('SELECT m, s, c, o FROM SocialLibraryReadBundleMangaBundle:Manga m
+            ->createQuery('SELECT m, s, c, o FROM SocialLibraryReadBundle:Manga m
                     JOIN m.serie s
                     JOIN m.creators c
                     LEFT JOIN m.owners o

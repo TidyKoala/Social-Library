@@ -3,7 +3,7 @@
 namespace SocialLibrary\ReadBundle\Tests\Entity;
 
 use SocialLibrary\ReadBundle\Entity\Serie;
-use SocialLibrary\ReadBundle\MangaBundle\Entity\Manga;
+use SocialLibrary\ReadBundle\Entity\Manga;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**

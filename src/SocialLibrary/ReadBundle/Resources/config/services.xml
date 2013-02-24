@@ -17,14 +17,16 @@
         </service>
     </services>
     -->
+    <services>
         <!-- Manga volume -->
-       <service id="sonata.admin.manga" class="SocialLibrary\ReadBundle\MangaBundle\Admin\MangaAdmin">
+       <service id="sonata.admin.manga" class="SocialLibrary\ReadBundle\Admin\MangaAdmin">
           <tag name="sonata.admin" manager_type="orm" group="Mangas" label="Volume"/>
           <argument />
-          <argument>SocialLibrary\ReadBundle\MangaBundle\Entity\Manga</argument>
+          <argument>SocialLibrary\ReadBundle\Entity\Manga</argument>
           <argument>SonataAdminBundle:CRUD</argument>
           <call method="setTranslationDomain">
-              <argument>SocialLibrary\ReadBundle\MangaBundle</argument>
+              <argument>SocialLibrary\ReadBundle</argument>
           </call>
       </service>
+    </services>
 </container>

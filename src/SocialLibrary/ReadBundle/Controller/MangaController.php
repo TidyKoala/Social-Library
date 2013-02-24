@@ -1,13 +1,13 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\MangaBundle\Controller;
+namespace SocialLibrary\ReadBundle\Controller;
 
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use SocialLibrary\ReadBundle\MangaBundle\Entity\Manga;
-use SocialLibrary\ReadBundle\MangaBundle\Form\Type\MangaType;
+use SocialLibrary\ReadBundle\Entity\Manga;
+use SocialLibrary\ReadBundle\Form\Type\MangaType;
 
 /**
  * Manga controller.
@@ -33,7 +33,7 @@ class MangaController extends Controller
         }
         
         $entities = $this->getDoctrine()
-            ->getRepository('SocialLibraryReadBundleMangaBundle:Manga')
+            ->getRepository('SocialLibraryReadBundle:Manga')
             ->findAllPaginated(
                     $this->get('knp_paginator'),
                     $this->get('request')->query->get('page', 1),
@@ -41,7 +41,7 @@ class MangaController extends Controller
                 );
         
         return $this->render(
-            'SocialLibraryReadBundleMangaBundle:Manga:' . $view . '.html.twig',
+            'SocialLibraryReadBundle:Manga:' . $view . '.html.twig',
             array(
                 'entities' => $entities,
                 'selection' => $selection
@@ -57,7 +57,7 @@ class MangaController extends Controller
     public function showAction($id, $nameSlug)
     {
         $entity = $this->getDoctrine()
-            ->getRepository('SocialLibraryReadBundleMangaBundle:Manga')
+            ->getRepository('SocialLibraryReadBundle:Manga')
             ->findManga($id, $nameSlug);
         
         return array(
@@ -88,7 +88,7 @@ class MangaController extends Controller
     /**
      * Creates a new Manga entity.
      *
-     * @Template("SocialLibraryReadBundleMangaBundle:Manga:new.html.twig")
+     * @Template("SocialLibraryReadBundle:Manga:new.html.twig")
      */
     public function createAction(Request $request)
     {
@@ -152,7 +152,7 @@ class MangaController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em
-            ->getRepository('SocialLibraryReadBundleMangaBundle:Manga')
+            ->getRepository('SocialLibraryReadBundle:Manga')
             ->findManga($id, $nameSlug);
 
         if (!$entity) {
@@ -170,7 +170,7 @@ class MangaController extends Controller
     /**
      * Edits an existing Manga entity.
      *
-     * @Template("SocialLibraryReadBundleMangaBundle:Manga:edit.html.twig")
+     * @Template("SocialLibraryReadBundle:Manga:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
@@ -180,7 +180,7 @@ class MangaController extends Controller
         
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SocialLibraryReadBundleMangaBundle:Manga')->find($id);
+        $entity = $em->getRepository('SocialLibraryReadBundle:Manga')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Manga entity.');
@@ -232,7 +232,7 @@ class MangaController extends Controller
         
         $em = $this->getDoctrine()->getManager();
         $entity = $em
-            ->getRepository('SocialLibraryReadBundleMangaBundle:Manga')
+            ->getRepository('SocialLibraryReadBundle:Manga')
             ->findManga($id, $nameSlug);
         $entity->addOwner($this->get('security.context')->getToken()->getUser());
         
@@ -268,7 +268,7 @@ class MangaController extends Controller
         
         $em = $this->getDoctrine()->getManager();
         $entity = $em
-            ->getRepository('SocialLibraryReadBundleMangaBundle:Manga')
+            ->getRepository('SocialLibraryReadBundle:Manga')
             ->findManga($id, $nameSlug);
 
         if (!$entity) {

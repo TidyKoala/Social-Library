@@ -1,6 +1,6 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\MangaBundle\Admin;
+namespace SocialLibrary\ReadBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
