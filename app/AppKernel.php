@@ -35,7 +35,6 @@ class AppKernel extends Kernel
         	new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new SocialLibrary\BaseBundle\SocialLibraryBaseBundle(),
             new SocialLibrary\ReadBundle\MangaBundle\SocialLibraryReadBundleMangaBundle(),
-            new SocialLibrary\ReadBundle\NovelBundle\SocialLibraryReadBundleNovelBundle(),
             new SocialLibrary\ReadBundle\SocialLibraryReadBundle(),
             new Lunetics\LocaleBundle\LuneticsLocaleBundle(),
         );

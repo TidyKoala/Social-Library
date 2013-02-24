@@ -5,7 +5,7 @@
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
     <route id="novel_index" pattern="/{_locale}/index/{view}/{selection}">
-        <default key="_controller">SocialLibraryReadBundleNovelBundle:Novel:index</default>
+        <default key="_controller">SocialLibraryReadBundle:Novel:index</default>
         <default key="_locale">en</default>
         <default key="view">list</default>
         <default key="selection">all</default>
@@ -13,43 +13,43 @@
     </route>
 
     <route id="novel_show" pattern="/{_locale}/show/{id}/{nameSlug}">
-        <default key="_controller">SocialLibraryReadBundleNovelBundle:Novel:show</default>
+        <default key="_controller">SocialLibraryReadBundle:Novel:show</default>
         <default key="_locale">en</default>
         <requirement key="id">\d+</requirement>
     </route>
 
     <route id="novel_new" pattern="/{_locale}/new">
-        <default key="_controller">SocialLibraryReadBundleNovelBundle:Novel:new</default>
+        <default key="_controller">SocialLibraryReadBundle:Novel:new</default>
         <default key="_locale">en</default>
     </route>
 
     <route id="novel_create" pattern="/{_locale}/create">
-        <default key="_controller">SocialLibraryReadBundleNovelBundle:Novel:create</default>
+        <default key="_controller">SocialLibraryReadBundle:Novel:create</default>
         <default key="_locale">en</default>
         <requirement key="_method">POST</requirement>
     </route>
 
     <route id="novel_edit" pattern="/{_locale}/edit/{id}/{nameSlug}">
-        <default key="_controller">SocialLibraryReadBundleNovelBundle:Novel:edit</default>
+        <default key="_controller">SocialLibraryReadBundle:Novel:edit</default>
         <default key="_locale">en</default>
         <requirement key="id">\d+</requirement>
     </route>
 
     <route id="novel_update" pattern="/{_locale}/update/{id}">
-        <default key="_controller">SocialLibraryReadBundleNovelBundle:Novel:update</default>
+        <default key="_controller">SocialLibraryReadBundle:Novel:update</default>
         <default key="_locale">en</default>
         <requirement key="id">\d+</requirement>
         <requirement key="_method">POST</requirement>
     </route>
 
     <route id="novel_add_owner" pattern="/{_locale}/add/{id}/{nameSlug}">
-        <default key="_controller">SocialLibraryReadBundleNovelBundle:Novel:addOwner</default>
+        <default key="_controller">SocialLibraryReadBundle:Novel:addOwner</default>
         <default key="_locale">en</default>
         <requirement key="id">\d+</requirement>
     </route>
 
     <route id="novel_remove_owner" pattern="/{_locale}/remove/{id}/{nameSlug}">
-        <default key="_controller">SocialLibraryReadBundleNovelBundle:Novel:removeOwner</default>
+        <default key="_controller">SocialLibraryReadBundle:Novel:removeOwner</default>
         <default key="_locale">en</default>
         <requirement key="id">\d+</requirement>
     </route>

@@ -1,10 +1,10 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\NovelBundle\Tests\Controller;
+namespace SocialLibrary\ReadBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use SocialLibrary\BaseBundle\Tests\TestObjectCreator;
-use SocialLibrary\ReadBundle\CommonBundle\Tests\TestSerie;
+use SocialLibrary\ReadBundle\Tests\TestSerie;
 
 class NovelControllerTest extends WebTestCase
 {

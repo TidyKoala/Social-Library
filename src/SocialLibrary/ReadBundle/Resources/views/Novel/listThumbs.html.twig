@@ -1,4 +1,4 @@
-{% extends 'SocialLibraryReadBundleNovelBundle:Novel:index.html.twig' %}
+{% extends 'SocialLibraryReadBundle:Novel:index.html.twig' %}
 
 {% block list %}
 <table class="records_list table table-striped table-bordered table-hover">
@@ -46,11 +46,11 @@
                         <a href="{{ path('novel_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-pencil"></i> {% trans %}novel_edit{% endtrans %}</a>
                     </li>
                     <li>
-{#                         <a href="{{ path('novel_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-logout"></i> {% trans %}novel_delete{% endtrans %}</a>#}
+                        <a href="{{ path('novel_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-logout"></i> {% trans %}novel_delete{% endtrans %}</a>
                     </li>
                         {% else %}
                     <li>
-{#                         <a href="{{ path('novel_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-login"></i> {% trans %}novel_own{% endtrans %}</a>#}
+                        <a href="{{ path('novel_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-login"></i> {% trans %}novel_own{% endtrans %}</a>
                     </li>
                         {% endif %}
                     {% endif %}

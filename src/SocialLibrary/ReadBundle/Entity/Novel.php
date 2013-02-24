@@ -1,14 +1,14 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\NovelBundle\Entity;
+namespace SocialLibrary\ReadBundle\Entity;
 
 use Application\Sonata\MediaBundle\Entity\Media;
-use SocialLibrary\ReadBundle\CommonBundle\Entity\Book;
-use SocialLibrary\ReadBundle\CommonBundle\Entity\Serie;
+use SocialLibrary\ReadBundle\Entity\Book;
+use SocialLibrary\ReadBundle\Entity\Serie;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * SocialLibrary\ReadBundle\NovelBundle\Entity\Novel
+ * SocialLibrary\ReadBundle\Entity\Novel
  * 
  */
 

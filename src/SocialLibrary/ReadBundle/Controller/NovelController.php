@@ -1,13 +1,13 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\NovelBundle\Controller;
+namespace SocialLibrary\ReadBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use SocialLibrary\ReadBundle\NovelBundle\Entity\Novel;
-use SocialLibrary\ReadBundle\NovelBundle\Form\Type\NovelType;
+use SocialLibrary\ReadBundle\Entity\Novel;
+use SocialLibrary\ReadBundle\Form\Type\NovelType;
 
 /**
  * Novel controller.
@@ -33,7 +33,7 @@ class NovelController extends Controller
         }
         
         $entities = $this->getDoctrine()
-            ->getRepository('SocialLibraryReadBundleNovelBundle:Novel')
+            ->getRepository('SocialLibraryReadBundle:Novel')
             ->findAllPaginated(
                     $this->get('knp_paginator'),
                     $this->get('request')->query->get('page', 1),
@@ -41,7 +41,7 @@ class NovelController extends Controller
                 );
         
         return $this->render(
-            'SocialLibraryReadBundleNovelBundle:Novel:' . $view . '.html.twig',
+            'SocialLibraryReadBundle:Novel:' . $view . '.html.twig',
             array(
                 'entities' => $entities,
                 'selection' => $selection
@@ -57,7 +57,7 @@ class NovelController extends Controller
     public function showAction($id, $nameSlug)
     {
         $entity = $this->getDoctrine()
-            ->getRepository('SocialLibraryReadBundleNovelBundle:Novel')
+            ->getRepository('SocialLibraryReadBundle:Novel')
             ->findNovel($id, $nameSlug);
 
         if (!$entity) {
@@ -92,7 +92,7 @@ class NovelController extends Controller
     /**
      * Creates a new Novel entity.
      *
-     * @Template("SocialLibraryReadBundleNovelBundle:Novel:new.html.twig")
+     * @Template("SocialLibraryReadBundle:Novel:new.html.twig")
      */
     public function createAction(Request $request)
     {
@@ -156,7 +156,7 @@ class NovelController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em
-            ->getRepository('SocialLibraryReadBundleNovelBundle:Novel')
+            ->getRepository('SocialLibraryReadBundle:Novel')
             ->findNovel($id, $nameSlug);
 
         if (!$entity) {
@@ -174,7 +174,7 @@ class NovelController extends Controller
     /**
      * Edits an existing Novel entity.
      *
-     * @Template("SocialLibraryReadBundleNovelBundle:Novel:edit.html.twig")
+     * @Template("SocialLibraryReadBundle:Novel:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
@@ -184,7 +184,7 @@ class NovelController extends Controller
         
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SocialLibraryReadBundleNovelBundle:Novel')->find($id);
+        $entity = $em->getRepository('SocialLibraryReadBundle:Novel')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Novel entity.');
@@ -236,7 +236,7 @@ class NovelController extends Controller
         
         $em = $this->getDoctrine()->getManager();
         $entity = $em
-            ->getRepository('SocialLibraryReadBundleNovelBundle:Novel')
+            ->getRepository('SocialLibraryReadBundle:Novel')
             ->findNovel($id, $nameSlug);
 
         if (!$entity) {
@@ -276,7 +276,7 @@ class NovelController extends Controller
         
         $em = $this->getDoctrine()->getManager();
         $entity = $em
-            ->getRepository('SocialLibraryReadBundleNovelBundle:Novel')
+            ->getRepository('SocialLibraryReadBundle:Novel')
             ->findNovel($id, $nameSlug);
 
         if (!$entity) {

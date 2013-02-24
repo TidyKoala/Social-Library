@@ -1,6 +1,6 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\NovelBundle\Form\Type;
+namespace SocialLibrary\ReadBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -27,7 +27,7 @@ class NovelType extends AbstractType
             ->add('serie', 'entity', array(
                     'required' => false,
                     'label' => 'novel_label_serie',
-                    'class' => 'SocialLibrary\ReadBundle\CommonBundle\Entity\Serie',
+                    'class' => 'SocialLibrary\ReadBundle\Entity\Serie',
                     'query_builder' => function(EntityRepository $er) {
                         return $er->createQueryBuilder('s')
                             ->orderBy('s.nameSlug', 'ASC');
@@ -63,7 +63,7 @@ class NovelType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SocialLibrary\ReadBundle\NovelBundle\Entity\Novel'
+            'data_class' => 'SocialLibrary\ReadBundle\Entity\Novel'
         ));
     }
 

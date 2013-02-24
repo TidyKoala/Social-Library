@@ -11,7 +11,7 @@ social_library_readable_media_manga:
     prefix:   /manga
 
 social_library_readable_media_novel:
-    resource: "@SocialLibraryReadBundleNovelBundle/Resources/config/routing/novel.xml"
+    resource: "@SocialLibraryReadBundle/Resources/config/routing/novel.xml"
     prefix:   /novel
 
 social_library_readable_media_graphic_novel:

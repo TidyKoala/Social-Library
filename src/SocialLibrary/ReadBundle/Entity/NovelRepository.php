@@ -1,6 +1,6 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\NovelBundle\Entity;
+namespace SocialLibrary\ReadBundle\Entity;
 
 use Application\Sonata\UserBundle\Entity\User;
 use Doctrine\ORM\EntityRepository;
@@ -19,7 +19,7 @@ class NovelRepository extends EntityRepository
             ->getEntityManager()
             ->createQueryBuilder()
             ->select(array('n', 's', 'p', 'c', 'o'))
-            ->from('SocialLibraryReadBundleNovelBundle:Novel', 'n')
+            ->from('SocialLibraryReadBundle:Novel', 'n')
             ->leftJoin('n.serie', 's')
             ->leftJoin('n.picture', 'p')
             ->innerJoin('n.creators', 'c')
@@ -44,7 +44,7 @@ class NovelRepository extends EntityRepository
         $query = $this->getEntityManager()
             ->createQueryBuilder()
             ->select(array('n', 's', 'p', 'c', 'o'))
-            ->from('SocialLibraryReadBundleNovelBundle:Novel', 'n')
+            ->from('SocialLibraryReadBundle:Novel', 'n')
             ->leftJoin('n.serie', 's')
             ->leftJoin('n.picture', 'p')
             ->innerJoin('n.creators', 'c')
