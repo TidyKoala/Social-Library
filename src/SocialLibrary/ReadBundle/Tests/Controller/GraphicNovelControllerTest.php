@@ -1,10 +1,10 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\GraphicNovelBundle\Tests\Controller;
+namespace SocialLibrary\ReadBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use SocialLibrary\BaseBundle\Tests\TestObjectCreator;
-use SocialLibrary\ReadBundle\CommonBundle\Tests\TestSerie;
+use SocialLibrary\ReadBundle\Tests\TestSerie;
 
 class GraphicNovelBundleControllerTest extends WebTestCase
 {
@@ -28,7 +28,7 @@ class GraphicNovelBundleControllerTest extends WebTestCase
     
     /**
      * @param string $name
-     * @return SocialLibrary\ReadBundle\MangaBundle\Entity\Serie
+     * @return SocialLibrary\ReadBundle\Entity\Serie
      */
     function addNewSerie($name)
     {

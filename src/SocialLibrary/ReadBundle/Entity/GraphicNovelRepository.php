@@ -1,6 +1,6 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\GraphicNovelBundle\Entity;
+namespace SocialLibrary\ReadBundle\Entity;
 
 use Application\Sonata\UserBundle\Entity\User;
 use Doctrine\ORM\EntityRepository;
@@ -19,7 +19,7 @@ class GraphicNovelRepository extends EntityRepository
             ->getEntityManager()
             ->createQueryBuilder()
             ->select(array('g', 's', 'p', 'c', 'o'))
-            ->from('SocialLibraryReadBundleGraphicNovelBundle:GraphicNovel', 'g')
+            ->from('SocialLibraryReadBundle:GraphicNovel', 'g')
             ->innerJoin('g.serie', 's')
             ->leftJoin('g.picture', 'p')
             ->innerJoin('g.creators', 'c')
@@ -42,7 +42,7 @@ class GraphicNovelRepository extends EntityRepository
     public function findGraphicNovel($id, $nameSlug)
     {
         $query = $this->getEntityManager()
-            ->createQuery('SELECT g, s, c, o FROM SocialLibraryReadBundleGraphicNovelBundle:GraphicNovel g
+            ->createQuery('SELECT g, s, c, o FROM SocialLibraryReadBundle:GraphicNovel g
                     JOIN g.serie s
                     JOIN g.creators c
                     LEFT JOIN g.owners o

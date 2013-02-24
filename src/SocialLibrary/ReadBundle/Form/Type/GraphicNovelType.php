@@ -1,6 +1,6 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\GraphicNovelBundle\Form\Type;
+namespace SocialLibrary\ReadBundle\Form\Type;
 
 use SocialLibrary\BaseBundle\Form\Type\ObjectCreatorType;
 use Symfony\Component\Form\AbstractType;
@@ -28,7 +28,7 @@ class GraphicNovelType extends AbstractType
             ->add('serie', 'entity', array(
                     'required' => true,
                     'label' => 'graphic_novel_label_serie',
-                    'class' => 'SocialLibrary\ReadBundle\CommonBundle\Entity\Serie',
+                    'class' => 'SocialLibrary\ReadBundle\Entity\Serie',
                     'query_builder' => function(EntityRepository $er) {
                         return $er->createQueryBuilder('s')
                             ->orderBy('s.nameSlug', 'ASC');
@@ -75,7 +75,7 @@ class GraphicNovelType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SocialLibrary\ReadBundle\GraphicNovelBundle\Entity\GraphicNovel'
+            'data_class' => 'SocialLibrary\ReadBundle\Entity\GraphicNovel'
         ));
     }
 

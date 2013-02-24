@@ -1,13 +1,13 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\GraphicNovelBundle\Controller;
+namespace SocialLibrary\ReadBundle\Controller;
 
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use SocialLibrary\ReadBundle\GraphicNovelBundle\Entity\GraphicNovel;
-use SocialLibrary\ReadBundle\GraphicNovelBundle\Form\Type\GraphicNovelType;
+use SocialLibrary\ReadBundle\Entity\GraphicNovel;
+use SocialLibrary\ReadBundle\Form\Type\GraphicNovelType;
 
 class GraphicNovelController extends Controller
 {
@@ -28,7 +28,7 @@ class GraphicNovelController extends Controller
         }
         
         $entities = $this->getDoctrine()
-            ->getRepository('SocialLibraryReadBundleGraphicNovelBundle:GraphicNovel')
+            ->getRepository('SocialLibraryReadBundle:GraphicNovel')
             ->findAllPaginated(
                 $this->get('knp_paginator'),
                 $this->get('request')->query->get('page', 1),
@@ -36,7 +36,7 @@ class GraphicNovelController extends Controller
             );
         
         return $this->render(
-            'SocialLibraryReadBundleGraphicNovelBundle:GraphicNovel:' . $view . '.html.twig',
+            'SocialLibraryReadBundle:GraphicNovel:' . $view . '.html.twig',
             array(
                 'entities' => $entities,
                 'selection' => $selection
@@ -52,7 +52,7 @@ class GraphicNovelController extends Controller
     public function showAction($id, $nameSlug)
     {
         $entity = $this->getDoctrine()
-            ->getRepository('SocialLibraryReadBundleGraphicNovelBundle:GraphicNovel')
+            ->getRepository('SocialLibraryReadBundle:GraphicNovel')
             ->findGraphicNovel($id, $nameSlug);
         
         return array(
@@ -83,7 +83,7 @@ class GraphicNovelController extends Controller
     /**
      * Creates a new GraphicNovel entity.
      *
-     * @Template("SocialLibraryReadBundleGraphicNovelBundle:GraphicNovel:new.html.twig")
+     * @Template("SocialLibraryReadBundle:GraphicNovel:new.html.twig")
      */
     public function createAction(Request $request)
     {
@@ -147,7 +147,7 @@ class GraphicNovelController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em
-            ->getRepository('SocialLibraryReadBundleGraphicNovelBundle:GraphicNovel')
+            ->getRepository('SocialLibraryReadBundle:GraphicNovel')
             ->findGraphicNovel($id, $nameSlug);
 
         if (!$entity) {
@@ -165,7 +165,7 @@ class GraphicNovelController extends Controller
     /**
      * Edits an existing GraphicNovel entity.
      *
-     * @Template("SocialLibraryReadBundleGraphicNovelBundle:GraphicNovel:edit.html.twig")
+     * @Template("SocialLibraryReadBundle:GraphicNovel:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
@@ -175,7 +175,7 @@ class GraphicNovelController extends Controller
         
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SocialLibraryReadBundleGraphicNovelBundle:GraphicNovel')->find($id);
+        $entity = $em->getRepository('SocialLibraryReadBundle:GraphicNovel')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find GraphicNovel entity.');
@@ -227,7 +227,7 @@ class GraphicNovelController extends Controller
         
         $em = $this->getDoctrine()->getManager();
         $entity = $em
-            ->getRepository('SocialLibraryReadBundleGraphicNovelBundle:GraphicNovel')
+            ->getRepository('SocialLibraryReadBundle:GraphicNovel')
             ->findGraphicNovel($id, $nameSlug);
 
         if (!$entity) {
@@ -267,7 +267,7 @@ class GraphicNovelController extends Controller
         
         $em = $this->getDoctrine()->getManager();
         $entity = $em
-            ->getRepository('SocialLibraryReadBundleGraphicNovelBundle:GraphicNovel')
+            ->getRepository('SocialLibraryReadBundle:GraphicNovel')
             ->findGraphicNovel($id, $nameSlug);
 
         if (!$entity) {

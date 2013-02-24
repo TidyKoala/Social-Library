@@ -15,7 +15,7 @@ social_library_readable_media_novel:
     prefix:   /novel
 
 social_library_readable_media_graphic_novel:
-    resource: "@SocialLibraryReadBundleGraphicNovelBundle/Resources/config/routing/graphic_novel.xml"
+    resource: "@SocialLibraryReadBundle/Resources/config/routing/graphic_novel.xml"
     prefix:   /graphic-novel
 
 social_library_base_object_creator:

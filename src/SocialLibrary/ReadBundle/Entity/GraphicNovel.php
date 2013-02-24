@@ -1,8 +1,8 @@
 <?php
-namespace SocialLibrary\ReadBundle\GraphicNovelBundle\Entity;
+namespace SocialLibrary\ReadBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use SocialLibrary\ReadBundle\CommonBundle\Entity\Book;
+use SocialLibrary\ReadBundle\Entity\Book;
 use SocialLibrary\BaseBundle\Model\ObjectCreatorInterface;
 
 /**
@@ -44,7 +44,7 @@ class GraphicNovel extends Book
      * Set one or more illustrators
      * 
      * @param ArrayCollection $illustrators
-     * @return SocialLibrary\ReadBundle\GraphicNovelBundle\Entity\GraphicNovel
+     * @return SocialLibrary\ReadBundle\Entity\GraphicNovel
      */
     public function setIllustrators(ArrayCollection $illustrators) {
     	$this->illustrators = $illustrators;
@@ -65,7 +65,7 @@ class GraphicNovel extends Book
      * Add an illustrator
      * 
      * @param SocialLibrary\BaseBundle\Model\ObjectCreatorInterface $illustrator
-     * @return SocialLibrary\ReadBundle\GraphicNovelBundle\Entity\GraphicNovel
+     * @return SocialLibrary\ReadBundle\Entity\GraphicNovel
      */
     public function addIllustrator(ObjectCreatorInterface $illustrator) {
         if (!$this->illustrators->contains($illustrator)) {
@@ -79,7 +79,7 @@ class GraphicNovel extends Book
      * Remove an illustrator
      * 
      * @param SocialLibrary\BaseBundle\Model\ObjectCreatorInterface $illustrator
-     * @return SocialLibrary\ReadBundle\GraphicNovelBundle\Entity\GraphicNovel
+     * @return SocialLibrary\ReadBundle\Entity\GraphicNovel
      */
     public function removeIllustrator(ObjectCreatorInterface $illustrator) {
         $this->illustrators->removeElement($illustrator);

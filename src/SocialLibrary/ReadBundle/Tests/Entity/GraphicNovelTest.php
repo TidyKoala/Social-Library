@@ -1,9 +1,9 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\GraphicNovelBundle\Tests\Entity;
+namespace SocialLibrary\ReadBundle\Tests\Entity;
 
 use SocialLibrary\BaseBundle\Entity\ObjectCreator;
-use SocialLibrary\ReadBundle\GraphicNovelBundle\Entity\GraphicNovel;
+use SocialLibrary\ReadBundle\Entity\GraphicNovel;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**

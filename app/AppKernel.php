@@ -37,7 +37,6 @@ class AppKernel extends Kernel
             new SocialLibrary\ReadBundle\MangaBundle\SocialLibraryReadBundleMangaBundle(),
             new SocialLibrary\ReadBundle\NovelBundle\SocialLibraryReadBundleNovelBundle(),
             new SocialLibrary\ReadBundle\SocialLibraryReadBundle(),
-            new SocialLibrary\ReadBundle\GraphicNovelBundle\SocialLibraryReadBundleGraphicNovelBundle(),
             new Lunetics\LocaleBundle\LuneticsLocaleBundle(),
         );
 
