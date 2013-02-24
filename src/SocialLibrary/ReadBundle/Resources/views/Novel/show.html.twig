@@ -81,15 +81,15 @@
         </a>
     </li>
     <li>
-{#         <a href="{{ path('novel_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">#}
-{#             <i class="icon-logout"></i> {% trans %}novel_delete{% endtrans %}#}
-{#         </a>#}
+        <a href="{{ path('novel_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
+            <i class="icon-logout"></i> {% trans %}novel_delete{% endtrans %}
+        </a>
     </li>
             {% else %}
     <li>
-{#         <a href="{{ path('novel_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">#}
-{#             <i class="icon-login"></i> {% trans %}novel_own{% endtrans %}#}
-{#         </a>#}
+        <a href="{{ path('novel_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
+            <i class="icon-login"></i> {% trans %}novel_own{% endtrans %}
+        </a>
     </li>
             {% endif %}
     {% endif %}
