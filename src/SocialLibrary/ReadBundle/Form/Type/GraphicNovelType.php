@@ -81,6 +81,6 @@ class GraphicNovelType extends AbstractType
 
     public function getName()
     {
-        return 'graphicnoveltype';
+        return 'book';
     }
 }

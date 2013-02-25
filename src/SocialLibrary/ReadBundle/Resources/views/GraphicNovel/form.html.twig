@@ -45,7 +45,7 @@
         {{ form_label(form.serie, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(form.serie) }}
-            <a href="#" data-request="{{ path('read_serie_ajax_new') }}" data-select="#graphicnoveltype_serie" title="{% trans %}placeholder_serie_graphic_novel{% endtrans %}" class="add-ajax tooltip-icon">
+            <a href="#" data-request="{{ path('read_serie_ajax_new') }}" data-select="#book_serie" title="{% trans %}placeholder_serie_graphic_novel{% endtrans %}" class="add-ajax tooltip-icon">
                 <i class="icon-list-add"></i>
             </a>
             <span class="help-inline">
@@ -69,7 +69,7 @@
         {{ form_label(form.illustrators, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(form.illustrators, { 'attr' : { 'class' : 'add-creator' } }) }}
-            <a href="#" data-request="{{ path('object_creator_ajax_new') }}" data-select="#graphicnoveltype_illustrators" title="{% trans %}placeholder_illustrators_graphic_novel{% endtrans %}" class="add-ajax tooltip-icon">
+            <a href="#" data-request="{{ path('object_creator_ajax_new') }}" data-select="#book_illustrators" title="{% trans %}placeholder_illustrators_graphic_novel{% endtrans %}" class="add-ajax tooltip-icon">
                 <i class="icon-list-add"></i>
             </a>
             <span class="help-inline">
