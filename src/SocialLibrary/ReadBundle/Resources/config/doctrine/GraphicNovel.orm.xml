@@ -4,7 +4,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="SocialLibrary\ReadBundle\Entity\GraphicNovel" table="gnovel__gnovel" repository-class="SocialLibrary\ReadBundle\Entity\GraphicNovelRepository">
+    <entity name="SocialLibrary\ReadBundle\Entity\GraphicNovel" table="gnovel__gnovel" repository-class="SocialLibrary\ReadBundle\Repository\GraphicNovelRepository">
         <association-overrides>
             <association-override name="owners">
 	            <join-table name="gnovel__owner">

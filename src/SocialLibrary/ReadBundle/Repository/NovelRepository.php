@@ -1,6 +1,6 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\Entity;
+namespace SocialLibrary\ReadBundle\Repository;
 
 use Application\Sonata\UserBundle\Entity\User;
 use Doctrine\ORM\EntityRepository;
