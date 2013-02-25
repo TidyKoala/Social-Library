@@ -18,15 +18,48 @@
     </services>
     -->
     <services>
-        <!-- Manga volume -->
-       <service id="sonata.admin.manga" class="SocialLibrary\ReadBundle\Admin\MangaAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Mangas" label="Volume"/>
-          <argument />
-          <argument>SocialLibrary\ReadBundle\Entity\Manga</argument>
-          <argument>SonataAdminBundle:CRUD</argument>
-          <call method="setTranslationDomain">
-              <argument>SocialLibrary\ReadBundle</argument>
-          </call>
-      </service>
+        <!-- Graphic novels -->
+        <service id="sonata.admin.graphic_novel" class="SocialLibrary\ReadBundle\Admin\GraphicNovelAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Books" label="Graphic novels"/>
+            <argument />
+            <argument>SocialLibrary\ReadBundle\Entity\GraphicNovel</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>SocialLibrary\ReadBundle</argument>
+            </call>
+        </service>
+        
+        <!-- Mangas -->
+		<service id="sonata.admin.manga" class="SocialLibrary\ReadBundle\Admin\MangaAdmin">
+			<tag name="sonata.admin" manager_type="orm" group="Books" label="Mangas"/>
+			<argument />
+			<argument>SocialLibrary\ReadBundle\Entity\Manga</argument>
+			<argument>SonataAdminBundle:CRUD</argument>
+			<call method="setTranslationDomain">
+			    <argument>SocialLibrary\ReadBundle</argument>
+            </call>
+		</service>
+      
+        <!-- Novels -->
+        <service id="sonata.admin.novel" class="SocialLibrary\ReadBundle\Admin\NovelAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Books" label="Novels"/>
+            <argument />
+            <argument>SocialLibrary\ReadBundle\Entity\Novel</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>SocialLibrary\ReadBundle</argument>
+            </call>
+        </service>
+      
+        <!-- Series -->
+        <service id="sonata.admin.serie" class="SocialLibrary\ReadBundle\Admin\SerieAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Books" label="Series"/>
+            <argument />
+            <argument>SocialLibrary\ReadBundle\Entity\Serie</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>SocialLibrary\ReadBundle</argument>
+            </call>
+        </service>
     </services>
 </container>
