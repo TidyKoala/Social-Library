@@ -27,7 +27,7 @@
 <h1>{% trans %}manga_add_title{% endtrans %}</h1>
 
 <form action="{{ path('manga_create') }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
-    {% include 'SocialLibraryReadBundle:Manga:form.html.twig' with { 'form' : form } %}
+    {% include 'SocialLibraryReadBundle:Common:form.html.twig' with { 'form' : form } %}
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">
             {% trans %}manga_create{% endtrans %}

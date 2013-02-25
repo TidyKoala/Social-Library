@@ -27,7 +27,7 @@
 <h1>{% trans %}novel_add_title{% endtrans %}</h1>
 
 <form action="{{ path('novel_create') }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
-    {% include 'SocialLibraryReadBundle:Novel:form.html.twig' with {'form': form} %}
+    {% include 'SocialLibraryReadBundle:Common:form.html.twig' with {'form': form} %}
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">
             {% trans %}novel_create{% endtrans %}

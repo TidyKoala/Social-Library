@@ -41,7 +41,7 @@
 <h1>{{ entity.volume ~ ' - ' ~ entity.name ~ ' - ' ~ entity.serie }}</h1>
 
 <form action="{{ path('manga_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }} class="form-horizontal">
-    {% include 'SocialLibraryReadBundle:Manga:form.html.twig' with { 'form' : edit_form } %}
+    {% include 'SocialLibraryReadBundle:Common:form.html.twig' with { 'form' : edit_form } %}
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">
             {% trans %}manga_edit{% endtrans %}

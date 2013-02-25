@@ -21,7 +21,7 @@
         {{ form_label(form.name, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(form.name) }}
-            <a href="#" data-placement="top" rel="tooltip" title="{% trans %}placeholder_name_manga{% endtrans %}" class="tooltip-icon">
+            <a href="#" data-placement="top" rel="tooltip" title="{% trans %}placeholder_name_graphic_novel{% endtrans %}" class="tooltip-icon">
                 <i class="icon-help-circled"></i>
             </a>
             <span class="help-inline">
@@ -33,7 +33,7 @@
         {{ form_label(form.volume, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(form.volume) }}
-            <a href="#" data-placement="top" rel="tooltip" title="{% trans %}placeholder_volume_manga{% endtrans %}" class="tooltip-icon">
+            <a href="#" data-placement="top" rel="tooltip" title="{% trans %}placeholder_volume_graphic_novel{% endtrans %}" class="tooltip-icon">
                 <i class="icon-help-circled"></i>
             </a>
             <span class="help-inline">
@@ -45,7 +45,7 @@
         {{ form_label(form.serie, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(form.serie) }}
-            <a href="#" data-request="{{ path('read_serie_ajax_new') }}" data-select="#book_serie" title="{% trans %}placeholder_serie_manga{% endtrans %}" class="add-ajax tooltip-icon">
+            <a href="#" data-request="{{ path('read_serie_ajax_new') }}" data-select="#book_serie" title="{% trans %}placeholder_serie_graphic_novel{% endtrans %}" class="add-ajax tooltip-icon">
                 <i class="icon-list-add"></i>
             </a>
             <span class="help-inline">
@@ -57,7 +57,7 @@
         {{ form_label(form.creators, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(form.creators, { 'attr' : { 'class' : 'add-creator' } }) }}
-            <a href="#" data-request="{{ path('object_creator_ajax_new') }}" data-select=".add-creator" title="{% trans %}placeholder_creators_manga{% endtrans %}" class="add-ajax tooltip-icon">
+            <a href="#" data-request="{{ path('object_creator_ajax_new') }}" data-select=".add-creator" title="{% trans %}placeholder_creators_graphic_novel{% endtrans %}" class="add-ajax tooltip-icon">
                 <i class="icon-list-add"></i>
             </a>
             <span class="help-inline">
@@ -65,11 +65,12 @@
             </span>
         </div>
     </div>
+    {% if form.illustrators is defined %}
     <div class="control-group{% if form_errors(form.illustrators) is not empty %} error{% endif %}">
         {{ form_label(form.illustrators, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(form.illustrators, { 'attr' : { 'class' : 'add-creator' } }) }}
-            <a href="#" data-request="{{ path('object_creator_ajax_new') }}" data-select=".add-creator" title="{% trans %}placeholder_illustrators_manga{% endtrans %}" class="add-ajax tooltip-icon">
+            <a href="#" data-request="{{ path('object_creator_ajax_new') }}" data-select="#book_illustrators" title="{% trans %}placeholder_illustrators_graphic_novel{% endtrans %}" class="add-ajax tooltip-icon">
                 <i class="icon-list-add"></i>
             </a>
             <span class="help-inline">
@@ -77,6 +78,7 @@
             </span>
         </div>
     </div>
+    {% endif %}
     <div class="control-group{% if form_errors(form.language) is not empty %} error{% endif %}">
         {{ form_label(form.language, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
@@ -90,7 +92,7 @@
         {{ form_label(form.isbn10, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(form.isbn10) }}
-            <a href="#" data-placement="top" rel="tooltip" title="{% trans %}placeholder_isbn10_manga{% endtrans %}" class="tooltip-icon">
+            <a href="#" data-placement="top" rel="tooltip" title="{% trans %}placeholder_isbn10_graphic_novel{% endtrans %}" class="tooltip-icon">
                 <i class="icon-help-circled"></i>
             </a>
             <span class="help-inline">
@@ -102,7 +104,7 @@
         {{ form_label(form.isbn13, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             {{ form_widget(form.isbn13) }}
-            <a href="#" data-placement="top" rel="tooltip" title="{% trans %}placeholder_isbn13_manga{% endtrans %}" class="tooltip-icon">
+            <a href="#" data-placement="top" rel="tooltip" title="{% trans %}placeholder_isbn13_graphic_novel{% endtrans %}" class="tooltip-icon">
                 <i class="icon-help-circled"></i>
             </a>
             <span class="help-inline">
