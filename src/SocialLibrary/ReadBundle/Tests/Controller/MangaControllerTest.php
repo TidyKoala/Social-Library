@@ -136,14 +136,14 @@ class MangaControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
         $form = $this->crawler->selectButton('Add to my library')->form(array(
-            'sociallibrary_readbundle_mangabundle_mangatype[name]' => $name,
-            'sociallibrary_readbundle_mangabundle_mangatype[volume]' => $volume,
-            'sociallibrary_readbundle_mangabundle_mangatype[serie]' => $respSerie->getId(),
-            'sociallibrary_readbundle_mangabundle_mangatype[creators]' => $respAuthor->getId(),
-            'sociallibrary_readbundle_mangabundle_mangatype[illustrators]' => $respIllustrator->getId(),
-            'sociallibrary_readbundle_mangabundle_mangatype[language]' => $language,
-            'sociallibrary_readbundle_mangabundle_mangatype[isbn10]' => $isbn10,
-            'sociallibrary_readbundle_mangabundle_mangatype[isbn13]' => $isbn13,
+            'book[name]' => $name,
+            'book[volume]' => $volume,
+            'book[serie]' => $respSerie->getId(),
+            'book[creators]' => $respAuthor->getId(),
+            'book[illustrators]' => $respIllustrator->getId(),
+            'book[language]' => $language,
+            'book[isbn10]' => $isbn10,
+            'book[isbn13]' => $isbn13,
         ));
         $this->client->submit($form);
         $this->crawler = $this->client->followRedirect();
@@ -163,14 +163,14 @@ class MangaControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
         $form = $this->crawler->selectButton('Add to my library')->form(array(
-            'sociallibrary_readbundle_mangabundle_mangatype[name]' => $name,
-            'sociallibrary_readbundle_mangabundle_mangatype[volume]' => $volume,
-            'sociallibrary_readbundle_mangabundle_mangatype[serie]' => $respSerie->getId(),
-            'sociallibrary_readbundle_mangabundle_mangatype[creators]' => $respAuthor->getId(),
-            'sociallibrary_readbundle_mangabundle_mangatype[illustrators]' => $respIllustrator->getId(),
-            'sociallibrary_readbundle_mangabundle_mangatype[language]' => $language,
-            'sociallibrary_readbundle_mangabundle_mangatype[isbn10]' => $isbn10,
-            'sociallibrary_readbundle_mangabundle_mangatype[isbn13]' => $isbn13,
+            'book[name]' => $name,
+            'book[volume]' => $volume,
+            'book[serie]' => $respSerie->getId(),
+            'book[creators]' => $respAuthor->getId(),
+            'book[illustrators]' => $respIllustrator->getId(),
+            'book[language]' => $language,
+            'book[isbn10]' => $isbn10,
+            'book[isbn13]' => $isbn13,
         ));
         $this->client->submit($form);
         
@@ -199,14 +199,14 @@ class MangaControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
         $form = $this->crawler->selectButton('Add to my library')->form(array(
-            'sociallibrary_readbundle_mangabundle_mangatype[name]' => $name,
-            'sociallibrary_readbundle_mangabundle_mangatype[volume]' => $volume,
-            'sociallibrary_readbundle_mangabundle_mangatype[serie]' => $respSerie->getId(),
-            'sociallibrary_readbundle_mangabundle_mangatype[creators]' => $respAuthor->getId(),
-            'sociallibrary_readbundle_mangabundle_mangatype[illustrators]' => $respIllustrator->getId(),
-            'sociallibrary_readbundle_mangabundle_mangatype[language]' => $language,
-            'sociallibrary_readbundle_mangabundle_mangatype[isbn10]' => $isbn10,
-            'sociallibrary_readbundle_mangabundle_mangatype[isbn13]' => $isbn13,
+            'book[name]' => $name,
+            'book[volume]' => $volume,
+            'book[serie]' => $respSerie->getId(),
+            'book[creators]' => $respAuthor->getId(),
+            'book[illustrators]' => $respIllustrator->getId(),
+            'book[language]' => $language,
+            'book[isbn10]' => $isbn10,
+            'book[isbn13]' => $isbn13,
         ));
         $this->client->submit($form);
         $this->crawler = $this->client->followRedirect();
@@ -294,14 +294,14 @@ class MangaControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
         $form = $this->crawler->selectButton('Edit')->form(array(
-            'sociallibrary_readbundle_mangabundle_mangatype[name]' => $name,
-            'sociallibrary_readbundle_mangabundle_mangatype[volume]' => $volume,
-            'sociallibrary_readbundle_mangabundle_mangatype[serie]' => $respSerie->getId(),
-            'sociallibrary_readbundle_mangabundle_mangatype[creators]' => $respAuthor->getId(),
-            'sociallibrary_readbundle_mangabundle_mangatype[illustrators]' => $respIllustrator->getId(),
-            'sociallibrary_readbundle_mangabundle_mangatype[language]' => $language,
-            'sociallibrary_readbundle_mangabundle_mangatype[isbn10]' => $isbn10,
-            'sociallibrary_readbundle_mangabundle_mangatype[isbn13]' => $isbn13,
+            'book[name]' => $name,
+            'book[volume]' => $volume,
+            'book[serie]' => $respSerie->getId(),
+            'book[creators]' => $respAuthor->getId(),
+            'book[illustrators]' => $respIllustrator->getId(),
+            'book[language]' => $language,
+            'book[isbn10]' => $isbn10,
+            'book[isbn13]' => $isbn13,
         ));
         $this->client->submit($form);
         $this->crawler = $this->client->followRedirect();
@@ -333,14 +333,14 @@ class MangaControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
         $form = $this->crawler->selectButton('Edit')->form(array(
-            'sociallibrary_readbundle_mangabundle_mangatype[name]' => $name,
-            'sociallibrary_readbundle_mangabundle_mangatype[volume]' => $volume,
-            'sociallibrary_readbundle_mangabundle_mangatype[serie]' => $respSerie->getId(),
-            'sociallibrary_readbundle_mangabundle_mangatype[creators]' => $respAuthor->getId(),
-            'sociallibrary_readbundle_mangabundle_mangatype[illustrators]' => $respIllustrator->getId(),
-            'sociallibrary_readbundle_mangabundle_mangatype[language]' => $language,
-            'sociallibrary_readbundle_mangabundle_mangatype[isbn10]' => $isbn10,
-            'sociallibrary_readbundle_mangabundle_mangatype[isbn13]' => $isbn13,
+            'book[name]' => $name,
+            'book[volume]' => $volume,
+            'book[serie]' => $respSerie->getId(),
+            'book[creators]' => $respAuthor->getId(),
+            'book[illustrators]' => $respIllustrator->getId(),
+            'book[language]' => $language,
+            'book[isbn10]' => $isbn10,
+            'book[isbn13]' => $isbn13,
         ));
         $this->client->submit($form);
         $this->assertFalse($this->client->getResponse()->isRedirect());

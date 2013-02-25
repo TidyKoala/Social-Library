@@ -132,13 +132,13 @@ class NovelControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
         $form = $this->crawler->selectButton('novel_create')->form(array(
-            'sociallibrary_readbundle_novelbundle_noveltype[name]' => $name,
-            'sociallibrary_readbundle_novelbundle_noveltype[volume]' => $volume,
-            'sociallibrary_readbundle_novelbundle_noveltype[serie]' => $respSerie->getId(),
-            'sociallibrary_readbundle_novelbundle_noveltype[creators]' => $respAuthor->getId(),
-            'sociallibrary_readbundle_novelbundle_noveltype[language]' => $language,
-            'sociallibrary_readbundle_novelbundle_noveltype[isbn10]' => $isbn10,
-            'sociallibrary_readbundle_novelbundle_noveltype[isbn13]' => $isbn13,
+            'book[name]' => $name,
+            'book[volume]' => $volume,
+            'book[serie]' => $respSerie->getId(),
+            'book[creators]' => $respAuthor->getId(),
+            'book[language]' => $language,
+            'book[isbn10]' => $isbn10,
+            'book[isbn13]' => $isbn13,
         ));
         $this->client->submit($form);
         $this->crawler = $this->client->followRedirect();
@@ -157,13 +157,13 @@ class NovelControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
         $form = $this->crawler->selectButton('novel_create')->form(array(
-            'sociallibrary_readbundle_novelbundle_noveltype[name]' => $name,
-            'sociallibrary_readbundle_novelbundle_noveltype[volume]' => $volume,
-            'sociallibrary_readbundle_novelbundle_noveltype[serie]' => $respSerie->getId(),
-            'sociallibrary_readbundle_novelbundle_noveltype[creators]' => $respAuthor->getId(),
-            'sociallibrary_readbundle_novelbundle_noveltype[language]' => $language,
-            'sociallibrary_readbundle_novelbundle_noveltype[isbn10]' => $isbn10,
-            'sociallibrary_readbundle_novelbundle_noveltype[isbn13]' => $isbn13,
+            'book[name]' => $name,
+            'book[volume]' => $volume,
+            'book[serie]' => $respSerie->getId(),
+            'book[creators]' => $respAuthor->getId(),
+            'book[language]' => $language,
+            'book[isbn10]' => $isbn10,
+            'book[isbn13]' => $isbn13,
         ));
         $this->client->submit($form);
         $this->assertFalse($this->client->getResponse()->isRedirect());
@@ -190,13 +190,13 @@ class NovelControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
         $form = $this->crawler->selectButton('novel_create')->form(array(
-            'sociallibrary_readbundle_novelbundle_noveltype[name]' => $name,
-            'sociallibrary_readbundle_novelbundle_noveltype[volume]' => $volume,
-            'sociallibrary_readbundle_novelbundle_noveltype[serie]' => $respSerie->getId(),
-            'sociallibrary_readbundle_novelbundle_noveltype[creators]' => $respAuthor->getId(),
-            'sociallibrary_readbundle_novelbundle_noveltype[language]' => $language,
-            'sociallibrary_readbundle_novelbundle_noveltype[isbn10]' => $isbn10,
-            'sociallibrary_readbundle_novelbundle_noveltype[isbn13]' => $isbn13,
+            'book[name]' => $name,
+            'book[volume]' => $volume,
+            'book[serie]' => $respSerie->getId(),
+            'book[creators]' => $respAuthor->getId(),
+            'book[language]' => $language,
+            'book[isbn10]' => $isbn10,
+            'book[isbn13]' => $isbn13,
         ));
         $this->client->submit($form);
         $this->crawler = $this->client->followRedirect();
@@ -282,13 +282,13 @@ class NovelControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
         $form = $this->crawler->selectButton('novel_edit')->form(array(
-            'sociallibrary_readbundle_novelbundle_noveltype[name]' => $name,
-            'sociallibrary_readbundle_novelbundle_noveltype[volume]' => $volume,
-            'sociallibrary_readbundle_novelbundle_noveltype[serie]' => $respSerie->getId(),
-            'sociallibrary_readbundle_novelbundle_noveltype[creators]' => $respAuthor->getId(),
-            'sociallibrary_readbundle_novelbundle_noveltype[language]' => $language,
-            'sociallibrary_readbundle_novelbundle_noveltype[isbn10]' => $isbn10,
-            'sociallibrary_readbundle_novelbundle_noveltype[isbn13]' => $isbn13,
+            'book[name]' => $name,
+            'book[volume]' => $volume,
+            'book[serie]' => $respSerie->getId(),
+            'book[creators]' => $respAuthor->getId(),
+            'book[language]' => $language,
+            'book[isbn10]' => $isbn10,
+            'book[isbn13]' => $isbn13,
         ));
         $this->client->submit($form);
         $this->crawler = $this->client->followRedirect();
