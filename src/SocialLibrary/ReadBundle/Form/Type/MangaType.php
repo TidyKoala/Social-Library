@@ -81,6 +81,6 @@ class MangaType extends AbstractType
 
     public function getName()
     {
-        return 'sociallibrary_readbundle_mangabundle_mangatype';
+        return 'book';
     }
 }

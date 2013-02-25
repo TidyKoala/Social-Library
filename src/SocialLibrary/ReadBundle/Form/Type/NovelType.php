@@ -69,6 +69,6 @@ class NovelType extends AbstractType
 
     public function getName()
     {
-        return 'sociallibrary_readbundle_novelbundle_noveltype';
+        return 'book';
     }
 }

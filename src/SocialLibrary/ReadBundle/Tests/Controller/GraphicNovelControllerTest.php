@@ -146,15 +146,15 @@ class GraphicNovelBundleControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
         $form = $this->crawler->selectButton('graphic_novel_create')->form(array(
-            'graphicnoveltype[name]' => $name,
-            'graphicnoveltype[volume]' => $volume,
-            'graphicnoveltype[serie]' => $respSerie->getId(),
-            'graphicnoveltype[language]' => $language,
-            'graphicnoveltype[isbn10]' => $isbn10,
-            'graphicnoveltype[isbn13]' => $isbn13,
+            'book[name]' => $name,
+            'book[volume]' => $volume,
+            'book[serie]' => $respSerie->getId(),
+            'book[language]' => $language,
+            'book[isbn10]' => $isbn10,
+            'book[isbn13]' => $isbn13,
         ));
-        $form['graphicnoveltype[creators]']->select($respAuthor);
-        $form['graphicnoveltype[illustrators]']->select($respIllustrator);
+        $form['book[creators]']->select($respAuthor);
+        $form['book[illustrators]']->select($respIllustrator);
         $this->client->submit($form);
         
         $this->crawler = $this->client->followRedirect();
@@ -178,15 +178,15 @@ class GraphicNovelBundleControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
         $form = $this->crawler->selectButton('graphic_novel_create')->form(array(
-            'graphicnoveltype[name]' => $name,
-            'graphicnoveltype[volume]' => $volume,
-            'graphicnoveltype[serie]' => $respSerie->getId(),
-            'graphicnoveltype[language]' => $language,
-            'graphicnoveltype[isbn10]' => $isbn10,
-            'graphicnoveltype[isbn13]' => $isbn13,
+            'book[name]' => $name,
+            'book[volume]' => $volume,
+            'book[serie]' => $respSerie->getId(),
+            'book[language]' => $language,
+            'book[isbn10]' => $isbn10,
+            'book[isbn13]' => $isbn13,
         ));
-        $form['graphicnoveltype[creators]']->select($respAuthor);
-        $form['graphicnoveltype[illustrators]']->select($respIllustrator);
+        $form['book[creators]']->select($respAuthor);
+        $form['book[illustrators]']->select($respIllustrator);
         $this->client->submit($form);
         
         $this->assertFalse($this->client->getResponse()->isRedirect());
@@ -218,15 +218,15 @@ class GraphicNovelBundleControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
         $form = $this->crawler->selectButton('graphic_novel_create')->form(array(
-            'graphicnoveltype[name]' => $name,
-            'graphicnoveltype[volume]' => $volume,
-            'graphicnoveltype[serie]' => $respSerie->getId(),
-            'graphicnoveltype[language]' => $language,
-            'graphicnoveltype[isbn10]' => $isbn10,
-            'graphicnoveltype[isbn13]' => $isbn13,
+            'book[name]' => $name,
+            'book[volume]' => $volume,
+            'book[serie]' => $respSerie->getId(),
+            'book[language]' => $language,
+            'book[isbn10]' => $isbn10,
+            'book[isbn13]' => $isbn13,
         ));
-        $form['graphicnoveltype[creators]']->select($respAuthor);
-        $form['graphicnoveltype[illustrators]']->select($respIllustrator);
+        $form['book[creators]']->select($respAuthor);
+        $form['book[illustrators]']->select($respIllustrator);
         $this->client->submit($form);
         
         $this->crawler = $this->client->followRedirect();
@@ -325,15 +325,15 @@ class GraphicNovelBundleControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
         $form = $this->crawler->selectButton('Edit')->form(array(
-            'graphicnoveltype[name]' => $name,
-            'graphicnoveltype[volume]' => $volume,
-            'graphicnoveltype[serie]' => $respSerie->getId(),
-            'graphicnoveltype[language]' => $language,
-            'graphicnoveltype[isbn10]' => $isbn10,
-            'graphicnoveltype[isbn13]' => $isbn13,
+            'book[name]' => $name,
+            'book[volume]' => $volume,
+            'book[serie]' => $respSerie->getId(),
+            'book[language]' => $language,
+            'book[isbn10]' => $isbn10,
+            'book[isbn13]' => $isbn13,
         ));
-        $form['graphicnoveltype[creators]']->select($respAuthor);
-        $form['graphicnoveltype[illustrators]']->select($respIllustrator);
+        $form['book[creators]']->select($respAuthor);
+        $form['book[illustrators]']->select($respIllustrator);
         $this->client->submit($form);
         
         $this->crawler = $this->client->followRedirect();
@@ -369,15 +369,15 @@ class GraphicNovelBundleControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
         $form = $this->crawler->selectButton('Edit')->form(array(
-            'graphicnoveltype[name]' => $name,
-            'graphicnoveltype[volume]' => $volume,
-            'graphicnoveltype[serie]' => $respSerie->getId(),
-            'graphicnoveltype[language]' => $language,
-            'graphicnoveltype[isbn10]' => $isbn10,
-            'graphicnoveltype[isbn13]' => $isbn13,
+            'book[name]' => $name,
+            'book[volume]' => $volume,
+            'book[serie]' => $respSerie->getId(),
+            'book[language]' => $language,
+            'book[isbn10]' => $isbn10,
+            'book[isbn13]' => $isbn13,
         ));
-        $form['graphicnoveltype[creators]']->select($respAuthor);
-        $form['graphicnoveltype[illustrators]']->select($respIllustrator);
+        $form['book[creators]']->select($respAuthor);
+        $form['book[illustrators]']->select($respIllustrator);
         $this->client->submit($form);
         
         $this->assertFalse($this->client->getResponse()->isRedirect());
