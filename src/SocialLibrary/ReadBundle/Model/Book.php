@@ -1,6 +1,6 @@
 <?php
 
-namespace SocialLibrary\ReadBundle\Entity;
+namespace SocialLibrary\ReadBundle\Model;
 
 use SocialLibrary\BaseBundle\Entity\Object;
 use SocialLibrary\BaseBundle\Model\ObjectCreatorInterface;
