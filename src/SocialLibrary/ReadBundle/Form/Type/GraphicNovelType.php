@@ -2,32 +2,25 @@
 
 namespace SocialLibrary\ReadBundle\Form\Type;
 
-use SocialLibrary\BaseBundle\Form\Type\ObjectCreatorType;
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
+use SocialLibrary\ReadBundle\Form\Type\BookType;
 
-class GraphicNovelType extends AbstractType
+class GraphicNovelType extends BookType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        parent::buildForm($builder, $options);
         $builder
-            ->add('pictureFile', 'file', array(
-                    'required' => false,
-                    'label' => 'graphic_novel_label_cover',
-                ))
-            ->add('name', 'text', array(
-                    'required' => true,
-                    'label' => 'graphic_novel_label_name',
-                ))
             ->add('volume', 'integer', array(
                     'required' => true,
-                    'label' => 'graphic_novel_label_volume',
+                    'label' => 'label_book_volume',
                 ))
+            ->remove('serie')
             ->add('serie', 'entity', array(
                     'required' => true,
-                    'label' => 'graphic_novel_label_serie',
+                    'label' => 'label_book_serie',
                     'class' => 'SocialLibrary\ReadBundle\Entity\Serie',
                     'query_builder' => function(EntityRepository $er) {
                         return $er->createQueryBuilder('s')
@@ -35,20 +28,9 @@ class GraphicNovelType extends AbstractType
                     },
                     'multiple' => false,
                 ))
-            ->add('creators', 'entity', array(
-                    'required' => true,
-                    'label' => 'graphic_novel_label_creators',
-                    'class' => 'SocialLibrary\BaseBundle\Entity\ObjectCreator',
-                    'query_builder' => function(EntityRepository $er) {
-                        return $er->createQueryBuilder('c')
-                            ->orderBy('c.nameSlug', 'ASC');
-                    },
-                    'multiple' => true,
-                    'expanded' => false,
-                ))
             ->add('illustrators', 'entity', array(
                     'required' => true,
-                    'label' => 'graphic_novel_label_illustrators',
+                    'label' => 'label_book_illustrators',
                     'class' => 'SocialLibrary\BaseBundle\Entity\ObjectCreator',
                     'query_builder' => function(EntityRepository $er) {
                         return $er->createQueryBuilder('i')
@@ -56,18 +38,6 @@ class GraphicNovelType extends AbstractType
                     },
                     'multiple' => true,
                     'expanded' => false,
-                ))
-            ->add('language', 'language', array(
-                    'required' => false,
-                    'label' => 'graphic_novel_label_language',
-                ))
-            ->add('isbn10', 'text', array(
-                    'required' => false,
-                    'label' => 'graphic_novel_label_isbn10',
-                ))
-            ->add('isbn13', 'text', array(
-                    'required' => false,
-                    'label' => 'graphic_novel_label_isbn13',
                 ))
         ;
     }
@@ -77,10 +47,5 @@ class GraphicNovelType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'SocialLibrary\ReadBundle\Entity\GraphicNovel'
         ));
-    }
-
-    public function getName()
-    {
-        return 'book';
     }
 }
