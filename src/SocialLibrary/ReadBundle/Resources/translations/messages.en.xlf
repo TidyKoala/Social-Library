@@ -115,35 +115,35 @@
         <target>Add to my library</target>
       </trans-unit>
       <trans-unit id="29">
-        <source>manga_label_name</source>
+        <source>label_book_name</source>
         <target>Name</target>
       </trans-unit>
       <trans-unit id="30">
-        <source>manga_label_volume</source>
+        <source>label_book_volume</source>
         <target>Volume</target>
       </trans-unit>
       <trans-unit id="31">
-        <source>manga_label_serie</source>
+        <source>label_book_serie</source>
         <target>Serie</target>
       </trans-unit>
       <trans-unit id="32">
-        <source>manga_label_creators</source>
+        <source>label_book_creators</source>
         <target>Author(s)</target>
       </trans-unit>
       <trans-unit id="33">
-        <source>manga_label_illustrators</source>
+        <source>label_book_illustrators</source>
         <target>Illustrator(s)</target>
       </trans-unit>
       <trans-unit id="34">
-        <source>manga_label_language</source>
+        <source>label_book_language</source>
         <target>Language</target>
       </trans-unit>
       <trans-unit id="35">
-        <source>manga_label_isbn10</source>
+        <source>label_book_isbn10</source>
         <target>ISBN 10</target>
       </trans-unit>
       <trans-unit id="36">
-        <source>manga_label_isbn13</source>
+        <source>label_book_isbn13</source>
         <target>ISBN 13</target>
       </trans-unit>
       <trans-unit id="37">
@@ -183,7 +183,7 @@
         <target>Return to my library</target>
       </trans-unit>
       <trans-unit id="46">
-        <source>manga_label_cover</source>
+        <source>label_book_picture</source>
         <target>Cover</target>
       </trans-unit>
       <trans-unit id="47">
