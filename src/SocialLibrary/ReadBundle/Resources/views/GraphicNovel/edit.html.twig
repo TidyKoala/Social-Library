@@ -16,12 +16,12 @@
 <ul class="record_actions nav nav-pills nav-stacked">
     <li>
         <a href="{{ path('graphic_novel_index') }}">
-            <i class="icon-back"></i> {% trans %}graphic_novel_back_list{% endtrans %}
+            <i class="icon-back"></i> {% trans %}link_book_back_list{% endtrans %}
         </a>
     </li>
     <li>
         <a href="{{ path('graphic_novel_index', {'selection' : 'my'}) }}">
-            {% trans %}graphic_novel_back_owner{% endtrans %}
+            {% trans %}link_book_back_owner_list{% endtrans %}
         </a>
     </li>
     <li>
@@ -31,7 +31,7 @@
     </li>
     <li>
         <a href="{{ path('graphic_novel_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
-            <i class="icon-logout"></i> {% trans %}graphic_novel_delete{% endtrans %}
+            <i class="icon-logout"></i> {% trans %}link_book_remove_owner{% endtrans %}
         </a>
     </li>
 </ul>
@@ -44,7 +44,7 @@
     {% include 'SocialLibraryReadBundle:Common:form.html.twig' with { 'form' : edit_form } %}
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">
-            {% trans %}manga_edit{% endtrans %}
+            {% trans %}label_book_edit{% endtrans %}
         </button>
     </div>
 </form>
