@@ -8,7 +8,7 @@
       </trans-unit>
       <trans-unit id="2">
         <source>manga_section_link</source>
-        <target>Manga</target>
+        <target>Mangas</target>
       </trans-unit>
       <trans-unit id="3">
         <source>logout_link</source>
@@ -41,6 +41,14 @@
       <trans-unit id="10">
         <source>locale_selecter_label</source>
         <target>Language</target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>graphic_novel_section_link</source>
+        <target>Graphic novels</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>novel_section_link</source>
+        <target>Novels</target>
       </trans-unit>
     </body>
   </file>

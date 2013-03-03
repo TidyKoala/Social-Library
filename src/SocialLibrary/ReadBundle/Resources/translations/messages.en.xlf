@@ -15,91 +15,91 @@
         <target>Update of</target>
       </trans-unit>
       <trans-unit id="4">
-        <source>placeholder_name_manga</source>
+        <source>label_help_book_name</source>
         <target>If the volume has no name, enter the name of the serie</target>
       </trans-unit>
       <trans-unit id="5">
-        <source>placeholder_volume_manga</source>
+        <source>label_help_book_volume</source>
         <target>If the manga is a one volume serie, it is still volume 1.</target>
       </trans-unit>
       <trans-unit id="6">
-        <source>placeholder_serie_manga</source>
+        <source>label_help_book_serie</source>
         <target>My serie is not known.</target>
       </trans-unit>
       <trans-unit id="7">
-        <source>placeholder_creators_manga</source>
+        <source>label_help_book_creators</source>
         <target>The author is not known yet.</target>
       </trans-unit>
       <trans-unit id="8">
-        <source>placeholder_illustrators_manga</source>
+        <source>label_help_book_illustrators</source>
         <target>The illustrator is not known yet.</target>
       </trans-unit>
       <trans-unit id="9">
-        <source>placeholder_isbn10_manga</source>
+        <source>label_help_book_isbn10</source>
         <target>ISBN-10 is made of 10 characters</target>
       </trans-unit>
       <trans-unit id="10">
-        <source>placeholder_isbn13_manga</source>
+        <source>label_help_book_isbn13</source>
         <target>ISBN-13 is made of 13 characters</target>
       </trans-unit>
       <trans-unit id="11">
-        <source>manga_edit</source>
+        <source>label_book_edit</source>
         <target>Edit</target>
       </trans-unit>
       <trans-unit id="12">
-        <source>manga_back_list</source>
+        <source>link_book_back_list</source>
         <target>Return to library</target>
       </trans-unit>
       <trans-unit id="13">
-        <source>manga_delete</source>
+        <source>link_book_remove_owner</source>
         <target>I don't have it anymore</target>
       </trans-unit>
       <trans-unit id="14">
-        <source>manga_header_volume</source>
+        <source>link_book_header_volume</source>
         <target>Volume</target>
       </trans-unit>
       <trans-unit id="15">
-        <source>manga_header_name</source>
+        <source>link_book_header_name</source>
         <target>Name</target>
       </trans-unit>
       <trans-unit id="16">
-        <source>manga_header_serie</source>
+        <source>link_book_header_serie</source>
         <target>Serie</target>
       </trans-unit>
       <trans-unit id="17">
-        <source>manga_header_authors</source>
+        <source>link_book_header_creators</source>
         <target>Authors</target>
       </trans-unit>
       <trans-unit id="18">
-        <source>manga_header_illustrators</source>
+        <source>link_book_header_illustrators</source>
         <target>Illustrators</target>
       </trans-unit>
       <trans-unit id="19">
-        <source>manga_header_language</source>
+        <source>link_book_header_language</source>
         <target>Language</target>
       </trans-unit>
       <trans-unit id="20">
-        <source>manga_header_isbn10</source>
+        <source>link_book_header_isbn10</source>
         <target>ISBN 10</target>
       </trans-unit>
       <trans-unit id="21">
-        <source>manga_header_isbn13</source>
+        <source>link_book_header_isbn13</source>
         <target>ISBN 13</target>
       </trans-unit>
       <trans-unit id="22">
-        <source>manga_header_owners</source>
+        <source>link_book_header_owners</source>
         <target>Placed in libraries</target>
       </trans-unit>
       <trans-unit id="23">
-        <source>manga_owned_by</source>
+        <source>label_book_owned_by</source>
         <target>{0} Sadly, person has it in his library|{1} This manga is rare. There is only one person who owns it|[2,Inf] This manga is in %number% libraries</target>
       </trans-unit>
       <trans-unit id="24">
-        <source>manga_own</source>
+        <source>link_book_add_owner</source>
         <target>I own this manga too</target>
       </trans-unit>
       <trans-unit id="25">
-        <source>manga_details</source>
+        <source>link_book_details</source>
         <target>Details</target>
       </trans-unit>
       <trans-unit id="26">
@@ -179,7 +179,7 @@
         <target>My mangas</target>
       </trans-unit>
       <trans-unit id="45">
-        <source>manga_back_owner</source>
+        <source>link_book_back_owner_list</source>
         <target>Return to my library</target>
       </trans-unit>
       <trans-unit id="46">
@@ -187,16 +187,44 @@
         <target>Cover</target>
       </trans-unit>
       <trans-unit id="47">
-        <source>manga_list_view</source>
+        <source>label_book_list_view</source>
         <target>List view</target>
       </trans-unit>
       <trans-unit id="48">
-        <source>manga_list_thumb_view</source>
+        <source>label_book_list_thumb_view</source>
         <target>Mini-thumbnails view</target>
       </trans-unit>
       <trans-unit id="49">
-        <source>manga_thumb_view</source>
+        <source>label_book_thumb_view</source>
         <target>Thumbnails view</target>
+      </trans-unit>
+      <trans-unit id="50">
+        <source>label_picture_select_image</source>
+        <target>Select image</target>
+      </trans-unit>
+      <trans-unit id="51">
+        <source>label_picture_change</source>
+        <target>Change</target>
+      </trans-unit>
+      <trans-unit id="52">
+        <source>label_picture_remove</source>
+        <target>Remove</target>
+      </trans-unit>
+      <trans-unit id="53">
+        <source>link_book_edit</source>
+        <target>Edit</target>
+      </trans-unit>
+      <trans-unit id="54">
+        <source>link_book_header_actions</source>
+        <target>Actions</target>
+      </trans-unit>
+      <trans-unit id="55">
+        <source>graphic_novel_section_title</source>
+        <target>Graphic novel section</target>
+      </trans-unit>
+      <trans-unit id="56">
+        <source>novel_section_title</source>
+        <target>Novel section</target>
       </trans-unit>
     </body>
   </file>
