@@ -41,7 +41,7 @@
                     <li>
                         <a href="{{ path('novel_show', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-eye"></i> {% trans %}link_book_details{% endtrans %}</a>
                     </li>
-                    {% if is_granted('ROLE_ADMIN') %}
+                    {% if is_granted('ROLE_USER') %}
                         {% if entity.isOwner(app.user) %}
                     <li>
                         <a href="{{ path('novel_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-pencil"></i> {% trans %}link_book_edit{% endtrans %}</a>
