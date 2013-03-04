@@ -5,10 +5,10 @@
     <thead>
     	<tr>
     		<th>
-                {% trans %}graphic_novel_header_volume{% endtrans %}
+                {% trans %}link_book_header_volume{% endtrans %}
     		</th>
             <th>
-                {% trans %}graphic_novel_header_actions{% endtrans %}
+                {% trans %}link_book_header_actions{% endtrans %}
             </th>
     	</tr>
     </thead>
@@ -38,19 +38,19 @@
             <td>
                 <ul>
                     <li>
-                        <a href="{{ path('manga_show', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-eye"></i> {% trans %}manga_details{% endtrans %}</a>
+                        <a href="{{ path('manga_show', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-eye"></i> {% trans %}link_book_details{% endtrans %}</a>
                     </li>
                     {% if is_granted('ROLE_ADMIN') %}
                         {% if entity.isOwner(app.user) %}
                     <li>
-                        <a href="{{ path('manga_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-pencil"></i> {% trans %}manga_edit{% endtrans %}</a>
+                        <a href="{{ path('manga_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-pencil"></i> {% trans %}link_book_edit{% endtrans %}</a>
                     </li>
                     <li>
-                        <a href="{{ path('manga_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-logout"></i> {% trans %}manga_delete{% endtrans %}</a>
+                        <a href="{{ path('manga_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-logout"></i> {% trans %}link_book_remove_owner{% endtrans %}</a>
                     </li>
                         {% else %}
                     <li>
-                        <a href="{{ path('manga_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-login"></i> {% trans %}manga_own{% endtrans %}</a>
+                        <a href="{{ path('manga_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-login"></i> {% trans %}link_book_add_owner{% endtrans %}</a>
                     </li>
                         {% endif %}
                     {% endif %}

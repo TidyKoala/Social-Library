@@ -5,10 +5,10 @@
     <thead>
     	<tr>
     		<th>
-                {% trans %}novel_header_volume{% endtrans %}
+                {% trans %}link_book_header_volume{% endtrans %}
     		</th>
             <th>
-                {% trans %}novel_header_actions{% endtrans %}
+                {% trans %}link_book_header_actions{% endtrans %}
             </th>
     	</tr>
     </thead>
@@ -38,19 +38,19 @@
             <td>
                 <ul>
                     <li>
-                        <a href="{{ path('novel_show', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-eye"></i> {% trans %}novel_details{% endtrans %}</a>
+                        <a href="{{ path('novel_show', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-eye"></i> {% trans %}link_book_details{% endtrans %}</a>
                     </li>
                     {% if is_granted('ROLE_ADMIN') %}
                         {% if entity.isOwner(app.user) %}
                     <li>
-                        <a href="{{ path('novel_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-pencil"></i> {% trans %}novel_edit{% endtrans %}</a>
+                        <a href="{{ path('novel_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-pencil"></i> {% trans %}link_book_edit{% endtrans %}</a>
                     </li>
                     <li>
-                        <a href="{{ path('novel_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-logout"></i> {% trans %}novel_delete{% endtrans %}</a>
+                        <a href="{{ path('novel_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-logout"></i> {% trans %}link_book_remove_owner{% endtrans %}</a>
                     </li>
                         {% else %}
                     <li>
-                        <a href="{{ path('novel_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-login"></i> {% trans %}novel_own{% endtrans %}</a>
+                        <a href="{{ path('novel_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-login"></i> {% trans %}link_book_add_owner{% endtrans %}</a>
                     </li>
                         {% endif %}
                     {% endif %}
