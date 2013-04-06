@@ -6,10 +6,10 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.1.6",
-        "doctrine/orm": ">=2.2.3,<2.4-dev",
-        "doctrine/doctrine-bundle": "1.0.*",
-        "twig/extensions": "1.0.*",
+        "symfony/symfony": "2.1.*",
+        "doctrine/orm": ">=2.2.3,<2.5-dev",
+        "doctrine/doctrine-bundle": "1.1.*",
+        "twig/extensions": "1.0.*@dev",
         "symfony/assetic-bundle": "2.1.*",
         "symfony/swiftmailer-bundle": "2.1.*",
         "symfony/monolog-bundle": "2.1.*",
@@ -18,13 +18,14 @@
         "sensio/generator-bundle": "2.1.*",
         "jms/security-extra-bundle": "1.2.*",
         "jms/di-extra-bundle": "1.1.*",
+        "kriswallsmith/assetic": "1.1.*@dev",
         "friendsofsymfony/user-bundle": "*",
         "gedmo/doctrine-extensions": "master-dev",
         "knplabs/knp-paginator-bundle": "dev-master",
         "sonata-project/easy-extends-bundle": "dev-master",
         "sonata-project/cache-bundle": "dev-master",
         "sonata-project/block-bundle": "dev-master",
-        "sonata-project/jquery-bundle": "dev-master",
+        "sonata-project/jquery-bundle": "1.8.*",
         "knplabs/knp-menu-bundle": "1.1.*",
         "sonata-project/exporter": "dev-master",
         "sonata-project/admin-bundle": "dev-master",
@@ -51,6 +52,9 @@
     "minimum-stability": "dev",
     "extra": {
         "symfony-app-dir": "app",
-        "symfony-web-dir": "web"
+        "symfony-web-dir": "web",
+        "branch-alias": {
+            "dev-master": "2.1-dev"
+        }
     }
 }
