@@ -64,14 +64,66 @@ class AbstractMessageTest extends \PHPUnit_Framework_TestCase
     public function testAddHeaders()
     {
         $message = new Message();
-        $message->addHeaders(array('Content-Type: text/xml; charset=utf8'));
-        $this->assertEquals(1, count($message->getHeaders()));
+        $message->addHeaders(array('Content-Type: text/xml; charset=utf8', 'Foo' => 'test'));
+        $message->addHeaders(array('Test' => 'foo', 'Foo' => 'test'));
+
+        $expected = array('Content-Type: text/xml; charset=utf8', 'Foo: test', 'Test: foo', 'Foo: test');
+        $this->assertEquals($expected, $message->getHeaders());
     }
 
-    public function testToDomDocument()
+    public function testSetHeaders()
     {
         $message = new Message();
+        $message->setHeaders(array('Content-Type: text/xml; charset=utf8', 'Foo' => 'test'));
+        $message->setHeaders(array('Test: foo', 'Foo' => 'test'));
+
+        $expected = array('Test: foo', 'Foo: test');
+        $this->assertEquals($expected, $message->getHeaders());
+    }
+
+    public function testToDomDocumentWithContentTypeTextXmlReturnsDomDocument()
+    {
+        $message = new Message();
+
+        $message->setHeaders(array('Content-Type: text/xml'));
         $message->setContent('<foo><bar></bar></foo>');
         $this->assertInstanceOf('DOMDocument', $message->toDomDocument());
+    }
+
+    public function testToDomDocumentWithContentTypeTextHtmlReturnsDomDocument()
+    {
+        $message = new Message();
+
+        $message->setHeaders(array('Content-Type: text/html'));
+        $message->setContent('<foo><bar></bar></foo>');
+        $this->assertInstanceOf('DOMDocument', $message->toDomDocument());
+    }
+
+    public function testToDomDocumentWithContentTypeTextXmlReturnsXmlString()
+    {
+        $message = new Message();
+        $expected = <<<XML
+<?xml version="1.0"?>
+<foo><bar/></foo>
+
+XML;
+
+        $message->setHeaders(array('Content-Type: text/xml'));
+        $message->setContent('<foo><bar></bar></foo>');
+        $this->assertEquals($expected, $message->toDomDocument()->saveXML());
+    }
+
+    public function testToDomDocumentWithContentTypeTextHTMLReturnsHTMLString()
+    {
+        $message = new Message();
+        $expected = <<<HTML
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><foo><bar></bar></foo></body></html>
+
+HTML;
+
+        $message->setHeaders(array('Content-Type: text/html'));
+        $message->setContent('<foo><bar></bar></foo>');
+        $this->assertEquals($expected, $message->toDomDocument()->saveHTML());
     }
 }
