@@ -135,7 +135,7 @@ class MangaControllerTest extends WebTestCase
         $this->crawler = $this->client->request('GET', '/manga/en/new');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
-        $form = $this->crawler->selectButton('Add to my library')->form(array(
+        $form = $this->crawler->selectButton('label_book_create')->form(array(
             'book[name]' => $name,
             'book[volume]' => $volume,
             'book[serie]' => $respSerie->getId(),
@@ -162,7 +162,7 @@ class MangaControllerTest extends WebTestCase
         $this->crawler = $this->client->request('GET', '/manga/en/new');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
-        $form = $this->crawler->selectButton('Add to my library')->form(array(
+        $form = $this->crawler->selectButton('label_book_create')->form(array(
             'book[name]' => $name,
             'book[volume]' => $volume,
             'book[serie]' => $respSerie->getId(),
@@ -198,7 +198,7 @@ class MangaControllerTest extends WebTestCase
         $this->crawler = $this->client->request('GET', '/manga/en/new');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
-        $form = $this->crawler->selectButton('Add to my library')->form(array(
+        $form = $this->crawler->selectButton('label_book_create')->form(array(
             'book[name]' => $name,
             'book[volume]' => $volume,
             'book[serie]' => $respSerie->getId(),

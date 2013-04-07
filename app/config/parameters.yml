@@ -2,9 +2,9 @@ parameters:
     database_driver: pdo_mysql
     database_host: localhost
     database_port: null
-    database_name: sf2bundles
-    database_user: sf2bundles
-    database_password: sf2bundles
+    database_name: socialLibrary
+    database_user: socialLibrary
+    database_password: "#socialLibrary!"
     mailer_transport: smtp
     mailer_host: localhost
     mailer_user: null

@@ -11,6 +11,16 @@
 
 class Twig_Tests_EnvironmentTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @expectedException        LogicException
+     * @expectedExceptionMessage You must set a loader first.
+     */
+    public function testRenderNoLoader()
+    {
+        $env = new Twig_Environment();
+        $env->render('test');
+    }
+
     public function testAutoescapeOption()
     {
         $loader = new Twig_Loader_Array(array(
@@ -71,6 +81,13 @@ class Twig_Tests_EnvironmentTest extends PHPUnit_Framework_TestCase
         $globals = $twig->getGlobals();
         $this->assertEquals('bar', $globals['foo']);
 
+        $twig = new Twig_Environment(new Twig_Loader_String());
+        $twig->getGlobals();
+        $twig->addGlobal('foo', 'bar');
+        $template = $twig->loadTemplate('{{foo}}');
+        $this->assertEquals('bar', $template->render(array()));
+
+        /* to be uncomment in Twig 2.0
         // globals cannot be added after runtime init
         $twig = new Twig_Environment(new Twig_Loader_String());
         $twig->addGlobal('foo', 'foo');
@@ -117,6 +134,7 @@ class Twig_Tests_EnvironmentTest extends PHPUnit_Framework_TestCase
         } catch (LogicException $e) {
             $this->assertFalse(array_key_exists('bar', $twig->getGlobals()));
         }
+        */
     }
 
     public function testExtensionsAreNotInitializedWhenRenderingACompiledTemplate()

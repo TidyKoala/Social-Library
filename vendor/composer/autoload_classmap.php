@@ -6,4 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'SqlFormatter' => $baseDir . '/vendor/jdorn/sql-formatter/lib/SqlFormatter.php',
 );
