@@ -11,10 +11,10 @@
     		    {% trans %}link_book_header_name{% endtrans %}
 		    </th>
     		<th>
-    		    {{ entities.sortable('link_book_header_serie', 's.nameSlug', {'translationDomain' : 'messages'})|raw }}
+    		    {{ knp_pagination_sortable(entities, 'link_book_header_serie'|trans(), 's.nameSlug') }}
 		    </th>
     		<th>
-    		    {{ entities.sortable('link_book_header_creators', 'c.lastname', {'translationDomain' : 'messages' })|raw }}
+    		    {{ knp_pagination_sortable(entities, 'link_book_header_creators'|trans(), 'c.lastname') }}
 		    </th>
             <th>
                 {% trans %}link_book_header_actions{% endtrans %}
@@ -62,6 +62,6 @@
     </tbody>
 </table>
 
-{{ entities.render()|raw }}
+{{ knp_pagination_render(entities) }}
 
 {% endblock %}
