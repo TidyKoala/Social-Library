@@ -115,17 +115,17 @@ class GraphicNovelBundleControllerTest extends WebTestCase
     public function testEmptyIndex()
     {
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index');
-        $this->assertEquals(1 , $this->crawler->filter('h1:contains("graphic_novel_section_title")')->count());
+        $this->assertEquals(1 , $this->crawler->filter('h1:contains("Graphic novel section")')->count());
         $this->assertEquals(5, $this->crawler->filter('table th')->count());
         $this->assertEquals(1, $this->crawler->filter('table tr')->count());
         
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index/listThumbs');
-        $this->assertEquals(1 , $this->crawler->filter('h1:contains("graphic_novel_section_title")')->count());
+        $this->assertEquals(1 , $this->crawler->filter('h1:contains("Graphic novel section")')->count());
         $this->assertEquals(2, $this->crawler->filter('table th')->count());
         $this->assertEquals(1, $this->crawler->filter('table tr')->count());
         
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index/thumbnails');
-        $this->assertEquals(1 , $this->crawler->filter('h1:contains("graphic_novel_section_title")')->count());
+        $this->assertEquals(1 , $this->crawler->filter('h1:contains("Graphic novel section")')->count());
         $this->assertEquals(0, $this->crawler->filter('ul.thumbnails.records_list li')->count());
     }
     
@@ -145,7 +145,7 @@ class GraphicNovelBundleControllerTest extends WebTestCase
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/new');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
-        $form = $this->crawler->selectButton('graphic_novel_create')->form(array(
+        $form = $this->crawler->selectButton('label_book_create')->form(array(
             'book[name]' => $name,
             'book[volume]' => $volume,
             'book[serie]' => $respSerie->getId(),
@@ -177,7 +177,7 @@ class GraphicNovelBundleControllerTest extends WebTestCase
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/new');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
-        $form = $this->crawler->selectButton('graphic_novel_create')->form(array(
+        $form = $this->crawler->selectButton('label_book_create')->form(array(
             'book[name]' => $name,
             'book[volume]' => $volume,
             'book[serie]' => $respSerie->getId(),
@@ -217,7 +217,7 @@ class GraphicNovelBundleControllerTest extends WebTestCase
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/new');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
-        $form = $this->crawler->selectButton('graphic_novel_create')->form(array(
+        $form = $this->crawler->selectButton('label_book_create')->form(array(
             'book[name]' => $name,
             'book[volume]' => $volume,
             'book[serie]' => $respSerie->getId(),
@@ -240,17 +240,17 @@ class GraphicNovelBundleControllerTest extends WebTestCase
     public function testFullIndex()
     {
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index');
-        $this->assertEquals(1 , $this->crawler->filter('h1:contains("graphic_novel_section_title")')->count());
+        $this->assertEquals(1 , $this->crawler->filter('h1:contains("Graphic novel section")')->count());
         $this->assertEquals(5, $this->crawler->filter('table th')->count());
         $this->assertEquals(count($this->getValidValues()) + 1, $this->crawler->filter('table tr')->count());
         
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index/listThumbs');
-        $this->assertEquals(1 , $this->crawler->filter('h1:contains("graphic_novel_section_title")')->count());
+        $this->assertEquals(1 , $this->crawler->filter('h1:contains("Graphic novel section")')->count());
         $this->assertEquals(2, $this->crawler->filter('table th')->count());
         $this->assertEquals(count($this->getValidValues()) + 1, $this->crawler->filter('table tr')->count());
         
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index/thumbnails');
-        $this->assertEquals(1 , $this->crawler->filter('h1:contains("graphic_novel_section_title")')->count());
+        $this->assertEquals(1 , $this->crawler->filter('h1:contains("Graphic novel section")')->count());
         $this->assertEquals(count($this->getValidValues()), $this->crawler->filter('ul.thumbnails.records_list li')->count());
     }
     
@@ -261,7 +261,7 @@ class GraphicNovelBundleControllerTest extends WebTestCase
     public function testOwnershipLink1()
     {
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index');
-        $this->assertEquals(count($this->getOwnerValidValues()), $this->crawler->filter('a:contains("graphic_novel_delete")')->count());
+        $this->assertEquals(count($this->getOwnerValidValues()), $this->crawler->filter('a:contains("I don\'t have it anymore")')->count());
     }
     
     /**
@@ -271,7 +271,7 @@ class GraphicNovelBundleControllerTest extends WebTestCase
     public function testNotOwnershipLink1()
     {
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index');
-        $this->assertEquals(count($this->getOtherOwnerValidValues()), $this->crawler->filter('a:contains("graphic_novel_own")')->count());
+        $this->assertEquals(count($this->getOtherOwnerValidValues()), $this->crawler->filter('a:contains("I own this manga too")')->count());
     }
     
     /**
@@ -319,8 +319,8 @@ class GraphicNovelBundleControllerTest extends WebTestCase
         
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index');
         $row = $this->crawler->filter('tr:contains("'.$name.'")');
-        $this->assertEquals(1, $row->filter('a:contains("graphic_novel_edit")')->count());
-        $link = $row->selectLink('graphic_novel_edit')->link();
+        $this->assertEquals(1, $row->filter('a:contains("Edit")')->count());
+        $link = $row->selectLink('Edit')->link();
         $this->crawler = $this->client->click($link);
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
@@ -347,7 +347,7 @@ class GraphicNovelBundleControllerTest extends WebTestCase
     public function testEditNotOwner($serie, $volume, $name, $authors, $illustrators, $language, $isbn10, $isbn13)
     {
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index');
-        $this->assertEquals(0, $this->crawler->filter('tr:contains("'.$name.'")')->filter('a:contains("graphic_novel_edit")')->count());
+        $this->assertEquals(0, $this->crawler->filter('tr:contains("'.$name.'")')->filter('a:contains("Edit")')->count());
     }
     
     /**
@@ -364,7 +364,7 @@ class GraphicNovelBundleControllerTest extends WebTestCase
         }
         
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index');
-        $link = $this->crawler->filter('tr:contains("'.$serie.'")')->selectLink('graphic_novel_edit')->link();
+        $link = $this->crawler->filter('tr:contains("'.$serie.'")')->selectLink('Edit')->link();
         $this->crawler = $this->client->click($link);
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
@@ -394,7 +394,7 @@ class GraphicNovelBundleControllerTest extends WebTestCase
     {
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index');
         $row = $this->crawler->filter('tr:contains("'.$name.'")');
-        $link = $row->selectLink('graphic_novel_own')->link();
+        $link = $row->selectLink('I own this manga too')->link();
         $this->crawler = $this->client->click($link);
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->crawler = $this->client->followRedirect();
@@ -407,7 +407,7 @@ class GraphicNovelBundleControllerTest extends WebTestCase
     public function testOwnershipLink2()
     {
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index');
-        $this->assertEquals(count($this->getValidValues()), $this->crawler->filter('a:contains("graphic_novel_delete")')->count());
+        $this->assertEquals(count($this->getValidValues()), $this->crawler->filter('a:contains("I don\'t have it anymore")')->count());
     }
     
     /**
@@ -416,7 +416,7 @@ class GraphicNovelBundleControllerTest extends WebTestCase
     public function testNotOwnershipLink2()
     {
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index');
-        $this->assertEquals(0, $this->crawler->filter('a:contains("graphic_novel_own")')->count());
+        $this->assertEquals(0, $this->crawler->filter('a:contains("I own this manga too")')->count());
     }
     
     /**
@@ -427,7 +427,7 @@ class GraphicNovelBundleControllerTest extends WebTestCase
     {
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index');
         $row = $this->crawler->filter('tr:contains("'.$name.'")');
-        $link = $row->selectLink('graphic_novel_delete')->link();
+        $link = $row->selectLink('I don\'t have it anymore')->link();
         $this->crawler = $this->client->click($link);
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->crawler = $this->client->followRedirect();
@@ -440,7 +440,7 @@ class GraphicNovelBundleControllerTest extends WebTestCase
     public function testOwnershipLink3()
     {
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index');
-        $this->assertEquals(count($this->getCompletOtherOwnerValidValues()), $this->crawler->filter('a:contains("graphic_novel_delete")')->count());
+        $this->assertEquals(count($this->getCompletOtherOwnerValidValues()), $this->crawler->filter('a:contains("I don\'t have it anymore")')->count());
     }
     
     /**
@@ -449,6 +449,6 @@ class GraphicNovelBundleControllerTest extends WebTestCase
     public function testNotOwnershipLink3()
     {
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index');
-        $this->assertEquals(count($this->getCompletOwnerValidValues()), $this->crawler->filter('a:contains("graphic_novel_own")')->count());
+        $this->assertEquals(count($this->getCompletOwnerValidValues()), $this->crawler->filter('a:contains("I own this manga too")')->count());
     }
 }

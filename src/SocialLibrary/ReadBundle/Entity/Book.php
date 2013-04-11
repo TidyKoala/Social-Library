@@ -9,4 +9,8 @@ use SocialLibrary\ReadBundle\Model\Book as BaseBook;
  */
 abstract class Book extends BaseBook
 {
+    /**
+     * @var integer id
+     */
+	protected $id;
 }

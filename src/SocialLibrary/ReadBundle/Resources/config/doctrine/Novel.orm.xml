@@ -30,9 +30,6 @@
                 <join-column name="novel_serie_id" referenced-column-name="id" />
             </association-override>
         </association-overrides>
-        <id name="id" type="integer">
-            <generator strategy="AUTO" />
-        </id>
     </entity>
 
 </doctrine-mapping>

@@ -30,9 +30,6 @@
                 <join-column name="manga_serie_id" referenced-column-name="id" />
             </association-override>
         </association-overrides>
-        <id name="id" type="integer">
-            <generator strategy="AUTO" />
-        </id>
         <many-to-many field="illustrators" target-entity="SocialLibrary\BaseBundle\Entity\ObjectCreator">
             <join-table name="manga__illustrator">
                 <join-columns>
