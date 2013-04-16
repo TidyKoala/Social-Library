@@ -49,7 +49,7 @@
 			        </tr>
 			        <tr>
 			            <th>{% trans %}link_book_header_language{% endtrans %}</th>
-			            <td>{{ entity.language | language(app.session.get('locale')) }}</td>
+			            <td>{{ entity.language | language() }}</td>
 			        </tr>
 			        <tr>
 			            <th>{% trans %}link_book_header_isbn10{% endtrans %}</th>
