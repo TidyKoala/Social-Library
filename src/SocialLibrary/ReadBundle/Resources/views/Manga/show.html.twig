@@ -17,51 +17,53 @@
     </div>
 {% endfor %}
 
-<table class="record_properties table table-striped table-bordered">
-    <tbody>
-        <tr>
-            <th>{% trans %}link_book_header_volume{% endtrans %}</th>
-            <td>{{ entity.volume }}</td>
-            {% if entity.picture is not empty %}
-            <td rowspan="9">
-                {% thumbnail entity.picture, 'big' %}
-            </td>
-            {% endif %}
-        </tr>
-        <tr>
-            <th>{% trans %}link_book_header_name{% endtrans %}</th>
-            <td>{{ entity.name }}</td>
-        </tr>
-        <tr>
-            <th>{% trans %}link_book_header_serie{% endtrans %}</th>
-            <td>{{ entity.serie }}</td>
-        </tr>
-        <tr>
-            <th>{% trans %}link_book_header_authors{% endtrans %}</th>
-            <td>{{ entity.creators|join(', ') }}</td>
-        </tr>
-        <tr>
-            <th>{% trans %}link_book_header_illustrators{% endtrans %}</th>
-            <td>{{ entity.illustrators|join(', ') }}</td>
-        </tr>
-        <tr>
-            <th>{% trans %}link_book_header_language{% endtrans %}</th>
-            <td>{{ entity.language }}</td>
-        </tr>
-        <tr>
-            <th>{% trans %}link_book_header_isbn10{% endtrans %}</th>
-            <td>{{ entity.isbn10 }}</td>
-        </tr>
-        <tr>
-            <th>{% trans %}link_book_header_isbn13{% endtrans %}</th>
-            <td>{{ entity.isbn13 }}</td>
-        </tr>
-        <tr>
-            <th>{% trans %}link_book_header_owners{% endtrans %}</th>
-            <td>{% transchoice entity.owners|length with { '%number%' : entity.owners|length } %}label_book_owned_by{% endtranschoice %}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="record_properties row-fluid">
+	<div class="media">
+		<div class="object-cover pull-left well">
+		{% if entity.picture is not empty %}
+	    	{% thumbnail entity.picture, 'big' with {'class': 'media-object'} %}
+		{% endif %}
+		</div>
+		<div class="media-body">
+			<table class="object-full-description table table-striped table-bordered">
+			    <tbody>
+			        <tr>
+			            <th>{% trans %}link_book_header_volume{% endtrans %}</th>
+			            <td>{{ entity.volume }}</td>
+			        </tr>
+			        <tr>
+			            <th>{% trans %}link_book_header_name{% endtrans %}</th>
+			            <td>{{ entity.name }}</td>
+			        </tr>
+			        <tr>
+			            <th>{% trans %}link_book_header_serie{% endtrans %}</th>
+			            <td>{{ entity.serie }}</td>
+			        </tr>
+			        <tr>
+			            <th>{% trans %}link_book_header_authors{% endtrans %}</th>
+			            <td>{{ entity.creators|join(', ') }}</td>
+			        </tr>
+			        <tr>
+			            <th>{% trans %}link_book_header_illustrators{% endtrans %}</th>
+			            <td>{{ entity.illustrators|join(', ') }}</td>
+			        </tr>
+			        <tr>
+			            <th>{% trans %}link_book_header_language{% endtrans %}</th>
+			            <td>{{ entity.language | language(app.session.get('locale')) }}</td>
+			        </tr>
+			        <tr>
+			            <th>{% trans %}link_book_header_isbn10{% endtrans %}</th>
+			            <td>{{ entity.isbn10 }}</td>
+			        </tr>
+			        <tr>
+			            <th>{% trans %}link_book_header_isbn13{% endtrans %}</th>
+			            <td>{{ entity.isbn13 }}</td>
+			        </tr>
+			    </tbody>
+			</table>
+		</div>
+	</div>
+</div>
 
 {% endblock %}
 

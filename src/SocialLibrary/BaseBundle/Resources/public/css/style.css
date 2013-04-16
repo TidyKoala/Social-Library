@@ -10,6 +10,37 @@
 	padding: 0;
 }
 
+.records_list ul.actions li
+{
+	display: none;
+}
+
+.records_list.list-thumb-view .object,
+.records_list.thumbnail-view .object
+{
+	margin-top: 10px;
+}
+
+.records_list.list-thumb-view .object:hover ul.actions li
+{
+	display: inline-block;
+}
+
+.records_list.list-thumb-view .object-cover
+{
+	height: 130px;
+}
+
+.records_list.list-thumb-view .object-cover img
+{
+	max-height: 130px;
+}
+
+.records_list.list-thumb-view .object-body
+{
+	overflow: hidden;
+}
+
 .records_list ul a
 {
     color: #333333;
@@ -34,7 +65,7 @@
 
 @media screen and (min-width: 1000px)
 {
-    .records_list .thumbnail img
+    .records_list.thumbnail-view img
     {
         max-width: 300px;
         max-height: 300px;
@@ -43,7 +74,7 @@
 
 @media screen and (max-width: 800px)and (min-width: 769px)
 {
-	.records_list .thumbnail img
+	.records_list.thumbnail-view img
 	{
 	    max-width: 190px;
 	    max-height: 190px;
@@ -52,7 +83,7 @@
 
 @media screen and (max-width: 768px)
 {
-    .records_list .thumbnail img
+    .records_list.thumbnail-view img
     {
         max-width: 175px;
         max-height: 175px;
@@ -62,6 +93,11 @@
 .records_list .first-column
 {
 	margin-left: 0;
+}
+
+.pagination
+{
+	clear: both;
 }
 
 label.required
