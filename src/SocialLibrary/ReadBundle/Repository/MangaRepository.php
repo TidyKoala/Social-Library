@@ -33,7 +33,7 @@ class MangaRepository extends EntityRepository
         }
         
         try {
-            return $paginator->paginate($query, $page);
+            return $paginator->paginate($query, $page, 24);
         } catch (\Doctrine\ORM\NoResultException $e) {
             return null;
         }
