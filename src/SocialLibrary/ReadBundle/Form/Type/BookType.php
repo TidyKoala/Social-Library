@@ -48,6 +48,7 @@ class BookType extends AbstractType
             ->add('language', 'language', array(
                     'required' => false,
                     'label' => 'label_book_language',
+                    'empty_value' => 'placeholder_book_language',
                 ))
             ->add('isbn10', 'text', array(
                     'required' => false,
