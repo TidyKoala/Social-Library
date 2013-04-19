@@ -27,7 +27,7 @@
 							<a href="{{ path('manga_show', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-eye"></i> {% trans %}link_book_details{% endtrans %}</a>
 						</li>
 					{% if is_granted('ROLE_USER') %}
-						{% if entity.isOwner(app.user) %}}
+						{% if entity.isOwner(app.user) %}
 						<li>
 							<a href="{{ path('manga_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-logout"></i> {% trans %}link_book_remove_owner{% endtrans %}</a>
 						</li>
