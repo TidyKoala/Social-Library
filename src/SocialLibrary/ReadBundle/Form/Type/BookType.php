@@ -44,11 +44,12 @@ class BookType extends AbstractType
                     },
                     'multiple' => true,
                     'expanded' => false,
+                    'empty_value' => '',
                 ))
             ->add('language', 'language', array(
                     'required' => false,
                     'label' => 'label_book_language',
-                    'empty_value' => 'placeholder_book_language',
+                    'empty_value' => '',
                 ))
             ->add('isbn10', 'text', array(
                     'required' => false,
