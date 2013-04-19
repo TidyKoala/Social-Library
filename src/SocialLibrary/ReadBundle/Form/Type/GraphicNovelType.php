@@ -27,6 +27,7 @@ class GraphicNovelType extends BookType
                             ->orderBy('s.nameSlug', 'ASC');
                     },
                     'multiple' => false,
+                    'empty_value' => '',
                 ))
             ->add('illustrators', 'entity', array(
                     'required' => true,
@@ -38,6 +39,7 @@ class GraphicNovelType extends BookType
                     },
                     'multiple' => true,
                     'expanded' => false,
+                    'empty_value' => '',
                 ))
         ;
     }
