@@ -51,7 +51,9 @@
                 $('.add-ajax').click(function() {
                     return ajaxGetForm($(this));
                 });
-                $('select').select2();
+                $('select').select2({
+                	allowClear: true,
+				});
             });
         </script>
 {% endblock %}

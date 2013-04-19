@@ -44,7 +44,7 @@
     <div class="control-group{% if form_errors(form.serie) is not empty %} error{% endif %}">
         {{ form_label(form.serie, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
-            {{ form_widget(form.serie) }}
+            {{ form_widget(form.serie, { 'attr' : { 'data-placeholder' : 'placeholder_book_serie'|trans()} }) }}
             <a href="#" data-request="{{ path('read_serie_ajax_new') }}" data-select="#book_serie" title="{% trans %}label_help_book_serie{% endtrans %}" class="add-ajax tooltip-icon">
                 <i class="icon-list-add"></i>
             </a>
@@ -56,7 +56,7 @@
     <div class="control-group{% if form_errors(form.creators) is not empty %} error{% endif %}">
         {{ form_label(form.creators, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
-            {{ form_widget(form.creators, { 'attr' : { 'class' : 'add-creator' } }) }}
+            {{ form_widget(form.creators, { 'attr' : { 'class' : 'add-creator', 'data-placeholder' : 'placeholder_book_creators'|trans()} }) }}
             <a href="#" data-request="{{ path('object_creator_ajax_new') }}" data-select=".add-creator" title="{% trans %}label_help_book_creators{% endtrans %}" class="add-ajax tooltip-icon">
                 <i class="icon-list-add"></i>
             </a>
@@ -69,7 +69,7 @@
     <div class="control-group{% if form_errors(form.illustrators) is not empty %} error{% endif %}">
         {{ form_label(form.illustrators, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
-            {{ form_widget(form.illustrators, { 'attr' : { 'class' : 'add-creator' } }) }}
+            {{ form_widget(form.illustrators, { 'attr' : { 'class' : 'add-creator', 'data-placeholder' : 'placeholder_book_illustrators'|trans() } }) }}
             <a href="#" data-request="{{ path('object_creator_ajax_new') }}" data-select="#book_illustrators" title="{% trans %}label_help_book_illustrators{% endtrans %}" class="add-ajax tooltip-icon">
                 <i class="icon-list-add"></i>
             </a>
@@ -82,7 +82,7 @@
     <div class="control-group{% if form_errors(form.language) is not empty %} error{% endif %}">
         {{ form_label(form.language, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
-            {{ form_widget(form.language) }}
+            {{ form_widget(form.language, { 'attr' : { 'data-placeholder' : 'placeholder_book_language'|trans()} }) }}
             <span class="help-inline">
                 {{ form_errors(form.language) }}
             </span>
