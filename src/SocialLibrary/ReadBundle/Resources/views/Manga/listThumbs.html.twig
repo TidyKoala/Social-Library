@@ -18,7 +18,7 @@
 					<p class="media-heading">
 						<a href="{{ path('manga_show', {'id': entity.id, 'nameSlug': entity.nameSlug }) }}">{{ entity.name }} - {{ entity.volume }}</a>
 					</p>
-					<p>
+					<p class="object-description">
 						{{ entity.serie }}<br>
 						{{ entity.creators|join(', ') }}
 					</p>
