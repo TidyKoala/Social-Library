@@ -1,8 +1,9 @@
+    <div class="object-cover">
     <div class="control-group{% if form_errors(form.pictureFile) is not empty %} error{% endif %}">
         {{ form_label(form.pictureFile, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
             <div class="fileupload {% if entity.picture is empty %}fileupload-new{% else %}fileupload-exists{% endif %}" data-provides="fileupload">
-                <div class="fileupload-preview thumbnail">{% if entity.picture is not empty %}{% media entity.picture, 'big' %}{% endif %}</div>
+                <div class="fileupload-preview thumbnail">{% if entity.picture is not empty %}<img src="{% path entity.picture, 'big' %}" title="cover" />{% endif %}</div>
                 <div>
                     <span class="btn btn-file">
                         <span class="fileupload-new">{% trans %}label_picture_select_image{% endtrans %}</span>
@@ -17,6 +18,8 @@
             </span>
         </div>
     </div>
+    </div>
+    <div class="object-description">
     <div class="control-group{% if form_errors(form.name) is not empty %} error{% endif %}">
         {{ form_label(form.name, null, { 'label_attr' : { 'class' : 'control-label'} }) }}
         <div class="controls">
@@ -111,5 +114,6 @@
                 {{ form_errors(form.isbn13) }}
             </span>
         </div>
+    </div>
     </div>
     {{ form_rest(form) }}

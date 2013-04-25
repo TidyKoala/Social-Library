@@ -1,35 +1,33 @@
 {% extends 'SocialLibraryBaseBundle::base.html.twig' %}
 
-{% block title %}
+{% block title %}{% spaceless %}
     {{ parent() }} - {% trans %}manga_section_title{% endtrans %} - {% trans %}manga_add_title{% endtrans %}
-{% endblock %}
+{% endspaceless %}{% endblock %}
+
+{% block body_class %}{% spaceless %}
+	object-edit-new object-type-read object-manga
+{% endspaceless %}{% endblock %}
 
 {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('bundles/sociallibrarybase/css/bootstrap-jasny.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/select2.css') }}">
 {% endblock %}
 
-{% block secondMenu %}
-<ul class="record_actions nav nav-pills nav-stacked">
-    <li>
-        <a href="{{ path('manga_index') }}">
-            <i class="icon-back"></i> {% trans %}link_book_back_list{% endtrans %}
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('manga_index', {'selection' : 'my'}) }}">
-            {% trans %}link_book_back_owner_list{% endtrans %}
-        </a>
-    </li>
-</ul>
-{% endblock %}
-
 {% block body %}
-<h1>{% trans %}manga_add_title{% endtrans %}</h1>
+<header>
+	<h1>{% trans %}manga_add_title{% endtrans %}</h1>
+	<ul class="record_actions nav nav-pills nav-stacked">
+	    <li>
+	        <a href="{{ path('manga_index') }}">
+	            <i class="icon-back"></i> {% trans %}link_book_back_list{% endtrans %}
+	        </a>
+	    </li>
+	</ul>
+</header>
 
 <form action="{{ path('manga_create') }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
     {% include 'SocialLibraryReadBundle:Common:form.html.twig' with { 'form' : form } %}
-    <div class="form-actions">
+    <div class="form-actions floatclear">
         <button type="submit" class="btn btn-primary">
             {% trans %}label_book_create{% endtrans %}
         </button>

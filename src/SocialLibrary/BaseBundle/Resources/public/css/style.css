@@ -1,23 +1,25 @@
+.floatclear {
+	clear: both;
+}
+
 .records_list {
 	margin-top: 10px;
+}
+
+.object-display-details header li, body[class^=object-edit] header li, body[class^=object-list] header li {
+	display: inline-block;
 }
 
 .object-section-header h1 {
 	display: inline-block;
 }
 
-.object-section-header .object-add-new {
-	margin-left: 2%;
-	background-color: rgb(224, 223, 223);
-	background-color: rgba(224, 223, 223, 0.85);
-	border-radius: 5px 5px 5px 5px;
-	padding: 2px 5px;
+body[class^=object-edit] .object-cover, body[class^=object-edit] .object-description {
+	float: left;
 }
 
-.object-section-header .object-add-new:hover {
-	background-color: rgb(0, 136, 204);
-	background-color: rgba(0, 136, 204, 0.85);
-	color: white;
+body[class^=object-edit] .fileupload {
+	text-align: center;
 }
 
 .records_list ul {
@@ -30,8 +32,7 @@
 	display: none;
 }
 
-.records_list.list-thumb-view .object,.records_list.thumbnail-view .object
-	{
+.records_list.list-thumb-view .object,.records_list.thumbnail-view .object {
 	margin-top: 10px;
 }
 
@@ -67,8 +68,8 @@
 }
 
 .fileupload-preview.thumbnail {
-	height: 150px;
-	width: 150px;
+	height: 230px;
+	width: 230px;
 }
 
 .secondary-menu .record_actions {

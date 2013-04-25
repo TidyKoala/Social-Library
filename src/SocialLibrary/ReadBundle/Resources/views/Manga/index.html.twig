@@ -2,14 +2,22 @@
 
 {% block title %}{{ parent() }} - {% trans %}manga_section_title{% endtrans %}{% endblock %}
 
+{% block body_class %}{% spaceless %}
+	object-list-{{ app.request.get('view') }} object-type-read object-manga
+{% endspaceless %}{% endblock %}
+
 {% block body %}
 <header class="row-fluid object-section-header">
     <div class="span12">
         <h1>{% trans %}manga_section_title{% endtrans %}</h1>
 		{% if is_granted('ROLE_USER') %}
-        <a href="{{ path('manga_new') }}" class="object-add-new">
-            <i class="icon-list-add"></i> {% trans %}manga_add{% endtrans %}
-        </a>
+		<ul class="record_actions nav nav-pills nav-stacked">
+		    <li>
+		        <a href="{{ path('manga_new') }}">
+		            <i class="icon-list-add"></i> {% trans %}manga_add{% endtrans %}
+		        </a>
+		    </li>
+		</ul>
 		{% endif %}
     </div>
 </header>

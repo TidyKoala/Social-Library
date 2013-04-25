@@ -4,12 +4,45 @@
     {{ locale_switcher('manga_show', {'id': entity.id, 'nameSlug':entity.nameSlug }) }}
 {% endblock %}
 
-{% block title %}
-    {{ parent() }} - {% trans %}manga_section_title{% endtrans %} - {{ entity.volume ~ '/' ~ entity.name ~ '/' ~ entity.serie }}
-{% endblock %}
+{% block title %}{% spaceless %}
+	{{ parent() }} - {% trans %}manga_section_title{% endtrans %} - {{ entity.volume ~ '/' ~ entity.name ~ '/' ~ entity.serie }}
+{% endspaceless %}{% endblock %}
+
+{% block body_class %}{% spaceless %}
+	object-display-details object-type-read object-manga-{{ entity.id }}
+{% endspaceless %}{% endblock %}
 
 {% block body %}
-<h1>{{ entity.volume ~ ' - ' ~ entity.name ~ ' - ' ~ entity.serie }}</h1>
+<header>
+	<h1>{{ entity.volume ~ ' - ' ~ entity.name ~ ' - ' ~ entity.serie }}</h1>
+	<ul class="record_actions nav nav-pills nav-stacked">
+	    <li>
+	        <a href="{{ path('manga_index') }}">
+	            <i class="icon-back"></i> {% trans %}link_book_back_list{% endtrans %}
+	        </a>
+	    </li>
+	    {% if is_granted('ROLE_USER') %}
+	            {% if entity.isOwner(app.user) %}
+	    <li>
+	        <a href="{{ path('manga_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
+	            <i class="icon-pencil"></i> {% trans %}link_book_edit{% endtrans %}
+	        </a>
+	    </li>
+	    <li>
+	        <a href="{{ path('manga_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
+	            <i class="icon-logout"></i> {% trans %}link_book_remove_owner{% endtrans %}
+	        </a>
+	    </li>
+	            {% else %}
+	    <li>
+	        <a href="{{ path('manga_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
+	            <i class="icon-login"></i> {% trans %}link_book_add_owner{% endtrans %}
+	        </a>
+	    </li>
+	            {% endif %}
+	    {% endif %}
+	</ul>
+</header>
 
 {% for flashMessage in app.session.flashbag.get('success') %}
     <div class="alert alert-success">
@@ -65,39 +98,4 @@
 	</div>
 </div>
 
-{% endblock %}
-
-{% block secondMenu %}
-<ul class="record_actions nav nav-pills nav-stacked">
-    <li>
-        <a href="{{ path('manga_index') }}">
-            <i class="icon-back"></i> {% trans %}link_book_back_list{% endtrans %}
-        </a>
-    </li>
-    {% if is_granted('ROLE_USER') %}
-    <li>
-        <a href="{{ path('manga_index', {'selection' : 'my'}) }}">
-            {% trans %}link_book_back_owner_list{% endtrans %}
-        </a>
-    </li>
-            {% if entity.isOwner(app.user) %}
-    <li>
-        <a href="{{ path('manga_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
-            <i class="icon-pencil"></i> {% trans %}link_book_edit{% endtrans %}
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('manga_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
-            <i class="icon-logout"></i> {% trans %}link_book_remove_owner{% endtrans %}
-        </a>
-    </li>
-            {% else %}
-    <li>
-        <a href="{{ path('manga_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
-            <i class="icon-login"></i> {% trans %}link_book_add_owner{% endtrans %}
-        </a>
-    </li>
-            {% endif %}
-    {% endif %}
-</ul>
 {% endblock %}
