@@ -1,65 +1,50 @@
 {% extends 'SocialLibraryReadBundle:GraphicNovel:index.html.twig' %}
 
 {% block list %}
-<table class="records_list table table-striped table-bordered table-hover">
-    <thead>
-    	<tr>
-    		<th>
-                {% trans %}link_book_header_volume{% endtrans %}
-    		</th>
-            <th>
-                {% trans %}link_book_header_actions{% endtrans %}
-            </th>
-    	</tr>
-    </thead>
-    <tbody>
+<div class="records_list list-thumb-view">
     {% for entity in entities %}
-     	<tr>
-     		<td>
-         		<div class="media">
-                    <a class="pull-left span3" href="{{ path('graphic_novel_show', {'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
-                    {% if entity.picture is empty %}
-                        <img class="media-object" src="{{ asset('bundles/sociallibrarybase/img/unknown-graphicNovel.png') }}" alt="{{ entity.name }}">
-                    {% else %}
-                        {% thumbnail entity.picture, 'small' %}
-                    {% endif %}
-                    </a>
-                    <div class="media-body">
-                        <h5 class="media-heading">
-                            <a href="{{ path('graphic_novel_show', {'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
-                                {{ entity.volume }} - {{ entity.name }}
-                            </a>
-                        </h5>
-                        <p>{{ entity.serie }}</p>
-                        <p>{{ entity.creators|join(', ') }}</p>
-                    </div>
-         		</div>
- 		    </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('manga_show', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-eye"></i> {% trans %}link_book_details{% endtrans %}</a>
-                    </li>
-                    {% if is_granted('ROLE_USER') %}
-                        {% if entity.isOwner(app.user) %}
-                    <li>
-                        <a href="{{ path('manga_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-pencil"></i> {% trans %}link_book_edit{% endtrans %}</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('manga_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-logout"></i> {% trans %}link_book_remove_owner{% endtrans %}</a>
-                    </li>
-                        {% else %}
-                    <li>
-                        <a href="{{ path('manga_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-login"></i> {% trans %}link_book_add_owner{% endtrans %}</a>
-                    </li>
-                        {% endif %}
-                    {% endif %}
-                </ul>
-            </td>
-        </tr>
+		{% if loop.index0 % 4 == 0  %}
+		<div class="row-fluid">
+		{% endif  %}
+			<div class="span3 object">
+				<a class="object-cover pull-left" href="{{ path('graphic_novel_show', {'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
+				{% if entity.picture is empty %}
+					<img class="media-object" src="{{ asset('bundles/sociallibrarybase/img/unknown-graphicNovel.png') }}" alt="{{ entity.name }}">
+				{% else %}
+					{% thumbnail entity.picture, 'tiny' %}
+				{% endif %}
+				</a>
+				<div class="object-body">
+					<p class="media-heading">
+						<a href="{{ path('graphic_novel_show', {'id': entity.id, 'nameSlug': entity.nameSlug }) }}">{{ entity.name }} - {{ entity.volume }}</a>
+					</p>
+					<p class="object-description">
+						{{ entity.serie }}<br>
+						{{ entity.creators|join(', ') }}
+					</p>
+					<ul class="actions visible-desktop">
+						<li>
+							<a href="{{ path('graphic_novel_show', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-eye"></i> {% trans %}link_book_details{% endtrans %}</a>
+						</li>
+					{% if is_granted('ROLE_USER') %}
+						{% if entity.isOwner(app.user) %}
+						<li>
+							<a href="{{ path('graphic_novel_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-logout"></i> {% trans %}link_book_remove_owner{% endtrans %}</a>
+						</li>
+						{% else %}
+						<li>
+							<a href="{{ path('graphic_novel_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}"><i class="icon-login"></i> {% trans %}link_book_add_owner{% endtrans %}</a>
+						</li>
+						{% endif %}
+					{% endif %}
+					</ul>
+				</div>
+			</div>
+		{% if ((loop.index0 + 1) % 4 == 0) or loop.last %}
+		</div>
+		{% endif  %}
     {% endfor %}
-    </tbody>
-</table>
+</div>
 
 {{ knp_pagination_render(entities) }}
 

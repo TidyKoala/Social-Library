@@ -2,6 +2,10 @@
 
 {% block title %}{{ parent() }} - {% trans %}graphic_novel_section_title{% endtrans %}{% endblock %}
 
+{% block body_class %}{% spaceless %}
+	object-list-{{ app.request.get('view') }} object-type-read object-graphicnovel
+{% endspaceless %}{% endblock %}
+
 {% block secondMenu %}
 {% if is_granted('ROLE_USER') %}
 <ul class="record_actions nav nav-pills nav-stacked">
@@ -25,11 +29,20 @@
 {% endblock %}
 
 {% block body %}
-<div class="row-fluid">
+<header class="row-fluid object-section-header">
     <div class="span12">
         <h1>{% trans %}graphic_novel_section_title{% endtrans %}</h1>
+		{% if is_granted('ROLE_USER') %}
+		<ul class="record_actions nav nav-pills nav-stacked">
+		    <li>
+		        <a href="{{ path('graphic_novel_new') }}">
+		            <i class="icon-list-add"></i> {% trans %}graphic_novel_add{% endtrans %}
+		        </a>
+		    </li>
+		</ul>
+		{% endif %}
     </div>
-</div>
+</header>
 
 {% for flashMessage in app.session.flashbag.get('success') %}
 <div class="row-fluid">
@@ -41,16 +54,37 @@
 </div>
 {% endfor %}
 
+
 <div class="row-fluid">
-    <div class="offset9 span3">
+    <div class="offset8 span1">
         <div class="btn-group">
-            <a href="{{ path('graphic_novel_index', {'view' : 'list', 'selection' : selection}) }}" title="{% trans %}label_book_list_view{% endtrans %}" class="btn">
+		    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" class="disabled">
+		    Display
+		    <span class="caret"></span>
+		    </a>
+		    <ul class="dropdown-menu">
+		    	<li class="{% if not is_granted('ROLE_USER') %}disabled{% endif %} {% if selection == 'all' %}active{% endif %}">
+			        <a href="{{ path('graphic_novel_index', {'view' : app.request.get('view'), 'selection' : 'all'}) }}" class="">
+			            {% trans %}manga_all{% endtrans %}
+			        </a>
+		        </li>
+		        <li class="{% if not is_granted('ROLE_USER') %}disabled{% endif %} {% if selection == 'my' %}active{% endif %}">
+			        <a href="{{ path('graphic_novel_index', {'view' : app.request.get('view'), 'selection' : 'my'}) }}" class="">
+			            {% trans %}manga_my{% endtrans %}
+			        </a>
+		        </li>
+		    </ul>
+	    </div>
+	</div>
+    <div class="span3">
+        <div class="btn-group">
+            <a href="{{ path('graphic_novel_index', {'view' : 'list', 'selection' : selection}) }}" title="{% trans %}label_book_list_view{% endtrans %}" class="btn{% if app.request.get('view') == 'list' %} active{% endif %}">
                 <i class="icon-menu"></i>
             </a>
-            <a href="{{ path('graphic_novel_index', {'view' : 'listThumbs', 'selection' : selection}) }}" title="{% trans %}label_book_list_thumb_view{% endtrans %}" class="btn">
+            <a href="{{ path('graphic_novel_index', {'view' : 'listThumbs', 'selection' : selection}) }}" title="{% trans %}label_book_list_thumb_view{% endtrans %}" class="btn{% if app.request.get('view') == 'listThumbs' %} active{% endif %}">
                 <i class="icon-list"></i>
             </a>
-            <a href="{{ path('graphic_novel_index', {'view' : 'thumbnails', 'selection' : selection}) }}" title="{% trans %}label_book_thumb_view{% endtrans %}" class="btn">
+            <a href="{{ path('graphic_novel_index', {'view' : 'thumbnails', 'selection' : selection}) }}" title="{% trans %}label_book_thumb_view{% endtrans %}" class="btn{% if app.request.get('view') == 'thumbnails' %} active{% endif %}">
                 <i class="icon-layout"></i>
             </a>
         </div>

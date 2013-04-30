@@ -1,34 +1,33 @@
 {% extends 'SocialLibraryBaseBundle::base.html.twig' %}
 
-{% block title %}
+{% block title %}{% spaceless %}
     {{ parent() }} - {% trans %}graphic_novel_section_title{% endtrans %} - {% trans %}graphic_novel_add_title{% endtrans %}
-{% endblock %}
+{% endspaceless %}{% endblock %}
+
+{% block body_class %}{% spaceless %}
+	object-edit-new object-type-read object-graphicnovel
+{% endspaceless %}{% endblock %}
 
 {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('bundles/sociallibrarybase/css/bootstrap-jasny.min.css') }}">
-{% endblock %}
-
-{% block secondMenu %}
-<ul class="record_actions nav nav-pills nav-stacked">
-    <li>
-        <a href="{{ path('graphic_novel_index') }}">
-            <i class="icon-back"></i> {% trans %}link_book_back_list{% endtrans %}
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('graphic_novel_index', {'selection' : 'my'}) }}">
-            {% trans %}graphic_novel_back_owner{% endtrans %}
-        </a>
-    </li>
-</ul>
+        <link rel="stylesheet" href="{{ asset('css/select2.css') }}">
 {% endblock %}
 
 {% block body %}
-<h1>{% trans %}graphic_novel_add_title{% endtrans %}</h1>
+<header>
+	<h1>{% trans %}graphic_novel_add_title{% endtrans %}</h1>
+	<ul class="record_actions nav nav-pills nav-stacked">
+	    <li>
+	        <a href="{{ path('graphic_novel_index') }}">
+	            <i class="icon-back"></i> {% trans %}link_book_back_list{% endtrans %}
+	        </a>
+	    </li>
+	</ul>
+</header>
 
 <form action="{{ path('graphic_novel_create') }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
     {% include 'SocialLibraryReadBundle:Common:form.html.twig' with { 'form' : form } %}
-    <div class="form-actions">
+    <div class="form-actions floatclear">
         <button type="submit" class="btn btn-primary">
             {% trans %}label_book_create{% endtrans %}
         </button>
@@ -40,6 +39,8 @@
 {% block javascripts %}
         <script src="{{ asset('bundles/sociallibrarybase/js/bootstrap-jasny.min.js') }}"></script>
         <script src="{{ asset('bundles/sociallibrarybase/js/ajax-select-submit.js') }}"></script>
+        <script src="{{ asset('js/select2/select2.js') }}"></script>
+        <script src="{{ asset('js/select2/select2_locale_' ~ app.request.locale ~ '.js') }}"></script>
         <script type="text/javascript">
             
             $(document).ready(function() {
@@ -48,6 +49,9 @@
                 $('.add-ajax').click(function() {
                     return ajaxGetForm($(this));
                 });
+                $('select').select2({
+                	allowClear: true,
+				});
             });
         </script>
 {% endblock %}
