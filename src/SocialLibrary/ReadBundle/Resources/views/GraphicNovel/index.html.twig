@@ -6,28 +6,6 @@
 	object-list-{{ app.request.get('view') }} object-type-read object-graphicnovel
 {% endspaceless %}{% endblock %}
 
-{% block secondMenu %}
-{% if is_granted('ROLE_USER') %}
-<ul class="record_actions nav nav-pills nav-stacked">
-    <li>
-        <a href="{{ path('graphic_novel_new') }}">
-            <i class="icon-list-add"></i> {% trans %}graphic_novel_add{% endtrans %}
-        </a>
-    </li>
-    <li>
-    {% if selection == 'my' %}
-        <a href="{{ path('graphic_novel_index', {'selection' : 'all'}) }}">
-            {% trans %}graphic_novel_all{% endtrans %}
-    {% else %}
-        <a href="{{ path('graphic_novel_index', {'selection' : 'my'}) }}">
-            {% trans %}graphic_novel_my{% endtrans %}
-    {% endif %}
-        </a>
-    </li>
-</ul>
-{% endif %}
-{% endblock %}
-
 {% block body %}
 <header class="row-fluid object-section-header">
     <div class="span12">
