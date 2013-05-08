@@ -50,6 +50,22 @@
         <source>novel_section_link</source>
         <target>Novels</target>
       </trans-unit>
+      <trans-unit id="13">
+        <source>placeholder_book_serie</source>
+        <target>Select the serie</target>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>placeholder_book_creators</source>
+        <target>Select one or more authors</target>
+      </trans-unit>
+      <trans-unit id="15">
+        <source>placeholder_book_illustrators</source>
+        <target>Select one or more illustrators</target>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>placeholder_book_language</source>
+        <target>Select the language</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

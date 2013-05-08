@@ -44,7 +44,7 @@
       </trans-unit>
       <trans-unit id="11">
         <source>label_book_edit</source>
-        <target>Edit</target>
+        <target>Update</target>
       </trans-unit>
       <trans-unit id="12">
         <source>link_book_back_list</source>
@@ -100,7 +100,7 @@
       </trans-unit>
       <trans-unit id="25">
         <source>link_book_details</source>
-        <target>Details</target>
+        <target>Synopsis</target>
       </trans-unit>
       <trans-unit id="26">
         <source>manga_add</source>
@@ -212,7 +212,7 @@
       </trans-unit>
       <trans-unit id="53">
         <source>link_book_edit</source>
-        <target>Edit</target>
+        <target>Update/Correct an info</target>
       </trans-unit>
       <trans-unit id="54">
         <source>link_book_header_actions</source>
@@ -225,6 +225,34 @@
       <trans-unit id="56">
         <source>novel_section_title</source>
         <target>Novel section</target>
+      </trans-unit>
+      <trans-unit id="57">
+        <source>label_book_create</source>
+        <target>Add to library</target>
+      </trans-unit>
+      <trans-unit id="58">
+        <source>link_back_book_details</source>
+        <target>Back to synopsis</target>
+      </trans-unit>
+      <trans-unit id="59">
+        <source>graphic_novel_add</source>
+        <target>Add a graphic novel to my library</target>
+      </trans-unit>
+      <trans-unit id="60">
+        <source>novel_add</source>
+        <target>Add a novel to my library</target>
+      </trans-unit>
+      <trans-unit id="61">
+        <source>label_list_view</source>
+        <target>List view</target>
+      </trans-unit>
+      <trans-unit id="62">
+        <source>label_mini_thumb_view</source>
+        <target>Mini-thumbnail view</target>
+      </trans-unit>
+      <trans-unit id="63">
+        <source>label_thumbnail_view</source>
+        <target>Thumbnail view</target>
       </trans-unit>
     </body>
   </file>

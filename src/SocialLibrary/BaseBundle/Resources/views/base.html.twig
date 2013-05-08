@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="{{ asset('bundles/sociallibrarybase/css/style.css') }}">
         {% block stylesheets %}{% endblock %}
     </head>
-    <body>
+    <body class="{% block body_class %}{% endblock %}">
         <div class="container-fluid">
             <div id="main_menu">
                 <div class="navbar">
@@ -77,10 +77,7 @@
             <div id="content"> 
                 <div class="row-fluid">
                 {% block content %}
-                    <div class="span2 secondary-menu">
-                        {% block secondMenu %}{% endblock %}
-                    </div>
-                    <div class="span10">
+                    <div class="span12">
                         {% block body %}{% endblock %}
                     </div>
                 {% endblock content %}

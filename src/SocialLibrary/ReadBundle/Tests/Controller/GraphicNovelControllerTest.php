@@ -10,6 +10,7 @@ class GraphicNovelBundleControllerTest extends WebTestCase
 {
     protected $client;
     protected $crawler;
+    protected $locale;
     
     public function setUp()
     {
@@ -18,12 +19,14 @@ class GraphicNovelBundleControllerTest extends WebTestCase
             'PHP_AUTH_PW'   => '<testSuperAdmin>',
         ));
         $this->crawler = $this->client->getCrawler();
+        $this->locale = $this->client->getContainer()->get('sonata.intl.templating.helper.locale');
     }
     
     public function tearDown()
     {
         $this->client = null;
         $this->crawler = null;
+        $this->locale = null;
     }
     
     /**
@@ -116,17 +119,15 @@ class GraphicNovelBundleControllerTest extends WebTestCase
     {
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index');
         $this->assertEquals(1 , $this->crawler->filter('h1:contains("Graphic novel section")')->count());
-        $this->assertEquals(5, $this->crawler->filter('table th')->count());
-        $this->assertEquals(1, $this->crawler->filter('table tr')->count());
+        $this->assertEquals(0, $this->crawler->filter('.list-view .object')->count());
         
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index/listThumbs');
         $this->assertEquals(1 , $this->crawler->filter('h1:contains("Graphic novel section")')->count());
-        $this->assertEquals(2, $this->crawler->filter('table th')->count());
-        $this->assertEquals(1, $this->crawler->filter('table tr')->count());
+        $this->assertEquals(0, $this->crawler->filter('.list-thumb-view .object')->count());
         
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index/thumbnails');
         $this->assertEquals(1 , $this->crawler->filter('h1:contains("Graphic novel section")')->count());
-        $this->assertEquals(0, $this->crawler->filter('ul.thumbnails.records_list li')->count());
+        $this->assertEquals(0, $this->crawler->filter('.thumbnail-view .object')->count());
     }
     
     /**
@@ -241,17 +242,15 @@ class GraphicNovelBundleControllerTest extends WebTestCase
     {
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index');
         $this->assertEquals(1 , $this->crawler->filter('h1:contains("Graphic novel section")')->count());
-        $this->assertEquals(5, $this->crawler->filter('table th')->count());
-        $this->assertEquals(count($this->getValidValues()) + 1, $this->crawler->filter('table tr')->count());
+        $this->assertEquals(count($this->getValidValues()), $this->crawler->filter('.list-view .object')->count());
         
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index/listThumbs');
         $this->assertEquals(1 , $this->crawler->filter('h1:contains("Graphic novel section")')->count());
-        $this->assertEquals(2, $this->crawler->filter('table th')->count());
-        $this->assertEquals(count($this->getValidValues()) + 1, $this->crawler->filter('table tr')->count());
+        $this->assertEquals(count($this->getValidValues()), $this->crawler->filter('.list-thumb-view .object')->count());
         
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index/thumbnails');
         $this->assertEquals(1 , $this->crawler->filter('h1:contains("Graphic novel section")')->count());
-        $this->assertEquals(count($this->getValidValues()), $this->crawler->filter('ul.thumbnails.records_list li')->count());
+        $this->assertEquals(count($this->getValidValues()), $this->crawler->filter('.thumbnail-view .object')->count());
     }
     
     /**
@@ -298,7 +297,7 @@ class GraphicNovelBundleControllerTest extends WebTestCase
         $this->assertEquals($serie, $this->crawler->filter('td')->eq(2)->text());
         $this->assertEquals(join(', ', $respAuthor), $this->crawler->filter('td')->eq(3)->text());
         $this->assertEquals(join(', ', $respIllustrator), $this->crawler->filter('td')->eq(4)->text());
-        $this->assertEquals($language, $this->crawler->filter('td')->eq(5)->text());
+        $this->assertEquals($this->locale->language($language, 'en'), $this->crawler->filter('td')->eq(5)->text());
         $this->assertEquals($isbn10, $this->crawler->filter('td')->eq(6)->text());
         $this->assertEquals($isbn13, $this->crawler->filter('td')->eq(7)->text());
     }
@@ -318,9 +317,9 @@ class GraphicNovelBundleControllerTest extends WebTestCase
         }
         
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index');
-        $row = $this->crawler->filter('tr:contains("'.$name.'")');
-        $this->assertEquals(1, $row->filter('a:contains("Edit")')->count());
-        $link = $row->selectLink('Edit')->link();
+        $this->crawler = $this->client->click($this->crawler->selectLink($name)->link());
+        $this->assertEquals(1, $this->crawler->filter('a:contains("Edit")')->count());
+        $link = $this->crawler->selectLink('Edit')->link();
         $this->crawler = $this->client->click($link);
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         
@@ -364,7 +363,9 @@ class GraphicNovelBundleControllerTest extends WebTestCase
         }
         
         $this->crawler = $this->client->request('GET', '/graphic-novel/en/index');
-        $link = $this->crawler->filter('tr:contains("'.$serie.'")')->selectLink('Edit')->link();
+        $link = $this->crawler->filter('tr:contains("'.$serie.'")')->selectLink('Details')->link();
+        $this->crawler = $this->client->click($link);
+        $link = $this->crawler->selectLink('Edit')->link();
         $this->crawler = $this->client->click($link);
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         

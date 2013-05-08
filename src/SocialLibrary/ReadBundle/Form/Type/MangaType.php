@@ -28,6 +28,7 @@ class MangaType extends BookType
                             ->orderBy('s.nameSlug', 'ASC');
                     },
                     'multiple' => false,
+                    'empty_value' => '',
                 ))
             ->add('illustrators', 'entity', array(
                     'required' => true,
@@ -39,6 +40,7 @@ class MangaType extends BookType
                     },
                     'multiple' => true,
                     'expanded' => false,
+                    'empty_value' => '',
                 ))
         ;
     }

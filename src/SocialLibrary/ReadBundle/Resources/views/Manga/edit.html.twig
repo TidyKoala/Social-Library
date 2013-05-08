@@ -4,45 +4,44 @@
     {{ locale_switcher('manga_show', {'id': entity.id, 'nameSlug':entity.nameSlug }) }}
 {% endblock %}
 
-{% block title %}
+{% block title %}{% spaceless %}
     {{ parent() }} - {% trans %}manga_section_title{% endtrans %} - {% trans %}manga_update_title{% endtrans %} {{ entity.volume ~ '/' ~ entity.name ~ '/' ~ entity.serie }}
-{% endblock %}
+{% endspaceless %}{% endblock %}
+
+{% block body_class %}{% spaceless %}
+	object-edit-update object-type-read object-manga
+{% endspaceless %}{% endblock %}
 
 {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('bundles/sociallibrarybase/css/bootstrap-jasny.min.css') }}">
-{% endblock %}
-
-{% block secondMenu %}
-<ul class="record_actions nav nav-pills nav-stacked">
-    <li>
-        <a href="{{ path('manga_index') }}">
-            <i class="icon-back"></i> {% trans %}link_book_back_list{% endtrans %}
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('manga_index', {'selection' : 'my'}) }}">
-            {% trans %}link_book_back_owner_list{% endtrans %}
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('manga_new') }}">
-            <i class="icon-list-add"></i> {% trans %}manga_add{% endtrans %}
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('manga_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
-            <i class="icon-logout"></i> {% trans %}link_book_remove_owner{% endtrans %}
-        </a>
-    </li>
-</ul>
+        <link rel="stylesheet" href="{{ asset('css/select2.css') }}">
 {% endblock %}
         
 {% block body %}
-<h1>{{ entity.volume ~ ' - ' ~ entity.name ~ ' - ' ~ entity.serie }}</h1>
+<header>
+	<h1>{{ entity.volume ~ ' - ' ~ entity.name ~ ' - ' ~ entity.serie }}</h1>
+	<ul class="record_actions nav nav-pills nav-stacked">
+	    <li>
+	        <a href="{{ path('manga_index') }}">
+	            <i class="icon-back"></i> {% trans %}link_book_back_list{% endtrans %}
+	        </a>
+	    </li>
+	    <li>
+	        <a href="{{ path('manga_show', {'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
+	            <i class="icon-eye"></i> {% trans %}link_back_book_details{% endtrans %}
+	        </a>
+	    </li>
+	    <li>
+	        <a href="{{ path('manga_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
+	            <i class="icon-logout"></i> {% trans %}link_book_remove_owner{% endtrans %}
+	        </a>
+	    </li>
+	</ul>
+</header>
 
 <form action="{{ path('manga_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }} class="form-horizontal">
     {% include 'SocialLibraryReadBundle:Common:form.html.twig' with { 'form' : edit_form } %}
-    <div class="form-actions">
+    <div class="form-actions floatclear">
         <button type="submit" class="btn btn-primary">
             {% trans %}label_book_edit{% endtrans %}
         </button>
@@ -54,6 +53,8 @@
 {% block javascripts %}
         <script src="{{ asset('bundles/sociallibrarybase/js/bootstrap-jasny.min.js') }}"></script>
         <script src="{{ asset('bundles/sociallibrarybase/js/ajax-select-submit.js') }}"></script>
+        <script src="{{ asset('js/select2/select2.js') }}"></script>
+        <script src="{{ asset('js/select2/select2_locale_' ~ app.request.locale ~ '.js') }}"></script>
         <script type="text/javascript">
             
             $(document).ready(function() {
@@ -62,6 +63,9 @@
                 $('.add-ajax').click(function() {
                     return ajaxGetForm($(this));
                 });
+                $('select').select2({
+                	allowClear: true,
+				});
             });
         </script>
 {% endblock %}

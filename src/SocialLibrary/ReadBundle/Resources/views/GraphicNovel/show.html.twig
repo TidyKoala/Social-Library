@@ -4,12 +4,45 @@
     {{ locale_switcher('graphic_novel_show', {'id': entity.id, 'nameSlug':entity.nameSlug }) }}
 {% endblock %}
 
-{% block title %}
-    {{ parent() }} - {% trans %}manga_section_title{% endtrans %} - {{ entity.volume ~ '/' ~ entity.name ~ '/' ~ entity.serie }}
-{% endblock %}
+{% block title %}{% spaceless %}
+    {{ parent() }} - {% trans %}graphic_novel_section_title{% endtrans %} - {{ entity.volume ~ '/' ~ entity.name ~ '/' ~ entity.serie }}
+{% endspaceless %}{% endblock %}
+
+{% block body_class %}{% spaceless %}
+	object-display-details object-type-read object-graphicnovel-{{ entity.id }}
+{% endspaceless %}{% endblock %}
 
 {% block body %}
-<h1>{{ entity.volume ~ ' - ' ~ entity.name ~ ' - ' ~ entity.serie }}</h1>
+<header>
+	<h1>{{ entity.volume ~ ' - ' ~ entity.name ~ ' - ' ~ entity.serie }}</h1>
+	<ul class="record_actions nav nav-pills nav-stacked">
+	    <li>
+	        <a href="{{ path('graphic_novel_index') }}">
+	            <i class="icon-back"></i> {% trans %}link_book_back_list{% endtrans %}
+	        </a>
+	    </li>
+	    {% if is_granted('ROLE_USER') %}
+	            {% if entity.isOwner(app.user) %}
+	    <li>
+	        <a href="{{ path('graphic_novel_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
+	            <i class="icon-pencil"></i> {% trans %}link_book_edit{% endtrans %}
+	        </a>
+	    </li>
+	    <li>
+	        <a href="{{ path('graphic_novel_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
+	            <i class="icon-logout"></i> {% trans %}link_book_remove_owner{% endtrans %}
+	        </a>
+	    </li>
+	            {% else %}
+	    <li>
+	        <a href="{{ path('graphic_novel_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
+	            <i class="icon-login"></i> {% trans %}link_book_add_owner{% endtrans %}
+	        </a>
+	    </li>
+	            {% endif %}
+	    {% endif %}
+	</ul>
+</header>
 
 {% for flashMessage in app.session.flashbag.get('success') %}
     <div class="alert alert-success">
@@ -17,85 +50,52 @@
     </div>
 {% endfor %}
 
-<table class="record_properties table table-striped table-bordered">
-    <tbody>
-        <tr>
-            <th>{% trans %}link_book_header_volume{% endtrans %}</th>
-            <td>{{ entity.volume }}</td>
-            {% if entity.picture is not empty %}
-            <td rowspan="9">
-                {% thumbnail entity.picture, 'big' %}
-            </td>
-            {% endif %}
-        </tr>
-        <tr>
-            <th>{% trans %}link_book_header_name{% endtrans %}</th>
-            <td>{{ entity.name }}</td>
-        </tr>
-        <tr>
-            <th>{% trans %}link_book_header_serie{% endtrans %}</th>
-            <td>{{ entity.serie }}</td>
-        </tr>
-        <tr>
-            <th>{% trans %}link_book_header_authors{% endtrans %}</th>
-            <td>{{ entity.creators|join(', ') }}</td>
-        </tr>
-        <tr>
-            <th>{% trans %}link_book_header_illustrators{% endtrans %}</th>
-            <td>{{ entity.illustrators|join(', ') }}</td>
-        </tr>
-        <tr>
-            <th>{% trans %}link_book_header_language{% endtrans %}</th>
-            <td>{{ entity.language }}</td>
-        </tr>
-        <tr>
-            <th>{% trans %}link_book_header_isbn10{% endtrans %}</th>
-            <td>{{ entity.isbn10 }}</td>
-        </tr>
-        <tr>
-            <th>{% trans %}link_book_header_isbn13{% endtrans %}</th>
-            <td>{{ entity.isbn13 }}</td>
-        </tr>
-        <tr>
-            <th>{% trans %}link_book_header_owners{% endtrans %}</th>
-            <td>{% transchoice entity.owners|length with { '%number%' : entity.owners|length } %}label_book_owned_by{% endtranschoice %}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="record_properties row-fluid">
+	<div class="media">
+		<div class="object-cover pull-left well">
+		{% if entity.picture is not empty %}
+	    	{% thumbnail entity.picture, 'big' with {'class': 'media-object'} %}
+		{% endif %}
+		</div>
+		<div class="media-body">
+			<table class="object-full-description table table-striped table-bordered">
+			    <tbody>
+			        <tr>
+			            <th>{% trans %}link_book_header_volume{% endtrans %}</th>
+			            <td>{{ entity.volume }}</td>
+			        </tr>
+			        <tr>
+			            <th>{% trans %}link_book_header_name{% endtrans %}</th>
+			            <td>{{ entity.name }}</td>
+			        </tr>
+			        <tr>
+			            <th>{% trans %}link_book_header_serie{% endtrans %}</th>
+			            <td>{{ entity.serie }}</td>
+			        </tr>
+			        <tr>
+			            <th>{% trans %}link_book_header_creators{% endtrans %}</th>
+			            <td>{{ entity.creators|join(', ') }}</td>
+			        </tr>
+			        <tr>
+			            <th>{% trans %}link_book_header_illustrators{% endtrans %}</th>
+			            <td>{{ entity.illustrators|join(', ') }}</td>
+			        </tr>
+			        <tr>
+			            <th>{% trans %}link_book_header_language{% endtrans %}</th>
+			            <td>{{ entity.language | language() }}</td>
+			        </tr>
+			        <tr>
+			            <th>{% trans %}link_book_header_isbn10{% endtrans %}</th>
+			            <td>{{ entity.isbn10 }}</td>
+			        </tr>
+			        <tr>
+			            <th>{% trans %}link_book_header_isbn13{% endtrans %}</th>
+			            <td>{{ entity.isbn13 }}</td>
+			        </tr>
+			    </tbody>
+			</table>
+		</div>
+	</div>
+</div>
 
-{% endblock %}
-
-{% block secondMenu %}
-<ul class="record_actions nav nav-pills nav-stacked">
-    <li>
-        <a href="{{ path('graphic_novel_index') }}">
-            <i class="icon-back"></i> {% trans %}link_book_back_list{% endtrans %}
-        </a>
-    </li>
-    {% if is_granted('ROLE_USER') %}
-    <li>
-        <a href="{{ path('graphic_novel_index', {'selection' : 'my'}) }}">
-            {% trans %}link_book_back_owner_list{% endtrans %}
-        </a>
-    </li>
-            {% if entity.isOwner(app.user) %}
-    <li>
-        <a href="{{ path('graphic_novel_edit', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
-            <i class="icon-pencil"></i> {% trans %}link_book_edit{% endtrans %}
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('graphic_novel_remove_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
-            <i class="icon-logout"></i> {% trans %}link_book_remove_owner{% endtrans %}
-        </a>
-    </li>
-            {% else %}
-    <li>
-        <a href="{{ path('graphic_novel_add_owner', { 'id': entity.id, 'nameSlug': entity.nameSlug }) }}">
-            <i class="icon-login"></i> {% trans %}link_book_add_owner{% endtrans %}
-        </a>
-    </li>
-            {% endif %}
-    {% endif %}
-</ul>
 {% endblock %}

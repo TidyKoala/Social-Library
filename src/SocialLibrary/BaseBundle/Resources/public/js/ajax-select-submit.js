@@ -7,8 +7,8 @@ function ajaxFormSubmit(domObject, selectSelector)
         data: domObject.serializeArray(),
         success: function(data) {
             if(data.code == 200) {
-                $(selectSelector).append('<option value="' + data.id + '">' + data.name + '</option>');
-                $(selectSelector).val(data.id);
+                $('select' + selectSelector).append('<option value="' + data.id + '">' + data.name + '</option>');
+                $(selectSelector).select2("val", data.id);
             }
             else if(data.code == 400) {
                 // TODO: display the form error message

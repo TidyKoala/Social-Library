@@ -2,34 +2,25 @@
 
 {% block title %}{{ parent() }} - {% trans %}manga_section_title{% endtrans %}{% endblock %}
 
-{% block secondMenu %}
-{% if is_granted('ROLE_USER') %}
-<ul class="record_actions nav nav-pills nav-stacked">
-    <li>
-        <a href="{{ path('manga_new') }}">
-            <i class="icon-list-add"></i> {% trans %}manga_add{% endtrans %}
-        </a>
-    </li>
-    <li>
-    {% if selection == 'my' %}
-        <a href="{{ path('manga_index', {'selection' : 'all'}) }}">
-            {% trans %}manga_all{% endtrans %}
-    {% else %}
-        <a href="{{ path('manga_index', {'selection' : 'my'}) }}">
-            {% trans %}manga_my{% endtrans %}
-    {% endif %}
-        </a>
-    </li>
-</ul>
-{% endif %}
-{% endblock %}
+{% block body_class %}{% spaceless %}
+	object-list-{{ app.request.get('view') }} object-type-read object-manga
+{% endspaceless %}{% endblock %}
 
 {% block body %}
-<div class="row-fluid">
+<header class="row-fluid object-section-header">
     <div class="span12">
         <h1>{% trans %}manga_section_title{% endtrans %}</h1>
+		{% if is_granted('ROLE_USER') %}
+		<ul class="record_actions nav nav-pills nav-stacked">
+		    <li>
+		        <a href="{{ path('manga_new') }}">
+		            <i class="icon-list-add"></i> {% trans %}manga_add{% endtrans %}
+		        </a>
+		    </li>
+		</ul>
+		{% endif %}
     </div>
-</div>
+</header>
 
 {% for flashMessage in app.session.flashbag.get('success') %}
 <div class="row-fluid">
@@ -41,20 +32,44 @@
 </div>
 {% endfor %}
 
+
 <div class="row-fluid">
-    <div class="offset9 span3">
+    <div class="offset10 span1">
         <div class="btn-group">
-            <a href="{{ path('manga_index', {'view' : 'list', 'selection' : selection}) }}" title="{% trans %}label_book_list_view{% endtrans %}" class="btn">
-                <i class="icon-menu"></i>
-            </a>
-            <a href="{{ path('manga_index', {'view' : 'listThumbs', 'selection' : selection}) }}" title="{% trans %}label_book_list_thumb_view{% endtrans %}" class="btn">
-                <i class="icon-list"></i>
-            </a>
-            <a href="{{ path('manga_index', {'view' : 'thumbnails', 'selection' : selection}) }}" title="{% trans %}label_book_thumb_view{% endtrans %}" class="btn">
-                <i class="icon-layout"></i>
-            </a>
-        </div>
-    </div>
+		    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" class="disabled">
+		    Display
+		    <span class="caret"></span>
+		    </a>
+		    <ul class="dropdown-menu">
+		    	<li class="{% if not is_granted('ROLE_USER') %}disabled{% endif %} {% if selection == 'all' %}active{% endif %}">
+			        <a href="{{ path('manga_index', {'view' : app.request.get('view'), 'selection' : 'all'}) }}" class="">
+			            {% trans %}manga_all{% endtrans %}
+			        </a>
+		        </li>
+		        <li class="{% if not is_granted('ROLE_USER') %}disabled{% endif %} {% if selection == 'my' %}active{% endif %}">
+			        <a href="{{ path('manga_index', {'view' : app.request.get('view'), 'selection' : 'my'}) }}" class="">
+			            {% trans %}manga_my{% endtrans %}
+			        </a>
+		        </li>
+		        <li class="divider"></li>
+		        <li class="{% if app.request.get('view') == 'list' %} active{% endif %}">
+		            <a href="{{ path('manga_index', {'view' : 'list', 'selection' : selection}) }}" title="{% trans %}label_book_list_view{% endtrans %}">
+		                <i class="icon-menu"></i> {% trans %}label_list_view{% endtrans %}
+		            </a>
+	            </li>
+		        <li class="{% if app.request.get('view') == 'listThumbs' %} active{% endif %}">
+		            <a href="{{ path('manga_index', {'view' : 'listThumbs', 'selection' : selection}) }}" title="{% trans %}label_book_list_thumb_view{% endtrans %}">
+		                <i class="icon-list"></i> {% trans %}label_mini_thumb_view{% endtrans %}
+		            </a>
+	            </li>
+		        <li class="{% if app.request.get('view') == 'thumbnails' %} active{% endif %}">
+		            <a href="{{ path('manga_index', {'view' : 'thumbnails', 'selection' : selection}) }}" title="{% trans %}label_book_thumb_view{% endtrans %}">
+		                <i class="icon-layout"></i> {% trans %}label_thumbnail_view{% endtrans %}
+		            </a>
+	            </li>
+		    </ul>
+	    </div>
+	</div>
 </div>
 
 {% block list %}{% endblock %}
