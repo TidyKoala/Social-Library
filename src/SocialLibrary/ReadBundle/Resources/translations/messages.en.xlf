@@ -242,6 +242,18 @@
         <source>novel_add</source>
         <target>Add a novel to my library</target>
       </trans-unit>
+      <trans-unit id="61">
+        <source>label_list_view</source>
+        <target>List view</target>
+      </trans-unit>
+      <trans-unit id="62">
+        <source>label_mini_thumb_view</source>
+        <target>Mini-thumbnail view</target>
+      </trans-unit>
+      <trans-unit id="63">
+        <source>label_thumbnail_view</source>
+        <target>Thumbnail view</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
