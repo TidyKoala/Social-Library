@@ -33,7 +33,7 @@
 {% endfor %}
 
 <div class="row-fluid">
-    <div class="offset8 span1">
+    <div class="offset10 span1">
         <div class="btn-group">
 		    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" class="disabled">
 		    Display
@@ -50,22 +50,24 @@
 			            {% trans %}manga_my{% endtrans %}
 			        </a>
 		        </li>
+		        <li class="divider"></li>
+		        <li class="{% if app.request.get('view') == 'list' %} active{% endif %}">
+		            <a href="{{ path('novel_index', {'view' : 'list', 'selection' : selection}) }}" title="{% trans %}label_book_list_view{% endtrans %}">
+		                <i class="icon-menu"></i> {% trans %}label_list_view{% endtrans %}
+		            </a>
+		        </li>
+		        <li class="{% if app.request.get('view') == 'listThumbs' %} active{% endif %}">
+		            <a href="{{ path('novel_index', {'view' : 'listThumbs', 'selection' : selection}) }}" title="{% trans %}label_book_list_thumb_view{% endtrans %}">
+		                <i class="icon-list"></i> {% trans %}label_mini_thumb_view{% endtrans %}
+		            </a>
+		        <li class="{% if app.request.get('view') == 'thumbnails' %} active{% endif %}">
+		            <a href="{{ path('novel_index', {'view' : 'thumbnails', 'selection' : selection}) }}" title="{% trans %}label_book_thumb_view{% endtrans %}">
+		                <i class="icon-layout"></i> {% trans %}label_thumbnail_view{% endtrans %}
+		            </a>
+		        </li>
 		    </ul>
 	    </div>
 	</div>
-    <div class="span3">
-        <div class="btn-group">
-            <a href="{{ path('novel_index', {'view' : 'list', 'selection' : selection}) }}" title="{% trans %}label_book_list_view{% endtrans %}" class="btn{% if app.request.get('view') == 'list' %} active{% endif %}">
-                <i class="icon-menu"></i>
-            </a>
-            <a href="{{ path('novel_index', {'view' : 'listThumbs', 'selection' : selection}) }}" title="{% trans %}label_book_list_thumb_view{% endtrans %}" class="btn{% if app.request.get('view') == 'listThumbs' %} active{% endif %}">
-                <i class="icon-list"></i>
-            </a>
-            <a href="{{ path('novel_index', {'view' : 'thumbnails', 'selection' : selection}) }}" title="{% trans %}label_book_thumb_view{% endtrans %}" class="btn{% if app.request.get('view') == 'thumbnails' %} active{% endif %}">
-                <i class="icon-layout"></i>
-            </a>
-        </div>
-    </div>
 </div>
 
 {% block list %}{% endblock %}
