@@ -26,6 +26,7 @@ class GraphicNovelBundleControllerTest extends WebTestCase
     
     public function tearDown()
     {
+        $this->client->getContainer()->get('doctrine')->getConnection()->close();
     	parent::tearDown();
         $this->client = null;
         $this->crawler = null;
