@@ -219,7 +219,7 @@ lunetics_locale:
     - browser
     - router
   cookie:
-    set_on_detection: true
+    set_on_change: true
   switcher:
     template: SocialLibraryBaseBundle::switcher_links.html.twig
 
