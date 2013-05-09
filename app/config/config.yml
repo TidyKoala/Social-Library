@@ -215,9 +215,11 @@ lunetics_locale:
     - en
     - fr
   guessing_order:
+    - query
+    - router
+    - session
     - cookie
     - browser
-    - router
   cookie:
     set_on_change: true
   switcher:
