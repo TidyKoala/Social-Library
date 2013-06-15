@@ -7,6 +7,6 @@ vendor/
 .buildpath
 .project
 .settings
-app/bootstrap*
+app/bootstrap.*
 composer.phar
 *~
