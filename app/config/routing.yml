@@ -1,6 +1,5 @@
 social_library_welcome:
     resource: "@SocialLibraryBaseBundle/Resources/config/routing/welcome.xml"
-    prefix:  /
 
 social_library_read_serie:
     resource: "@SocialLibraryReadBundle/Resources/config/routing/serie.xml"
