@@ -50,9 +50,9 @@
         </property>
 
         <property name="volume">
-            <constraint name="Min">
-                <option name="limit">1</option>
-                <option name="message">graphic_novel_volume_min_length</option>
+            <constraint name="Range">
+                <option name="min">1</option>
+                <option name="minMessage">graphic_novel_volume_min_length</option>
                 <option name="invalidMessage">graphic_novel_volume_invalid_message</option>
             </constraint>
         </property>
@@ -111,9 +111,9 @@
         </property>
 
         <property name="volume">
-            <constraint name="Min">
-                <option name="limit">1</option>
-                <option name="message">novel_volume_min_length</option>
+            <constraint name="Range">
+                <option name="min">1</option>
+                <option name="minMessage">novel_volume_min_length</option>
                 <option name="invalidMessage">novel_volume_invalid_message</option>
             </constraint>
         </property>
@@ -182,9 +182,9 @@
             <constraint name="NotBlank">
                 <option name="message">manga_volume_not_blank</option>
             </constraint>
-            <constraint name="Min">
-                <option name="limit">1</option>
-                <option name="message">manga_volume_min_length</option>
+            <constraint name="Range">
+                <option name="min">1</option>
+                <option name="minMessage">manga_volume_min_length</option>
                 <option name="invalidMessage">manga_volume_invalid_message</option>
             </constraint>
         </property>
