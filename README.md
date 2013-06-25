@@ -48,6 +48,8 @@ The steps to contribute are quite simple and easy. Before reading the next steps
 4. Install all the librairies needed by project: ```php composer.phar update```
 5. Copy the file ```app/config/parameters.yml.dist``` to ```app/config/parameters.yml``` and modify the database parameters so they correspond to your installation.
 6. Create an account with SUPER ADMIN rights and answer the questions: ```php app/console fos:user:create --super-admin```
-7. If your project is your server public directory, you just need to go to http://localhost/SocialLibrary/ . If it is not the case, you must declare the new site to your server.
-8. Tada! Social Library is available!
+7. Install the database for the project: ```php app/console doctrine:schema:create```
+8. If your project is your server public directory, you just need to go to http://localhost/SocialLibrary/ . If it is not the case, you must declare the new site to your server.
+9. Tada! Social Library is available!
+
 
